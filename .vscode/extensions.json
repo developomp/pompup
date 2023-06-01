@@ -1,3 +1,7 @@
 {
-  "recommendations": ["golang.go"]
+  "recommendations": [
+    "golang.go",
+    // for formatting markdown, yaml, json, etc
+    "esbenp.prettier-vscode"
+  ]
 }
