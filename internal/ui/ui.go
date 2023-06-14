@@ -13,7 +13,7 @@ import (
 // cancelled.
 func Select() []bool {
 	model := NewModel()
-	p := tea.NewProgram(model, tea.WithAltScreen())
+	p := tea.NewProgram(model)
 	if _, err := p.Run(); err != nil {
 		log.Fatalln(err)
 	}
