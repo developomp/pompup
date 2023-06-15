@@ -6,6 +6,7 @@ func init() {
 	register(&Workflow{
 		Name: "Inkscape",
 		Desc: "Adobe Illustrator but FOSS",
+		Tags: []Tag{App},
 		Setup: func() {
 			install.Flatpak("org.inkscape.Inkscape")
 		},

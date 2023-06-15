@@ -16,6 +16,7 @@ func init() {
 	register(&Workflow{
 		Name: "zsh",
 		Desc: "Like bash but better",
+		Tags: []Tag{System},
 		Setup: func() {
 			install.Paru("zsh")
 			installConfig()
