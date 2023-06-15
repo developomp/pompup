@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"log"
 	"os"
 
 	"github.com/developomp/pompup/internal/check"
@@ -9,6 +8,7 @@ import (
 	"github.com/developomp/pompup/internal/install"
 	"github.com/developomp/pompup/internal/ui"
 	"github.com/developomp/pompup/internal/workflows"
+	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +16,8 @@ import (
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		log.Fatalln("Failed to run cmd.Execute()")
+		pterm.Fatal.Println("Failed to run cmd.Execute()")
+		os.Exit(1)
 	}
 }
 
@@ -56,12 +57,13 @@ GitHub: https://github.com/developomp/pompup`,
 }
 
 func initialize() {
-	log.Println("Initializing...")
-	defer log.Println("Initialized!")
+	pterm.Info.Println("Initializing...")
+	defer pterm.Info.Println("Initialized!")
 
 	// perform startup checks
 	if err := check.StartupCheck(); err != nil {
-		log.Fatalln("Failed to start:", err)
+		pterm.Fatal.Println("Failed to start:", err)
+		os.Exit(1)
 	}
 
 	// install dependencies
@@ -69,16 +71,18 @@ func initialize() {
 
 	// create temporary directory
 	if err := os.MkdirAll(constants.TmpDir, os.ModePerm); err != nil {
-		log.Fatalln(err)
+		pterm.Fatal.Println(err)
+		os.Exit(1)
 	}
 }
 
 func cleanup() {
-	log.Println("Wrapping up...")
-	defer log.Println("Done!")
+	pterm.Info.Println("Wrapping up...")
+	defer pterm.Info.Println("Done!")
 
 	// remove temporary directory
 	if err := os.RemoveAll(constants.TmpDir); err != nil {
-		log.Fatalln(err)
+		pterm.Fatal.Println(err)
+		os.Exit(1)
 	}
 }

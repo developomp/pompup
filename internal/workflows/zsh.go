@@ -3,10 +3,10 @@ package workflows
 import (
 	_ "embed"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/developomp/pompup/internal/install"
+	"github.com/pterm/pterm"
 )
 
 //go:embed assets/home/.zshrc
@@ -26,7 +26,8 @@ func init() {
 func installConfig() {
 	dirname, err := os.UserHomeDir()
 	if err != nil {
-		log.Fatalln(err)
+		pterm.Fatal.Println(err)
+		os.Exit(1)
 	}
 
 	os.WriteFile(fmt.Sprintf("%s/.zshrc", dirname), zshConfig, 0644)

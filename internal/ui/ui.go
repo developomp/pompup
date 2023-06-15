@@ -2,9 +2,14 @@
 package ui
 
 import (
-	"log"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 
-	tea "github.com/charmbracelet/bubbletea"
+	"atomicgo.dev/keyboard/keys"
+	"github.com/developomp/pompup/internal/workflows"
+	"github.com/pterm/pterm"
 )
 
 // Select displays a TUI that allows the user to select specific workflows from
@@ -12,15 +17,32 @@ import (
 // workflow at the index has been selected. It returns nil if the action was
 // cancelled.
 func Select() []bool {
-	model := NewModel()
-	p := tea.NewProgram(model)
-	if _, err := p.Run(); err != nil {
-		log.Fatalln(err)
+	var options []string
+	result := make([]bool, len(workflows.Workflows))
+
+	for i, workflow := range workflows.Workflows {
+		options = append(options, fmt.Sprintf("%v. %v", i, workflow.Name))
 	}
 
-	if model.quit {
-		return nil
+	printer := pterm.DefaultInteractiveMultiselect.WithOptions(options)
+	printer.Checkmark = &pterm.Checkmark{
+		Checked:   pterm.Green("+"),
+		Unchecked: " ",
+	}
+	printer.KeyConfirm = keys.Enter
+	printer.KeySelect = keys.Space
+	printer.Filter = false
+
+	selectedOptions, _ := printer.Show()
+	for _, selected := range selectedOptions {
+		i, err := strconv.Atoi(selected[:strings.IndexByte(selected, '.')])
+		if err != nil {
+			pterm.Fatal.Println("Bad programming")
+			os.Exit(1)
+		}
+
+		result[i] = true
 	}
 
-	return model.selected
+	return result
 }
