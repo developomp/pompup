@@ -2,7 +2,6 @@
 package ui
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -21,10 +20,23 @@ func Select() []bool {
 	result := make([]bool, len(workflows.Workflows))
 
 	for i, workflow := range workflows.Workflows {
-		options = append(options, fmt.Sprintf("%v. %v", i, workflow.Name))
+		options = append(
+			options,
+			pterm.Sprintf(
+				"%v. %v - %v %v",
+				i,
+				pterm.FgWhite.Sprint(workflow.Name),
+				pterm.FgGray.Sprint(workflow.Desc),
+				pterm.FgLightWhite.Sprint(workflow.Tags),
+			),
+		)
 	}
 
 	printer := pterm.DefaultInteractiveMultiselect.WithOptions(options)
+	printer.DefaultText = `
+  Format: X. Name - Description [Tags]
+
+Please select your options`
 	printer.Checkmark = &pterm.Checkmark{
 		Checked:   pterm.Green("+"),
 		Unchecked: " ",
