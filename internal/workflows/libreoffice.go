@@ -6,7 +6,7 @@ func init() {
 	register(&Workflow{
 		Name: "LibreOffice",
 		Desc: "FOSS Office Suite",
-		Tags: []Tag{App},
+		Tags: []Tag{Gui},
 		Setup: func() {
 			install.Flatpak("org.libreoffice.LibreOffice")
 		},

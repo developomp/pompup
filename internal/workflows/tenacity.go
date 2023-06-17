@@ -6,7 +6,7 @@ func init() {
 	register(&Workflow{
 		Name: "Tenacity",
 		Desc: "Non-evil Adacity fork",
-		Tags: []Tag{App},
+		Tags: []Tag{Gui},
 		Setup: func() {
 			install.Flatpak("org.tenacityaudio.Tenacity")
 		},

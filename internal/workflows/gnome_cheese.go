@@ -8,7 +8,7 @@ func init() {
 	register(&Workflow{
 		Name: "GNOME Cheese",
 		Desc: "GNOME photo taking utility",
-		Tags: []Tag{Gnome, App},
+		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			install.Flatpak("org.gnome.Cheese")
 		},

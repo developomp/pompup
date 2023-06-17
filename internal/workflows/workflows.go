@@ -6,7 +6,7 @@ const (
 	Gnome        Tag = "GNOME"
 	System       Tag = "System"
 	Cli          Tag = "CLI"
-	App          Tag = "App"
+	Gui          Tag = "GUI"
 	Configurator Tag = "Configurator"
 )
 

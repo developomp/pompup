@@ -6,7 +6,7 @@ func init() {
 	register(&Workflow{
 		Name: "OBS",
 		Desc: "Screen recording and streaming utility",
-		Tags: []Tag{App},
+		Tags: []Tag{Gui},
 		Setup: func() {
 			install.Flatpak("com.obsproject.Studio")
 			install.Flatpak("com.obsproject.Studio.Plugin.InputOverlay")

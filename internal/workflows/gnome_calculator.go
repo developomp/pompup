@@ -8,7 +8,7 @@ func init() {
 	register(&Workflow{
 		Name: "GNOME Calculator",
 		Desc: "GNOME Calculator",
-		Tags: []Tag{Gnome, App},
+		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			install.Flatpak("org.gnome.Calculator")
 		},
