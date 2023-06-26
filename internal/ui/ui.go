@@ -33,6 +33,7 @@ func Select() []bool {
 	}
 
 	printer := pterm.DefaultInteractiveMultiselect.WithOptions(options)
+	printer.MaxHeight = 10
 	printer.DefaultText = `
   Format: X. Name - Description [Tags]
 
