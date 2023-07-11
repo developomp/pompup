@@ -15,6 +15,13 @@ pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 |             Browser - 🌐 | [Brave](https://github.com/brave/brave-browser)                                            |
 |   Text Editor & IDE - 📝 | [VSCodium](https://github.com/VSCodium/vscodium)                                           |
 
+## Name?
+
+The project's name was inspired by [rustup](https://github.com/rust-lang/rustup),
+a toolchain installer for the Rust programming language. Pompup was originally
+supposed to be written in Rust. I later decided to use Go instead, but the name
+stuck.
+
 ## Usage
 
 I can't think of any valid use cases of this software outside my computer,
