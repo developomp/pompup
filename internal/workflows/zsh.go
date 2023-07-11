@@ -28,7 +28,6 @@ func installConfig() {
 	dirname, err := os.UserHomeDir()
 	if err != nil {
 		pterm.Fatal.Println(err)
-		os.Exit(1)
 	}
 
 	os.WriteFile(fmt.Sprintf("%s/.zshrc", dirname), zshConfig, 0644)

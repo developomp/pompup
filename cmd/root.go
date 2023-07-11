@@ -17,7 +17,6 @@ import (
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		pterm.Fatal.Println("Failed to run cmd.Execute()")
-		os.Exit(1)
 	}
 }
 
@@ -67,7 +66,6 @@ func initialize() {
 			install.Pacman("wget")
 		} else {
 			pterm.Fatal.Println("Failed to start:", err)
-			os.Exit(1)
 		}
 	}
 
@@ -77,7 +75,6 @@ func initialize() {
 	// create temporary directory
 	if err := os.MkdirAll(constants.TmpDir, os.ModePerm); err != nil {
 		pterm.Fatal.Println(err)
-		os.Exit(1)
 	}
 }
 
@@ -88,6 +85,5 @@ func cleanup() {
 	// remove temporary directory
 	if err := os.RemoveAll(constants.TmpDir); err != nil {
 		pterm.Fatal.Println(err)
-		os.Exit(1)
 	}
 }

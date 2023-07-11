@@ -2,7 +2,6 @@
 package ui
 
 import (
-	"os"
 	"strconv"
 	"strings"
 
@@ -51,7 +50,6 @@ Please select your options`
 		i, err := strconv.Atoi(selected[:strings.IndexByte(selected, '.')])
 		if err != nil {
 			pterm.Fatal.Println("Bad programming")
-			os.Exit(1)
 		}
 
 		result[i] = true
