@@ -3,6 +3,7 @@
 pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 
 - [Gallery](./docs/gallery.md)
+- [Hardware](./docs/hardware/README.md)
 
 |                 Software | Choice                                                                                     |
 | -----------------------: | :----------------------------------------------------------------------------------------- |
