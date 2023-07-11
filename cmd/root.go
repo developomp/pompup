@@ -62,8 +62,13 @@ func initialize() {
 
 	// perform startup checks
 	if err := check.StartupCheck(); err != nil {
-		pterm.Fatal.Println("Failed to start:", err)
-		os.Exit(1)
+
+		if err == check.ErrStartupNoWget {
+			install.Pacman("wget")
+		} else {
+			pterm.Fatal.Println("Failed to start:", err)
+			os.Exit(1)
+		}
 	}
 
 	// install dependencies

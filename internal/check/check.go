@@ -15,7 +15,7 @@ var (
 	ErrStartupNotOnline error = errors.New("no internet connection")
 	ErrStartupNotArch   error = errors.New("OS is not Arch Linux")
 	ErrStartupNoSudo    error = errors.New("sudo is not installed")
-	ErrStartupNotOnline error = errors.New("no internet connection")
+	ErrStartupNoWget    error = errors.New("wget is not installed")
 )
 
 // StartupCheck checks various aspect of the system required by the program.
@@ -43,6 +43,10 @@ func StartupCheck() error {
 
 	if !IsInstalled("sudo") {
 		return ErrStartupNoSudo
+	}
+
+	if !IsInstalled("wget") {
+		return ErrStartupNoWget
 	}
 
 	return nil
