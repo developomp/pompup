@@ -2,6 +2,8 @@
 
 pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 
+- [Gallery](./docs/gallery.md)
+
 ## Usage
 
 I can't think of any valid use cases of this software outside my computer,
