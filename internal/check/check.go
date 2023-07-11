@@ -9,8 +9,10 @@ import (
 
 // Startup error
 var (
-	ErrStartupIsRoot    error = errors.New("program running as root")
 	ErrStartupNotLinux  error = errors.New("platform is not Linux")
+	ErrStartupIsRoot    error = errors.New("program running as root")
+	ErrStartupNoPing    error = errors.New("ping is not installed")
+	ErrStartupNotOnline error = errors.New("no internet connection")
 	ErrStartupNotArch   error = errors.New("OS is not Arch Linux")
 	ErrStartupNoSudo    error = errors.New("sudo is not installed")
 	ErrStartupNotOnline error = errors.New("no internet connection")
@@ -19,12 +21,20 @@ var (
 // StartupCheck checks various aspect of the system required by the program.
 // It only needs to be called once during the initialization process.
 func StartupCheck() error {
+	if !IsLinux() {
+		return ErrStartupNotLinux
+	}
+
 	if IsRoot() {
 		return ErrStartupIsRoot
 	}
 
-	if !IsLinux() {
-		return ErrStartupNotLinux
+	if !IsInstalled("ping") {
+		return ErrStartupNoPing
+	}
+
+	if !IsOnline() {
+		return ErrStartupNotOnline
 	}
 
 	if !IsInstalled("pacman") {
@@ -33,10 +43,6 @@ func StartupCheck() error {
 
 	if !IsInstalled("sudo") {
 		return ErrStartupNoSudo
-	}
-
-	if !IsOnline() {
-		return ErrStartupNotOnline
 	}
 
 	return nil
