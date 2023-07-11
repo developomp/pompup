@@ -7,11 +7,11 @@ pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 ## Usage
 
 I can't think of any valid use cases of this software outside my computer,
-but here are the instructions on how to use the software:
+but here are the instructions to use it:
 
 1. Install base Arch Linux
    - https://wiki.archlinux.org/title/installation_guide
-2. Create a non-root user (and log in)
+2. Create a non-root user and log in
    - give sudo permission
    - create home directory
 3. Download pompup
