@@ -1,0 +1,36 @@
+{
+    "currentVersionInfo": {
+        "version": "4.5.4",
+        "hasShownChangelog": true
+    },
+    "settings": {
+        "emojiSize": 64,
+        "screenSharing": true,
+        "emojiBypass": true,
+        "ghostMode": true,
+        "emojiBypassForValidEmoji": true,
+        "PNGemote": true,
+        "uploadEmotes": true,
+        "uploadStickers": true,
+        "CustomFPSEnabled": true,
+        "CustomFPS": 240,
+        "ResolutionEnabled": true,
+        "CustomResolution": 1920,
+        "CustomBitrateEnabled": true,
+        "minBitrate": 2000,
+        "maxBitrate": 5000,
+        "targetBitrate": -1,
+        "voiceBitrate": 128,
+        "CameraSettingsEnabled": false,
+        "CameraWidth": 1280,
+        "CameraHeight": 720,
+        "ResolutionSwapper": false,
+        "stickerBypass": true,
+        "profileV2": false,
+        "forceStickersUnlocked": true,
+        "changePremiumType": false,
+        "videoCodec": 0,
+        "clientThemes": true,
+        "lastGradientSettingStore": -1
+    }
+}

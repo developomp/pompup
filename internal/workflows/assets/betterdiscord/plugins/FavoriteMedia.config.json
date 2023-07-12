@@ -1,0 +1,396 @@
+{
+    "currentVersionInfo": {
+        "version": "1.8.4",
+        "hasShownChangelog": true
+    },
+    "image": {
+        "medias": [
+            {
+                "url": "https://cdn.discordapp.com/attachments/536789147881570314/1087539199823073341/IMG_9621.jpg",
+                "width": 883,
+                "height": 615,
+                "name": "IMG_9621",
+                "message": "https://discord.com/channels/915169729763749898/915176128543608842/1087575351854641162",
+                "source": "https://cdn.discordapp.com/attachments/536789147881570314/1087539199823073341/IMG_9621.jpg"
+            },
+            {
+                "url": "https://cdn.discordapp.com/attachments/947070301185929236/1110224708240146463/image.png",
+                "width": 300,
+                "height": 304,
+                "name": "image",
+                "message": "https://discord.com/channels/457373827073048604/457383745838776353/1110266604496900276",
+                "source": "https://cdn.discordapp.com/attachments/947070301185929236/1110224708240146463/image.png"
+            },
+            {
+                "url": "https://cdn.discordapp.com/attachments/457383745838776353/1111067907296862238/IMG_0023.webp",
+                "width": 640,
+                "height": 615,
+                "name": "IMG_0023",
+                "message": "https://discord.com/channels/457373827073048604/457383745838776353/1111067907561099354"
+            },
+            {
+                "url": "https://cdn.discordapp.com/attachments/761546616036524063/1117637349275348992/IMG_0414.jpg",
+                "width": 324,
+                "height": 312,
+                "name": "IMG_0414",
+                "message": "https://discord.com/channels/457373827073048604/761546616036524063/1117637349183062048"
+            },
+            {
+                "url": "https://cdn.discordapp.com/attachments/915169729763749902/1121939377178816563/image.png",
+                "width": 1132,
+                "height": 800,
+                "name": "image",
+                "message": "https://discord.com/channels/915169729763749898/915169729763749902/1121939378600673294"
+            }
+        ]
+    },
+    "video": {
+        "medias": [
+            {
+                "url": "https://cdn.discordapp.com/attachments/383121955651321866/1104921113546477619/downbad_people.mp4",
+                "poster": "https://media.discordapp.net/attachments/383121955651321866/1104921113546477619/downbad_people.mp4?format=jpeg",
+                "width": 360,
+                "height": 654,
+                "name": "downbad_people",
+                "message": "https://discord.com/channels/915169729763749898/915176128543608842/1104958371926380584"
+            },
+            {
+                "url": "https://cdn.discordapp.com/attachments/848689149393502209/1093151121339592774/2023-04-02_21-31-33-1.webm",
+                "poster": "https://media.discordapp.net/attachments/848689149393502209/1093151121339592774/2023-04-02_21-31-33-1.webm?format=jpeg",
+                "width": 960,
+                "height": 532,
+                "name": "2023-04-02_21-31-33-1",
+                "message": "https://discord.com/channels/457373827073048604/764013857634516992/1111788677870403674"
+            }
+        ]
+    },
+    "settings": {
+        "hideUnsortedMedias": true,
+        "hideThumbnail": false,
+        "alwaysUploadFile": false,
+        "alwaysDeleteDeadMedias": false,
+        "disableMediasTabKeybind": false,
+        "alwaysSendUpload": "both",
+        "mediaVolume": 10,
+        "position": {
+            "btnsPosition": "right",
+            "btnsPositionKey": "emoji"
+        },
+        "gif": {
+            "enabled": true
+        },
+        "image": {
+            "enabled": true,
+            "showBtn": false,
+            "showStar": true
+        },
+        "video": {
+            "enabled": true,
+            "showBtn": false,
+            "showStar": true
+        },
+        "audio": {
+            "enabled": true,
+            "showBtn": false,
+            "showStar": true
+        }
+    },
+    "gif": {
+        "medias": [
+            {
+                "url": "https://c.tenor.com/_bTaLmoLSc4AAAAM/troll-pilled.gif",
+                "src": "https://images-ext-1.discordapp.net/external/PyDu1qI09sDER1LJa98uk3IrfaqNG8nbbnlGb0VP83M/https/c.tenor.com/_bTaLmoLSc4AAAAM/troll-pilled.gif",
+                "width": 220,
+                "height": 204,
+                "name": "troll-pilled"
+            },
+            {
+                "url": "https://tenor.com/view/gigachad-chad-gif-20773266",
+                "src": "https://media.tenor.co/videos/48aeb4568e9f1ccc9a0940f8f3296100/mp4",
+                "width": 382,
+                "height": 640,
+                "name": "gigachad-chad"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/763053037332725790/937843009599467571/trollkuza.gif",
+                "src": "https://images-ext-1.discordapp.net/external/_VHQ-L3esR0R4CENx5R8SPSKZbn_7FuhE4QTBhfad6Q/https/media.discordapp.net/attachments/763053037332725790/937843009599467571/trollkuza.gif",
+                "width": 160,
+                "height": 90,
+                "name": "trollkuza"
+            },
+            {
+                "url": "https://tenor.com/view/troll-trolled-trollge-troll-success-gif-22597471",
+                "src": "https://media.tenor.co/videos/61b5757b44a054e72e36ef269ee0a00a/mp4",
+                "width": 386,
+                "height": 640,
+                "name": "troll-trolled-trollge-troll-success"
+            },
+            {
+                "url": "https://cdn.discordapp.com/emojis/710611925859303495.gif",
+                "src": "https://images-ext-1.discordapp.net/external/1X4uZxlz3tZUZLSOO2fq0R58BMp7ODSPU2_Iv-BcbS8/https/cdn.discordapp.com/emojis/710611925859303495.gif",
+                "width": 100,
+                "height": 100,
+                "name": "710611925859303495"
+            },
+            {
+                "url": "https://tenor.com/view/explain-gif-22827027",
+                "src": "https://images-ext-1.discordapp.net/external/jAW0m2EEytvl_ltpTq8hhdaODWjHowH7Xi8WKyTxx_8/%3Fc%3DVjFfZGlzY29yZA/https/media.tenor.com/sRmTeCThqAgAAAPo/explain.mp4",
+                "width": 640,
+                "height": 630,
+                "name": "explain"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/761546616036524063/961756164083839017/image0.gif",
+                "src": "https://media.discordapp.net/attachments/761546616036524063/961756164083839017/image0.gif",
+                "width": 346,
+                "height": 300,
+                "name": "image0"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/457383745838776353/963602335265882162/IMG_8242.gif",
+                "src": "https://media.discordapp.net/attachments/457383745838776353/963602335265882162/IMG_8242.gif",
+                "width": 414,
+                "height": 290,
+                "name": "IMG_8242"
+            },
+            {
+                "url": "https://giphy.com/gifs/lol-weird-face-3ohhwhKTtFWpP7bQOs",
+                "src": "https://images-ext-2.discordapp.net/external/bAallE_3rY_I_Z-eUfY3QLr3PzP9vmTyWCXEE_IEn1Y/%3Fcid%3D73b8f7b140b8d3877c035447be545b4da5ccbf60db28eec5%26rid%3Dgiphy.mp4%26ct%3Dg/https/media0.giphy.com/media/3ohhwhKTtFWpP7bQOs/giphy.mp4",
+                "width": 480,
+                "height": 480,
+                "name": "giphy"
+            },
+            {
+                "url": "https://tenor.com/view/laughing-chimp-giggle-silly-haha-gif-13585278",
+                "src": "//media.tenor.com/J3RGOgZ4VjkAAAPo/laughing-chimp.mp4",
+                "width": 214,
+                "height": 214,
+                "name": "laughing-chimp-giggle-silly-haha"
+            },
+            {
+                "url": "https://tenor.com/view/anya-forger-anya-spy-x-family-anime-anya-forger-meme-anya-anya-spy-x-family-gif-25541926",
+                "src": "https://images-ext-2.discordapp.net/external/y0hsFoJIc_vzGfSIZfr-1BjBe_AAsVYPS3BIz0zgBT8/https/media.tenor.com/uhb_2I0x7G4AAAPo/anya-forger-anya-spy-x-family-anime.mp4",
+                "width": 640,
+                "height": 430,
+                "name": "anya-forger-anya-spy-x-family-anime-anya-forger-meme-anya-anya-spy-x-family"
+            },
+            {
+                "url": "https://tenor.com/view/%EB%B6%80%EB%A6%AC%EB%B6%80%EB%A6%AC-buriburizaemon-beat-up-crayon-shin-chan-anime-gif-16527839",
+                "src": "//media.tenor.com/cfQs7mdtsO4AAAPo/%EB%B6%80%EB%A6%AC%EB%B6%80%EB%A6%AC-buriburizaemon.mp4",
+                "width": 480,
+                "height": 640,
+                "name": "%EB%B6%80%EB%A6%AC%EB%B6%80%EB%A6%AC-buriburizaemon-beat-up-crayon-shin-chan-anime"
+            },
+            {
+                "url": "https://tenor.com/view/1blocked-message-discord-meme-troll-brick-wall-gif-23392632",
+                "src": "https://images-ext-1.discordapp.net/external/PvIZp_HOjowQS1gq3vV0ywIn7aEOeOMCvAG3SrmVsog/https/media.tenor.com/5-tI8gkrEasAAAPo/1blocked-message-discord.mp4",
+                "width": 640,
+                "height": 488,
+                "name": "1blocked-message-discord-meme-troll-brick-wall"
+            },
+            {
+                "url": "https://tenor.com/view/pings-off-reply-pings-off-reply-ping-discord-reply-ping-gif-22087396",
+                "src": "https://images-ext-1.discordapp.net/external/eSNTo7MRT6WoPwirlk3VVjkH4i4Goz9XIcAndZahPyI/https/media.tenor.com/kJhT6VC2tzEAAAPo/pings-off-reply-pings-off.mp4",
+                "width": 640,
+                "height": 370,
+                "name": "pings-off-reply-pings-off-reply-ping-discord-reply-ping"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/727946110399938666/932693379475705946/4810138D-EB24-425A-96E3-F01DED1BEF4F.gif",
+                "src": "https://media.discordapp.net/attachments/727946110399938666/932693379475705946/4810138D-EB24-425A-96E3-F01DED1BEF4F.gif",
+                "width": 319,
+                "height": 233,
+                "name": "4810138D-EB24-425A-96E3-F01DED1BEF4F"
+            },
+            {
+                "url": "https://tenor.com/view/no-gif-23548728",
+                "src": "https://images-ext-2.discordapp.net/external/Vs1PPSSGT3by6fzFD5LBc79lOoBwa3ljhL5V3t9LlAg/https/media.tenor.com/P_DvUDS9RCUAAAPo/no.mp4",
+                "width": 640,
+                "height": 492,
+                "name": "no"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/846532502125936651/964075566548516894/ukraine.gif",
+                "src": "https://media.discordapp.net/attachments/846532502125936651/964075566548516894/ukraine.gif",
+                "width": 472,
+                "height": 202,
+                "name": "ukraine"
+            },
+            {
+                "url": "https://tenor.com/view/fat-computer-typing-obese-overweight-gif-22019521",
+                "src": "https://images-ext-1.discordapp.net/external/HDcYfjG9rA4UN2Tw0piBODFUPb0hRhIhIGxibunjZZ0/https/media.tenor.com/7Bi0sIVLjfUAAAPo/fat-computer.mp4",
+                "width": 640,
+                "height": 462,
+                "name": "fat-computer-typing-obese-overweight"
+            },
+            {
+                "url": "https://tenor.com/view/chad-giga-chad-disagree-i-disagree-gif-24473174",
+                "src": "https://images-ext-1.discordapp.net/external/bigaWSxUfybJWlG_rPFZEOmJLfLvl7AV9u5BNVk0M2c/https/media.tenor.com/Wymuo30YFRcAAAPo/chad-giga-chad.mp4",
+                "width": 394,
+                "height": 640,
+                "name": "chad-giga-chad-disagree-i-disagree"
+            },
+            {
+                "url": "https://tenor.com/view/nerding-speech-bubble-pepe-nerd-gif-26077806",
+                "src": "https://images-ext-2.discordapp.net/external/gDK65hZY1UHWHiQZFCDTYVDGOZ4oS12sRW3kOtwx1ic/https/media.tenor.com/OpuD_5Bf1y8AAAPo/nerding-speech-bubble.mp4",
+                "width": 640,
+                "height": 640,
+                "name": "nerding-speech-bubble-pepe-nerd"
+            },
+            {
+                "url": "https://tenor.com/view/cstrampo-csnotrampo-csalttab-csjanelinha-asianwork-gif-17525930",
+                "src": "https://images-ext-2.discordapp.net/external/lMzwVtZNUNep3Ij2kAVh6Qe-iNEZm2K5DomBvnug07k/https/media.tenor.com/2ycwiXBztp8AAAPo/cstrampo-csnotrampo.mp4",
+                "width": 640,
+                "height": 640,
+                "name": "cstrampo-csnotrampo-csalttab-csjanelinha-asianwork"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/428148681191981057/995816430064898138/E0ECCB63-8354-45F4-8939-1B99CF3321C2.gif",
+                "src": "https://media.discordapp.net/attachments/428148681191981057/995816430064898138/E0ECCB63-8354-45F4-8939-1B99CF3321C2.gif",
+                "width": 470,
+                "height": 680,
+                "name": "E0ECCB63-8354-45F4-8939-1B99CF3321C2"
+            },
+            {
+                "url": "https://tenor.com/view/lol-anime-lol-shock-anime-shock-what-gif-24361978",
+                "src": "https://images-ext-1.discordapp.net/external/GYez125Cn1o9tXirHFl-2jsZnGqucTffXdT73OabAUw/https/media.tenor.com/8V9XeqNjpx4AAAPo/lol-anime-lol.mp4",
+                "width": 640,
+                "height": 360,
+                "name": "lol-anime-lol-shock-anime-shock-what"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/935989994735169546/1030936446393139250/tenor.gif",
+                "src": "https://media.discordapp.net/attachments/935989994735169546/1030936446393139250/tenor.gif",
+                "width": 429,
+                "height": 498,
+                "name": "tenor"
+            },
+            {
+                "url": "https://tenor.com/view/russia-gif-22961262",
+                "src": "https://images-ext-1.discordapp.net/external/PqhuNKb_Ov2IkA6bsXGdekt_2t_NfUfcoiM5nDssqSM/https/media.tenor.com/3jbC92weAu4AAAPo/russia.mp4",
+                "width": 640,
+                "height": 360,
+                "name": "russia"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/887094695245778954/1032056773928046623/trash-can-singing.gif",
+                "src": "https://media.discordapp.net/attachments/887094695245778954/1032056773928046623/trash-can-singing.gif",
+                "width": 576,
+                "height": 427,
+                "name": "trash-can-singing"
+            },
+            {
+                "url": "https://tenor.com/view/iwakura-lain-suicide-thinking-gun-gif-11659613",
+                "src": "https://images-ext-1.discordapp.net/external/QT1pTI6RCFIiR5i7xDg2gjvhPY5Febm1ult1EYmx5eM/https/media.tenor.com/iRRfRNU7IGMAAAPo/iwakura-lain-suicide.mp4",
+                "width": 400,
+                "height": 300,
+                "name": "iwakura-lain-suicide-thinking-gun"
+            },
+            {
+                "url": "https://tenor.com/view/jarvis-iron-man-who-asked-who-asked-meme-meme-gif-24590276",
+                "src": "https://images-ext-1.discordapp.net/external/u3R3eFNJPoBEOAUCytYIITjVrGmRL4tUSmmi3SLr88w/https/media.tenor.com/8darUV8MNfUAAAPo/jarvis-iron-man.mp4",
+                "width": 640,
+                "height": 358,
+                "name": "jarvis-iron-man-who-asked-who-asked-meme-meme"
+            },
+            {
+                "url": "https://tenor.com/view/twitter-gif-23551869",
+                "src": "https://images-ext-1.discordapp.net/external/_6422XeyBiZm3RGQHzIToiklG35eBiSYUi7HsDUv2xs/https/media.tenor.com/NHkSZ06cJysAAAPo/twitter.mp4",
+                "width": 640,
+                "height": 566,
+                "name": "twitter"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/989708187194245171/1068401282290831410/tenor.gif",
+                "src": "https://media.discordapp.net/attachments/989708187194245171/1068401282290831410/tenor.gif",
+                "width": 640,
+                "height": 478,
+                "name": "tenor"
+            },
+            {
+                "url": "https://tenor.com/view/tired-sleep-gif-9039057",
+                "src": "https://images-ext-2.discordapp.net/external/UpC0E5iZOVs8wVXJi6k6VZvSskt1d41b7wR0gvwZ3jI/https/media.tenor.com/k_YbBi7qkEMAAAPo/tired-sleep.mp4",
+                "width": 500,
+                "height": 372,
+                "name": "tired-sleep"
+            },
+            {
+                "url": "https://tenor.com/view/nichijou-minigun-comedy-anime-fuck-you-gif-14778256",
+                "src": "https://media.tenor.co/videos/ae410479d7802dff82fe2a1fc7044c50/mp4",
+                "width": 640,
+                "height": 360,
+                "name": "nichijou-minigun-comedy-anime-fuck-you"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/669435480923832332/742579223490723850/image0-2.gif",
+                "src": "https://media.discordapp.net/attachments/669435480923832332/742579223490723850/image0-2.gif",
+                "width": 480,
+                "height": 268,
+                "name": "image0-2"
+            },
+            {
+                "url": "https://tenor.com/view/hello-chat-hello-meme-tank-gif-24004625",
+                "src": "https://images-ext-2.discordapp.net/external/FiesppVhxfKxc1a4pxlicPZMMUcc0LciV_9555uiKoM/https/media.tenor.com/6SkYGrJHXZcAAAPo/hello-chat-hello.mp4",
+                "width": 640,
+                "height": 488,
+                "name": "hello-chat-hello-meme-tank"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/994240399319244983/1011524926022357062/MemeFeedBot.gif",
+                "src": "https://media.discordapp.net/attachments/994240399319244983/1011524926022357062/MemeFeedBot.gif",
+                "width": 384,
+                "height": 497,
+                "name": "MemeFeedBot"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/949432964087947274/1088874108353261618/supersoldier.gif",
+                "src": "https://media.discordapp.net/attachments/949432964087947274/1088874108353261618/supersoldier.gif",
+                "width": 455,
+                "height": 723,
+                "name": "supersoldier"
+            },
+            {
+                "url": "https://media.discordapp.net/attachments/764013857634516992/808238282084319242/icon_1.gif",
+                "src": "https://media.discordapp.net/attachments/764013857634516992/808238282084319242/icon_1.gif",
+                "width": 100,
+                "height": 100,
+                "name": "icon_1"
+            },
+            {
+                "url": "https://tenor.com/view/metal-gear-rising-metal-gear-rising-revengeance-senator-armstrong-revengeance-i-made-it-the-fuck-up-gif-25029602",
+                "src": "https://images-ext-1.discordapp.net/external/VQsxashtomN6CnXkZWvbxkqKFK1JlqTIDoZ5WEbCYrI/https/media.tenor.com/v6Awsd0YO7IAAAPo/metal-gear-rising-metal-gear-rising-revengeance.mp4",
+                "width": 640,
+                "height": 360,
+                "name": "metal-gear-rising-metal-gear-rising-revengeance-senator-armstrong-revengeance-i-made-it-the-fuck-up"
+            },
+            {
+                "url": "https://tenor.com/view/speechbubble-speech-bubble-please-meme-gif-25693113",
+                "src": "https://images-ext-1.discordapp.net/external/tcY6L6492vp6lACJD-1jqgjZdbyZvXPfIQysowpPmPM/https/media.tenor.com/G4IAjeUG-XMAAAPo/speechbubble-speech.mp4",
+                "width": 640,
+                "height": 438,
+                "name": "speechbubble-speech-bubble-please-meme"
+            },
+            {
+                "url": "https://tenor.com/view/skeleton-gif-26185840",
+                "src": "https://images-ext-2.discordapp.net/external/QfYQUfHKXjACuIvFylH75Le6L39gqueS-U0KzpNMquU/https/media.tenor.com/zK5H_k_VfmsAAAPo/skeleton.mp4",
+                "width": 640,
+                "height": 536,
+                "name": "skeleton"
+            },
+            {
+                "url": "https://tenor.com/view/gopi-bahu-laptop-washing-laptop-gif-8834959",
+                "src": "https://images-ext-1.discordapp.net/external/6geKROmztYU3K_mUmgkkHRklqPae34Rp1Y1CHkYAm34/https/media.tenor.com/xuwfj5uz2B8AAAPo/gopi-bahu.mp4",
+                "width": 404,
+                "height": 304,
+                "name": "gopi-bahu-laptop-washing-laptop"
+            },
+            {
+                "url": "https://tenor.com/view/rtx-gpu-3080-nvidia-gif-20021847",
+                "src": "https://images-ext-1.discordapp.net/external/QLfFPkCnvoZ9Mwz5vHVKd7r44aBGWi7PL3XxmUXphD0/https/media.tenor.com/GEqe9OoB2skAAAPo/rtx-gpu.mp4",
+                "width": 362,
+                "height": 640,
+                "name": "rtx-gpu-3080-nvidia"
+            }
+        ]
+    }
+}
