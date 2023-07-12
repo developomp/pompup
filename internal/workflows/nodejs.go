@@ -16,10 +16,10 @@ func init() {
 			install.Paru("nodejs-lts-hydrogen") // Node.JS v18
 			install.Paru("npm")
 
-			pterm.Info.Println("Installing pnpm")
+			pterm.Debug.Println("Installing pnpm")
 			exec.Command("npm", "install", "--global", "pnpm").Run()
 
-			pterm.Info.Println("Installing yarn")
+			pterm.Debug.Println("Installing yarn")
 			exec.Command("npm", "install", "--global", "yarn").Run()
 		},
 	})

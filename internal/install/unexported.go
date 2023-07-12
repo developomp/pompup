@@ -13,7 +13,7 @@ import (
 // pacmanLike is a template for pacman and pacman-like software
 // (pacman, yay, paru, etc...). It is only here to reduce code duplication
 func pacmanLike(packageName string, installer string) error {
-	pterm.Info.Printfln("Installing '%s' via %s", packageName, installer)
+	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
 	// Skip installation if the package is installed already.
 	// Usage of bash is a hack that allows me to use pipe.

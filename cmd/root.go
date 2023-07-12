@@ -56,8 +56,8 @@ GitHub: https://github.com/developomp/pompup`,
 }
 
 func initialize() {
-	pterm.Info.Println("Initializing...")
-	defer pterm.Info.Println("Initialized!")
+	pterm.Debug.Println("Initializing...")
+	defer pterm.Debug.Println("Initialized!")
 
 	// perform startup checks
 	if err := check.StartupCheck(); err != nil {
@@ -79,8 +79,8 @@ func initialize() {
 }
 
 func cleanup() {
-	pterm.Info.Println("Wrapping up...")
-	defer pterm.Info.Println("Done!")
+	pterm.Debug.Println("Wrapping up...")
+	defer pterm.Debug.Println("Done!")
 
 	// remove temporary directory
 	if err := os.RemoveAll(constants.TmpDir); err != nil {

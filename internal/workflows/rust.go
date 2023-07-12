@@ -15,7 +15,7 @@ func init() {
 		Setup: func() {
 			install.Paru("rustup")
 
-			pterm.Info.Println("Installing stable rust toolchain")
+			pterm.Debug.Println("Installing stable rust toolchain")
 			exec.Command("rustup", "install", "stable").Run()
 		},
 	})

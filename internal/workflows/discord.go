@@ -38,7 +38,7 @@ func init() {
 }
 
 func installBDPlugins() {
-	pterm.Info.Printfln("Installing BetterDiscord plugins")
+	pterm.Debug.Printfln("Installing BetterDiscord plugins")
 
 	// go through each BetterDiscord plugin files
 	err := fs.WalkDir(BDPlugins, ".", func(pluginName string, entry fs.DirEntry, err error) error {
@@ -75,7 +75,7 @@ func installBDPlugins() {
 			return err
 		}
 
-		pterm.Info.Printfln("created %s", pluginPath)
+		pterm.Debug.Printfln("created %s", pluginPath)
 
 		return nil
 	})
