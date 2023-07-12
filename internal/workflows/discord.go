@@ -12,6 +12,7 @@ import (
 // BD_PLUGINS is an array of betterdiscord plugin IDs
 var BD_PLUGINS = [...]string{
 	"https://tharki-god.github.io/BetterDiscordPlugins/FakeDeafen.plugin.js",
+	"https://raw.githubusercontent.com/SyndiShanX/Better-Discord-Plugins/main/MemberCounter/MemberCounter.plugin.js",
 	"https://tharki-god.github.io/BetterDiscordPlugins/MentionCacheFix.plugin.js",
 	"https://tharki-god.github.io/BetterDiscordPlugins/PremiumScreenShare.plugin.js",
 	"https://raw.githubusercontent.com/QWERTxD/BetterDiscordPlugins/main/TypingUsersAvatars/TypingUsersAvatars.plugin.js",
@@ -34,7 +35,6 @@ var BD_PLUGINS = [...]string{
 	"https://betterdiscord.app/Download?id=598", // https://betterdiscord.app/plugin/InMyVoice
 	"https://betterdiscord.app/Download?id=295", // https://betterdiscord.app/plugin/InvisibleTyping
 	"https://betterdiscord.app/Download?id=85",  // https://betterdiscord.app/plugin/LastMessageDate
-	"https://betterdiscord.app/Download?id=11",  // https://betterdiscord.app/plugin/MemberCount
 	"https://betterdiscord.app/Download?id=29",  // https://betterdiscord.app/plugin/PermissionsViewer
 	"https://betterdiscord.app/Download?id=421", // https://betterdiscord.app/plugin/PinIcon
 	"https://betterdiscord.app/Download?id=158", // https://betterdiscord.app/plugin/PlatformIndicators
@@ -45,7 +45,6 @@ var BD_PLUGINS = [...]string{
 	"https://betterdiscord.app/Download?id=97",  // https://betterdiscord.app/plugin/RevealAllSpoilers
 	"https://betterdiscord.app/Download?id=190", // https://betterdiscord.app/plugin/RoleMembers
 	"https://betterdiscord.app/Download?id=599", // https://betterdiscord.app/plugin/RoleMentionIcons
-	"https://betterdiscord.app/Download?id=404", // https://betterdiscord.app/plugin/SendTimestamps
 	"https://betterdiscord.app/Download?id=159", // https://betterdiscord.app/plugin/ShowAllActivities
 	"https://betterdiscord.app/Download?id=60",  // https://betterdiscord.app/plugin/ShowBadgesInChat
 	"https://betterdiscord.app/Download?id=291", // https://betterdiscord.app/plugin/ShowConnections
@@ -54,10 +53,8 @@ var BD_PLUGINS = [...]string{
 	"https://betterdiscord.app/Download?id=98",  // https://betterdiscord.app/plugin/SplitLargeMessages
 	"https://betterdiscord.app/Download?id=162", // https://betterdiscord.app/plugin/StaffTag
 	"https://betterdiscord.app/Download?id=8",   // https://betterdiscord.app/plugin/SuppressReplyMentions
-	"https://betterdiscord.app/Download?id=867", // https://betterdiscord.app/plugin/Timezones
 	"https://betterdiscord.app/Download?id=196", // https://betterdiscord.app/plugin/TypingIndicator
 	"https://betterdiscord.app/Download?id=593", // https://betterdiscord.app/plugin/TypingUsersPopouts
-	"https://betterdiscord.app/Download?id=293", // https://betterdiscord.app/plugin/UserDetails
 	"https://betterdiscord.app/Download?id=381", // https://betterdiscord.app/plugin/UserVoiceShow
 	"https://betterdiscord.app/Download?id=160", // https://betterdiscord.app/plugin/VoiceUsersCounter
 }
