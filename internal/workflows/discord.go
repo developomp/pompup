@@ -51,13 +51,7 @@ func installBDPlugins() {
 			return nil
 		}
 
-		// e.g. /home/pomp
-		homeDir, err := os.UserHomeDir()
-		if err != nil {
-			return err
-		}
-
-		pluginPath := fmt.Sprintf("%s/.var/app/com.discordapp.Discord/config/BetterDiscord/plugins/%s", homeDir, pluginName)
+		pluginPath := fmt.Sprintf("%s/.var/app/com.discordapp.Discord/config/BetterDiscord/plugins/%s", getHomeDir(), pluginName)
 
 		file, err := BDPlugins.Open(pluginName)
 		if err != nil {

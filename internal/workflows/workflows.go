@@ -1,5 +1,11 @@
 package workflows
 
+import (
+	"os"
+
+	"github.com/pterm/pterm"
+)
+
 // DefaultPerm is equivalent to -rw-r--r--
 const DefaultPerm = 0644
 
@@ -30,4 +36,13 @@ var Workflows []*Workflow
 
 func register(workflow *Workflow) {
 	Workflows = append(Workflows, workflow)
+}
+
+func getHomeDir() (homeDir string) {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		pterm.Fatal.Println("Failed to get user's home directory: ", err)
+	}
+
+	return
 }

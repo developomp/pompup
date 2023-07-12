@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/developomp/pompup/internal/install"
-	"github.com/pterm/pterm"
 )
 
 //go:embed assets/home/.zshrc
@@ -19,18 +18,12 @@ func init() {
 		Tags: []Tag{System},
 		Setup: func() {
 			install.Paru("zsh")
-			installConfig()
+
+			os.WriteFile(
+				fmt.Sprintf("%s/.zshrc", getHomeDir()),
+				zshConfig,
+				DefaultPerm,
+			)
 		},
 	})
-}
-
-func installConfig() {
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
-		pterm.Fatal.Println(err)
-	}
-
-	configPath := fmt.Sprintf("%s/.zshrc", homeDir)
-
-	os.WriteFile(configPath, zshConfig, DefaultPerm)
 }
