@@ -1,5 +1,8 @@
 package workflows
 
+// DefaultPerm is equivalent to -rw-r--r--
+const DefaultPerm = 0644
+
 type Tag string
 
 const (

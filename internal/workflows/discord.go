@@ -69,8 +69,7 @@ func installBDPlugins() {
 			return err
 		}
 
-		// write to file with -rw-r--r-- permission (0644)
-		err = os.WriteFile(pluginPath, data, 0644)
+		err = os.WriteFile(pluginPath, data, DefaultPerm)
 		if err != nil {
 			return err
 		}

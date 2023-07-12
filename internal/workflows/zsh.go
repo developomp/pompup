@@ -25,10 +25,12 @@ func init() {
 }
 
 func installConfig() {
-	dirname, err := os.UserHomeDir()
+	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		pterm.Fatal.Println(err)
 	}
 
-	os.WriteFile(fmt.Sprintf("%s/.zshrc", dirname), zshConfig, 0644)
+	configPath := fmt.Sprintf("%s/.zshrc", homeDir)
+
+	os.WriteFile(configPath, zshConfig, DefaultPerm)
 }
