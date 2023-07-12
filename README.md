@@ -33,6 +33,7 @@ but here are the instructions to use it:
 2. Create a non-root user and log in
    - give sudo permission
    - create home directory
+   - must not contain space in username
 3. Download pompup
 
    - using curl (included in archiso)
