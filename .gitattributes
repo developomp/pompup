@@ -1,2 +1,2 @@
 # prevent assets from being tracked in repo language statistics
-internal/workflows/assets linguist-vendored
+internal/workflows/assets/** linguist-vendored
