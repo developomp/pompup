@@ -1,0 +1,126 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+
+  "editor.fontFamily": "'Noto Sans Mono', 'Iosevka', 'D2Coding'",
+
+  "explorer.compactFolders": false,
+
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.statusBar.enabled": false,
+
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+
+  "workbench.colorTheme": "One Dark Pro Flat",
+  "workbench.iconTheme": "material-icon-theme",
+
+  "security.workspace.trust.untrustedFiles": "open",
+
+  "svelte.enable-ts-plugin": true,
+  "python.formatting.provider": "black",
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[gdscript]": {
+    "editor.defaultFormatter": "Razoric.gdscript-toolkit-formatter"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.largeFileOptimizations": false,
+  "go.toolsManagement.autoUpdate": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "window.restoreWindows": "none",
+  "editor.rulers": [80],
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "explorer.autoRevealExclude": {
+    "**/node_modules": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "mypy.dmypyExecutable": "~/.local/bin/dmypy",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.renderColons": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "git.openRepositoryInParentFolders": "always",
+  "editor.cursorBlinking": "solid",
+  "editor.codeActionsOnSave": {},
+  "terminal.integrated.fontSize": 15,
+  "workbench.editorAssociations": {
+    "*.pdf": "latex-workshop-pdf-hook"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "godot_tools.editor_path": "/usr/bin/godot-mono",
+  "redhat.telemetry.enabled": false,
+  "npm.packageManager": "npm"
+}
