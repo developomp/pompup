@@ -30,8 +30,9 @@ func init() {
 			if err != nil {
 				pterm.Fatal.Println("Failed to load virtualbox driver modules:", err)
 			}
-		}, PostSetup: func() {
-			pterm.Info.Println("Re-login to use virtualbox without sudo")
+		},
+		Reminders: []string{
+			"Re-login to use virtualbox without sudo",
 		},
 	})
 }

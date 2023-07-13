@@ -30,8 +30,8 @@ func init() {
 			exec.Command("betterdiscordctl", "-i", "flatpak", "install").Run() // install BetterDiscord
 			installBDPlugins()                                                 // install Plugins
 		},
-		PostSetup: func() {
-			pterm.Info.Println("Enable BetterDiscord plugins in discord settings")
+		Reminders: []string{
+			"Enable BetterDiscord plugins in discord settings",
 		},
 	})
 }

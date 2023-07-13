@@ -31,7 +31,7 @@ GitHub: https://github.com/developomp/pompup`,
 		initialize()
 		defer cleanup()
 
-		var postSetups []func()
+		var reminders []string
 
 		// run setup functions
 		for i, selected := range ui.Select() {
@@ -40,18 +40,14 @@ GitHub: https://github.com/developomp/pompup`,
 			}
 
 			workflow := workflows.Workflows[i]
-			postSetups = append(postSetups, workflow.PostSetup)
+			reminders = append(reminders, workflow.Reminders...)
 			workflow.Setup()
 		}
 
-		// run post-setup functions
-		for _, postSetup := range postSetups {
-			if postSetup == nil {
-				continue
-			}
-			postSetup()
+		// show reminders
+		for _, reminder := range reminders {
+			pterm.Info.Println(reminder)
 		}
-
 	},
 }
 

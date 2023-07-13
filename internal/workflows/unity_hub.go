@@ -2,7 +2,6 @@ package workflows
 
 import (
 	"github.com/developomp/pompup/internal/install"
-	"github.com/pterm/pterm"
 )
 
 func init() {
@@ -10,11 +9,11 @@ func init() {
 		Name: "Unity Hub",
 		Desc: "Unity Installation manager",
 		Tags: []Tag{Dev, Gui},
-		PostSetup: func() {
-			pterm.Info.Println("Change Unity Hub editors location")
-		},
 		Setup: func() {
 			install.Flatpak("com.unity.UnityHub")
+		},
+		Reminders: []string{
+			"Change Unity Hub editors location",
 		},
 	})
 }
