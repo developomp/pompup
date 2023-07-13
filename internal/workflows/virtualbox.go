@@ -17,8 +17,10 @@ func init() {
 			install.Paru("virtualbox-host-modules-arch")
 			install.Paru("virtualbox-ext-oracle")
 
+			username := getUserName()
+
 			// allow usage of virtualbox without root perm
-			err := exec.Command("sudo", "systemctl", "gpasswd", "-a", getUserName(), "vboxusers").Run()
+			err := exec.Command("sudo", "gpasswd", "-a", username, "vboxusers").Run()
 			if err != nil {
 				pterm.Fatal.Println(":", err)
 			}
