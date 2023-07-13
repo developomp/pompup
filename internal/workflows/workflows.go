@@ -18,6 +18,7 @@ type Tag string
 const (
 	Gnome        Tag = "GNOME"
 	System       Tag = "System"
+	Gaming       Tag = "Gaming"
 	Dev          Tag = "Dev"
 	Cli          Tag = "CLI"
 	Gui          Tag = "GUI"
