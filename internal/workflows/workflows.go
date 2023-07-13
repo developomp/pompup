@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/user"
+	"path/filepath"
 
 	"github.com/pterm/pterm"
 )
@@ -55,6 +56,11 @@ func getHomeDir() (homeDir string) {
 }
 
 func writeFile(path string, data []byte) error {
+	err := os.MkdirAll(filepath.Dir(path), os.ModePerm)
+	if err != nil {
+		return err
+	}
+
 	return os.WriteFile(path, data, DefaultPerm)
 }
 
