@@ -2,7 +2,9 @@ package workflows
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"os/user"
 
 	"github.com/pterm/pterm"
 )
@@ -54,4 +56,13 @@ func writeFile(path string, data []byte) error {
 
 func inHome(path string) string {
 	return fmt.Sprintf("%s/%s", getHomeDir(), path)
+}
+
+func getUserName() string {
+	user, err := user.Current()
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	return user.Username
 }

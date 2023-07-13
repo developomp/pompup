@@ -1,9 +1,7 @@
 package workflows
 
 import (
-	"log"
 	"os/exec"
-	"os/user"
 
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
@@ -31,13 +29,4 @@ func init() {
 			}
 		},
 	})
-}
-
-func getUserName() string {
-	user, err := user.Current()
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-
-	return user.Username
 }
