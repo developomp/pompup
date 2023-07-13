@@ -22,13 +22,13 @@ func init() {
 			// allow usage of virtualbox without root perm
 			err := exec.Command("sudo", "gpasswd", "-a", username, "vboxusers").Run()
 			if err != nil {
-				pterm.Fatal.Println(":", err)
+				pterm.Fatal.Println("Failed to add", username, "to vboxusers group:", err)
 			}
 
 			// load vboxdrv, vboxnetadp, and vboxnetflt drivers
 			err = exec.Command("sudo", "systemctl", "restart", "systemd-modules-load").Run()
 			if err != nil {
-				pterm.Fatal.Println(":", err)
+				pterm.Fatal.Println("Failed to load virtualbox driver modules:", err)
 			}
 		}, PostSetup: func() {
 			pterm.Info.Println("Re-login to use virtualbox without sudo")
