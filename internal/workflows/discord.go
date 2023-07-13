@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"os"
 	"os/exec"
 
 	"github.com/developomp/pompup/internal/install"
@@ -63,7 +62,7 @@ func installBDPlugins() {
 			return err
 		}
 
-		err = os.WriteFile(pluginPath, data, DefaultPerm)
+		err = writeFile(pluginPath, data)
 		if err != nil {
 			return err
 		}

@@ -1,6 +1,7 @@
 package workflows
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/pterm/pterm"
@@ -45,4 +46,12 @@ func getHomeDir() (homeDir string) {
 	}
 
 	return
+}
+
+func writeFile(path string, data []byte) error {
+	return os.WriteFile(path, data, DefaultPerm)
+}
+
+func inHome(path string) string {
+	return fmt.Sprintf("%s/%s", getHomeDir(), path)
 }

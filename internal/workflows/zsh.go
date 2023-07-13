@@ -2,10 +2,9 @@ package workflows
 
 import (
 	_ "embed"
-	"fmt"
-	"os"
 
 	"github.com/developomp/pompup/internal/install"
+	"github.com/pterm/pterm"
 )
 
 //go:embed assets/home/.zshrc
@@ -19,11 +18,10 @@ func init() {
 		Setup: func() {
 			install.Paru("zsh")
 
-			os.WriteFile(
-				fmt.Sprintf("%s/.zshrc", getHomeDir()),
-				zshConfig,
-				DefaultPerm,
-			)
+			err := writeFile(inHome(".zshrc"), zshConfig)
+			if err != nil {
+				pterm.Fatal.Println("Failed to restore zsh config file:", err)
+			}
 		},
 	})
 }
