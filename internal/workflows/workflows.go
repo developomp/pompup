@@ -47,6 +47,15 @@ func register(workflow *Workflow) {
 	Workflows = append(Workflows, workflow)
 }
 
+// pathExists returns whether the given file or directory exists
+func pathExists(path string) bool {
+	if _, err := os.Stat(path); err == nil {
+		return true
+	} else {
+		return false
+	}
+}
+
 func getHomeDir() (homeDir string) {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
