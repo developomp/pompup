@@ -140,5 +140,6 @@
     "yoavbls",
     "yzhang",
     "zhuangtongfa"
-  ]
+  ],
+  "editor.formatOnSave": true
 }
