@@ -26,17 +26,28 @@ None
 
 ## Peripherals
 
-|     peripheral | model                                                                                                                                                                                                        | using since  |
-| -------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: |
-|      Old Mouse | [Logitech G402 Hyperion fury](https://www.logitechg.com/en-eu/products/gaming-mice/g402-hyperion-fury-fps-gaming-mouse.html) I got from a [giveaway event](https://blog.naver.com/yjcomicsblog/221432692995) |      -       |
-|      New Mouse | secondhand [Razer Viper Ultimate](https://www.razer.com/gaming-mice/razer-viper-ultimate)                                                                                                                    | Aug 23, 2022 |
-|       Mousepad | [MAXTILL X5](http://www.maxtill.co.kr/shop/goods/goods_view.php?goodsno=137) (847x446mm)                                                                                                                     | Jul 4, 2023  |
-|      Headphone | [NOX NX-2](https://www.e-nox.co.kr/theme/s007/index/product_view01.php?wr_id=16)                                                                                                                             |      -       |
-|  Laptop Cooler | [ABKO NCORE NC500](http://ncore.co.kr/shop/product_item.php?ItId=2586312930)                                                                                                                                 |      -       |
-|       Keyboard | custom YMDK wings                                                                                                                                                                                            | Aug 13, 2022 |
-| Drawing tablet | secondhand [wacom CTL-472 (one by wacom)](https://www.wacom.com/en-us/products/pen-tablets/one-by-wacom)                                                                                                     | May 8, 2022  |
-|        Monitor | secondhand [DELL Alienware AW2521HF](https://www.rtings.com/monitor/reviews/dell/alienware-aw2521hf)                                                                                                         | Feb 24, 2023 |
-|     Microphone | secondhand [Razer Seiren Mini](https://www.razer.com/streaming-microphones/razer-seiren-mini)                                                                                                                | Aug 25, 2022 |
+<details>
+  <summary>Old peripherals</summary>
+
+| peripheral | model                                                                                                                                                                                                        | using since |
+| ---------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: |
+|      Mouse | [Logitech G402 Hyperion fury](https://www.logitechg.com/en-eu/products/gaming-mice/g402-hyperion-fury-fps-gaming-mouse.html) I got from a [giveaway event](https://blog.naver.com/yjcomicsblog/221432692995) |      ?      |
+|  Headphone | [NOX NX-2](https://www.e-nox.co.kr/theme/s007/index/product_view01.php?wr_id=16)                                                                                                                             |      ?      |
+
+</details>
+
+<br />
+
+|     peripheral | model                                                                                                                  | using since  |
+| -------------: | :--------------------------------------------------------------------------------------------------------------------- | :----------: |
+|          Mouse | secondhand [Razer Viper Ultimate](https://www.razer.com/gaming-mice/razer-viper-ultimate)                              | Aug 23, 2022 |
+|       Mousepad | [MAXTILL X5](http://www.maxtill.co.kr/shop/goods/goods_view.php?goodsno=137) (847x446mm)                               | Jul 4, 2023  |
+|      Headphone | secondhand [Arctis Nova Pro Wireless](https://steelseries.com/gaming-headsets/arctis-nova-pro-wireless-pc-playstation) | Dec 29, 2023 |
+|  Laptop Cooler | [ABKO NCORE NC500](http://ncore.co.kr/shop/product_item.php?ItId=2586312930)                                           |      ?       |
+|       Keyboard | custom YMDK wings                                                                                                      | Aug 13, 2022 |
+| Drawing tablet | secondhand [wacom CTL-472 (one by wacom)](https://www.wacom.com/en-us/products/pen-tablets/one-by-wacom)               | May 8, 2022  |
+|        Monitor | secondhand [DELL Alienware AW2521HF](https://www.rtings.com/monitor/reviews/dell/alienware-aw2521hf)                   | Feb 24, 2023 |
+|     Microphone | secondhand [Razer Seiren Mini](https://www.razer.com/streaming-microphones/razer-seiren-mini)                          | Aug 25, 2022 |
 
 ### Keyboard
 
