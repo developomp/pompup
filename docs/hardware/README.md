@@ -41,7 +41,7 @@ None
 |     peripheral | model                                                                                                                  | using since  |
 | -------------: | :--------------------------------------------------------------------------------------------------------------------- | :----------: |
 |          Mouse | secondhand [Razer Viper Ultimate](https://www.razer.com/gaming-mice/razer-viper-ultimate)                              | Aug 23, 2022 |
-|       Mousepad | [MAXTILL X5](http://www.maxtill.co.kr/shop/goods/goods_view.php?goodsno=137) (847x446mm)                               | Jul 4, 2023  |
+|       Mousepad | [MAXTILL X5](https://prod.danawa.com/info/?pcode=6995089) (847x446mm)                                                  | Jul 4, 2023  |
 |      Headphone | secondhand [Arctis Nova Pro Wireless](https://steelseries.com/gaming-headsets/arctis-nova-pro-wireless-pc-playstation) | Dec 29, 2023 |
 |  Laptop Cooler | [ABKO NCORE NC500](http://ncore.co.kr/shop/product_item.php?ItId=2586312930)                                           |      ?       |
 |       Keyboard | custom YMDK wings                                                                                                      | Aug 13, 2022 |
