@@ -6,7 +6,7 @@ import (
 
 func init() {
 	register(&Workflow{
-		Name: "Gnome Tweaks",
+		Name: "GNOME Tweaks",
 		Desc: "Complementary GNOME settings app",
 		Tags: []Tag{Gnome, Configurator},
 		Setup: func() {
