@@ -9,7 +9,6 @@ func init() {
 		Tags: []Tag{Gui},
 		Setup: func() {
 			install.Flatpak("com.obsproject.Studio")
-			install.Flatpak("com.obsproject.Studio.Plugin.InputOverlay")
 		},
 	})
 }
