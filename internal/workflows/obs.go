@@ -9,6 +9,7 @@ func init() {
 		Tags: []Tag{Gui},
 		Setup: func() {
 			install.Flatpak("com.obsproject.Studio")
+			install.Paru("v4l2loopback-dkms") // for virtual camera
 		},
 	})
 }
