@@ -53,9 +53,3 @@ but here are the instructions to use it:
    ```
    ./pompup
    ```
-
-## TODO
-
-- GNOME extension custom repo
-- https://github.com/navidys/tvxwidgets
-- https://pkg.go.dev/github.com/rivo/tview#hdr-Widgets
