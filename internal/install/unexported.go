@@ -17,7 +17,7 @@ func pacmanLike(packageName string, installer string) error {
 
 	// Skip installation if the package is installed already.
 	// Usage of bash is a hack that allows me to use pipe.
-	if err := exec.Command("bash", "-c", fmt.Sprintf("%s -Q | grep %v", installer, packageName)).Run(); err == nil {
+	if err := exec.Command("bash", "-c", fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)).Run(); err == nil {
 		return nil
 	}
 
