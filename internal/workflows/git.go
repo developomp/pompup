@@ -14,6 +14,7 @@ func init() {
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			install.Paru("git")
+			install.Paru("git-lfs")
 
 			err := exec.Command("git", "config", "--global", "user.email", "developomp@gmail.com").Run()
 			if err != nil {
