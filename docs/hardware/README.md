@@ -6,23 +6,20 @@ None
 
 ## Laptop
 
-|    name | model                                                                                                                 |
-| ------: | :-------------------------------------------------------------------------------------------------------------------- |
-| Machine | secondhand [Lenovo IdeaPad Slim5 14ITL 5D M16 (IdeaPad 5 14ITL05-82FE)](https://prod.danawa.com/info/?pcode=12875984) |
-|     CPU | intel i5-1135G7                                                                                                       |
-|     GPU | Nvidia GeForce MX450 (TU117M)                                                                                         |
-|     RAM | 16GB                                                                                                                  |
-|     SSD | a single secondhand 500GB [Samsung 980 NVMe SSD](https://semiconductor.samsung.com/consumer-storage/internal-ssd/980) |
+- Laptop history
+  - ??? ~ 1018 ish - some random samsung laptop
+  - 1018 ish ~ Nov 25 2022 - LG 15U480-KA5MK upgraded to 16GB RAM & 512 + 256 GB SSD
+  - Nov 25 2022 ~ Jan 12 2024 - secondhand [Lenovo IdeaPad Slim5 14ITL 5D M16 (IdeaPad 5 14ITL05-82FE)](https://prod.danawa.com/info/?pcode=12875984)
+  - Jan 12 2024 ~ Now - see table below
 
-## Partitions
-
-- total size: 500,107,862,016 bytes (465.8 GiB, 500.1 GB)
-
-| format | size in bytes               | mount location | purpose            |
-| -----: | :-------------------------- | :------------: | :----------------- |
-|  FAT32 | 524,288,000 (500MiB)        |     /boot      | boot loader (GRUB) |
-|   ext4 | 112,491,233,280 (104.8 GiB) |       /        | Linux installation |
-|   ext4 | 387,091,267,584 (360.5GiB)  |   /home/pomp   | User data          |
+|    name | model                                                                                                                                   |
+| ------: | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| Machine | secondhand [Lenovo Legion 5 15ARH05H](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-5-15arh05h) |
+|     CPU | AMD 4800H                                                                                                                               |
+|     GPU | Nvidia GeForce RTX 2060 Mobile                                                                                                          |
+|     RAM | 64GB DDR4 3200MHz CL22 (32GBx2)                                                                                                         |
+|   SSD 1 | 1TB [SK Hynix Platinum P41 M.2 NVMe SSD](https://ssd.skhynix.com/platinum_p41)                                                          |
+|   SSD 2 | secondhand 500GB [Samsung 980 NVMe SSD](https://semiconductor.samsung.com/consumer-storage/internal-ssd/980)                            |
 
 ## Peripherals
 
