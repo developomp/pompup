@@ -6,6 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/google/go-github/github"
 	"github.com/pterm/pterm"
 )
@@ -45,7 +46,7 @@ func downloadOsuAppImage() {
 		}
 	}
 
-	osuPath := inHome("Downloads/osu.appimage")
+	osuPath := helper.InHome("Downloads/osu.appimage")
 
 	// create parent directories
 	err = os.MkdirAll(filepath.Dir(osuPath), os.ModePerm)

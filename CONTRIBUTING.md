@@ -26,3 +26,9 @@ go build
 
 - use conventional commits
 - write idiomatic Go
+- all `exec.Command` must be in the following form:
+  ```go
+  cmd := exec.Command("some", "commands", "and","args")
+  cmd.Stderr = os.Stderr // important
+  cmd.Run()
+  ```

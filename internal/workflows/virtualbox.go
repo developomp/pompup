@@ -3,6 +3,7 @@ package workflows
 import (
 	"os/exec"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -17,7 +18,7 @@ func init() {
 			install.Paru("virtualbox-host-modules-arch")
 			install.Paru("virtualbox-ext-oracle")
 
-			username := getUserName()
+			username := helper.GetUserName()
 
 			// allow usage of virtualbox without root perm
 			err := exec.Command("sudo", "gpasswd", "-a", username, "vboxusers").Run()

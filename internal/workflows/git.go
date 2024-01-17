@@ -1,11 +1,14 @@
 package workflows
 
 import (
-	"os/exec"
+	_ "embed"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
-	"github.com/pterm/pterm"
 )
+
+//go:embed assets/home/.gitconfig
+var _gitconfig []byte
 
 func init() {
 	register(&Workflow{
@@ -16,20 +19,7 @@ func init() {
 			install.Paru("git")
 			install.Paru("git-lfs")
 
-			err := exec.Command("git", "config", "--global", "user.email", "developomp@gmail.com").Run()
-			if err != nil {
-				pterm.Fatal.Println("Failed to set git email:", err)
-			}
-
-			err = exec.Command("git", "config", "--global", "user.name", "developomp").Run()
-			if err != nil {
-				pterm.Fatal.Println("Failed to set git username:", err)
-			}
-
-			err = exec.Command("git", "config", "--global", "credential.helper", "store").Run()
-			if err != nil {
-				pterm.Fatal.Println("Failed to set git credential settings:", err)
-			}
+			helper.WriteFile(helper.InHome(".gitconfig"), _gitconfig)
 		},
 	})
 }

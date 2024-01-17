@@ -7,6 +7,7 @@ import (
 	"io/fs"
 	"os/exec"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -50,7 +51,11 @@ func installBDPlugins() {
 			return nil
 		}
 
-		pluginPath := fmt.Sprintf("%s/.var/app/com.discordapp.Discord/config/BetterDiscord/plugins/%s", getHomeDir(), pluginName)
+		pluginPath := fmt.Sprintf(
+			"%s/.var/app/com.discordapp.Discord/config/BetterDiscord/plugins/%s",
+			helper.GetHomeDir(),
+			pluginName,
+		)
 
 		file, err := BDPlugins.Open(pluginName)
 		if err != nil {
@@ -62,7 +67,7 @@ func installBDPlugins() {
 			return err
 		}
 
-		err = writeFile(pluginPath, data)
+		err = helper.WriteFile(pluginPath, data)
 		if err != nil {
 			return err
 		}

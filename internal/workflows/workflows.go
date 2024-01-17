@@ -2,16 +2,7 @@ package workflows
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"os/user"
-	"path/filepath"
-
-	"github.com/pterm/pterm"
 )
-
-// DefaultPerm is equivalent to -rw-r--r--
-const DefaultPerm = 0644
 
 type Tag string
 
@@ -45,44 +36,4 @@ func register(workflow *Workflow) {
 	}
 
 	Workflows = append(Workflows, workflow)
-}
-
-// pathExists returns whether the given file or directory exists
-func pathExists(path string) bool {
-	if _, err := os.Stat(path); err == nil {
-		return true
-	} else {
-		return false
-	}
-}
-
-func getHomeDir() (homeDir string) {
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
-		pterm.Fatal.Println("Failed to get user's home directory: ", err)
-	}
-
-	return
-}
-
-func writeFile(path string, data []byte) error {
-	err := os.MkdirAll(filepath.Dir(path), os.ModePerm)
-	if err != nil {
-		return err
-	}
-
-	return os.WriteFile(path, data, DefaultPerm)
-}
-
-func inHome(path string) string {
-	return fmt.Sprintf("%s/%s", getHomeDir(), path)
-}
-
-func getUserName() string {
-	user, err := user.Current()
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-
-	return user.Username
 }

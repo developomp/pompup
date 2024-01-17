@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"os/exec"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -157,8 +158,8 @@ func init() {
 }
 
 func restoreVscodeSettings() {
-	err := writeFile(
-		inHome(".config/VSCodium/User/settings.json"),
+	err := helper.WriteFile(
+		helper.InHome(".config/VSCodium/User/settings.json"),
 		vscodiumConfig,
 	)
 	if err != nil {
@@ -167,8 +168,8 @@ func restoreVscodeSettings() {
 }
 
 func enableVscodeExtensionStore() {
-	err := writeFile(
-		inHome(".config/VSCodium/product.json"),
+	err := helper.WriteFile(
+		helper.InHome(".config/VSCodium/product.json"),
 		vscodiumProduct,
 	)
 	if err != nil {

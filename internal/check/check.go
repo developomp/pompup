@@ -72,5 +72,14 @@ func IsInstalled(command string) bool {
 // IsOnline checks if the program has working internet connection.
 func IsOnline() bool {
 	// ping archlinux.org by sending one packet (-c 1)
-	return exec.Command("ping", "-c", "1", "archlinux.org").Run() == nil
+	cmd := exec.Command("ping", "-c", "1", "archlinux.org")
+	cmd.Stderr = os.Stderr
+	return cmd.Run() == nil
+}
+
+// PathExists checks whether the given path exists or not
+func PathExists(path string) bool {
+	_, err := os.Stat(path)
+
+	return err == nil
 }

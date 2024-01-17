@@ -3,6 +3,7 @@ package workflows
 import (
 	_ "embed"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 )
 
@@ -18,7 +19,7 @@ func init() {
 			install.Paru("kitty")
 			install.Paru("kitty-shell-integration")
 
-			writeFile(inHome(".config/kitty/kitty.conf"), kittyConfig)
+			helper.WriteFile(helper.InHome(".config/kitty/kitty.conf"), kittyConfig)
 		},
 	})
 }

@@ -2,9 +2,8 @@ package workflows
 
 import (
 	_ "embed"
-	"fmt"
-	"os/exec"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/pterm/pterm"
 )
 
@@ -19,19 +18,19 @@ func init() {
 
 		Setup: func() {
 			// remove immutable flag from /etc/resolv.conf
-			err := exec.Command("sudo", "chattr", "-i", "/etc/resolv.conf").Run()
+			err := helper.Run("sudo", "chatty", "-i", "/etc/resolv.conf")
 			if err != nil {
 				pterm.Fatal.Println("Failed to remove immutable flag from /etc/resolv.conf:", err)
 			}
 
 			// write to /etc/resolv.conf
-			err = exec.Command("sudo", "bash", "-c", fmt.Sprintf("echo \"%s\" > /etc/resolv.conf", _resolv_conf)).Run()
+			err = helper.SudoWriteFile("/etc/resolv.conf", _resolv_conf)
 			if err != nil {
 				pterm.Fatal.Println("Failed to write /etc/resolv.conf:", err)
 			}
 
 			// restore immutable flag
-			err = exec.Command("sudo", "chattr", "+i", "/etc/resolv.conf").Run()
+			err = helper.Run("sudo", "chattr", "+i", "/etc/resolv.conf")
 			if err != nil {
 				pterm.Fatal.Println("Failed to restore immutable flag of /etc/resolv.conf:", err)
 			}

@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 
+	"github.com/developomp/pompup/internal/check"
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -23,7 +25,7 @@ func init() {
 			installOMZ()
 			installP10K()
 
-			err := writeFile(inHome(".zshrc"), zshConfig)
+			err := helper.WriteFile(helper.InHome(".zshrc"), zshConfig)
 			if err != nil {
 				pterm.Fatal.Println("Failed to restore zsh config file:", err)
 			}
@@ -38,7 +40,7 @@ func init() {
 
 func installOMZ() {
 	// install OMZ if it is not installed already
-	if !pathExists(inHome(".oh-my-zsh")) {
+	if !check.PathExists(helper.InHome(".oh-my-zsh")) {
 		pterm.Debug.Println("Installing https://github.com/ohmyzsh/ohmyzsh")
 
 		cmd := exec.Command("sh", "-c", "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"")
@@ -51,8 +53,8 @@ func installOMZ() {
 	}
 
 	// install syntax highlighter plugin only if it is not installed already
-	pluginPath := inHome(".oh-my-zsh/custom/plugins/zsh-syntax-highlighting")
-	if !pathExists(pluginPath) {
+	pluginPath := helper.InHome(".oh-my-zsh/custom/plugins/zsh-syntax-highlighting")
+	if !check.PathExists(pluginPath) {
 		pterm.Debug.Println("Installing zsh syntax highlighter")
 
 		if err := exec.Command("git", "clone", "--depth=1", "https://github.com/zsh-users/zsh-syntax-highlighting.git", pluginPath).Run(); err != nil {
@@ -62,7 +64,7 @@ func installOMZ() {
 }
 
 func installP10K() {
-	p10kPath := inHome(".oh-my-zsh/custom/themes/powerlevel10k")
+	p10kPath := helper.InHome(".oh-my-zsh/custom/themes/powerlevel10k")
 
 	// skip if p10k is already installed
 	if _, err := os.Stat(p10kPath); err == nil {

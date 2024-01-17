@@ -3,6 +3,7 @@ package workflows
 import (
 	"os/exec"
 
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -17,7 +18,7 @@ func init() {
 
 			// add current user to the "docker" group
 			// this allows us to use docker commands without sudo
-			username := getUserName() // assumes there's no space in the username
+			username := helper.GetUserName() // assumes there's no space in the username
 			err := exec.Command("sudo", "usermod", "-aG", "docker", username).Run()
 			if err != nil {
 				pterm.Fatal.Println("Failed to add", username, "to docker group:", err)
