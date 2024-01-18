@@ -46,6 +46,10 @@ func Run(name string, arg ...string) error {
 	return cmd.Run()
 }
 
+func BashRun(command string) error {
+	return Run("bash", "-c", command)
+}
+
 func WriteFile(path string, data []byte) error {
 	err := os.MkdirAll(filepath.Dir(path), os.ModePerm)
 	if err != nil {
