@@ -1,6 +1,7 @@
 package install
 
 import (
+	"fmt"
 	"os/exec"
 
 	"github.com/developomp/pompup/internal/helper"
