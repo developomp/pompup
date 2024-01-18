@@ -2,6 +2,8 @@ package install
 
 import (
 	"os/exec"
+
+	"github.com/developomp/pompup/internal/helper"
 )
 
 // Deps installs dependencies required by the application.
@@ -27,6 +29,11 @@ func Pacman(packageName string) error {
 
 // Flatpak installs flatpak packages.
 func Flatpak(appID string) error {
+	// check if package has been installed already
+	if helper.BashRun(fmt.Sprintf("flatpak list | grep -w \"%s\"", appID)) == nil {
+		return nil // app installed already, nothing to report!
+	}
+
 	return exec.Command("flatpak", "install", "-y", "--system", appID).Run()
 }
 
