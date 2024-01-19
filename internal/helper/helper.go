@@ -64,7 +64,6 @@ func SudoWriteFile(path string, data string) error {
 		"sudo",
 		"bash",
 		"-c",
-		fmt.Sprintf("cat >>%s", path),
-		fmt.Sprintf("<<-EOF%sEOF", data),
+		fmt.Sprintf("cat >%s <<EOL\n%s\nEOL", path, data),
 	)
 }
