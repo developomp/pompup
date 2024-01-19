@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
+
+	"github.com/developomp/pompup/internal/helper"
 )
 
 // Startup error
@@ -72,9 +74,7 @@ func IsInstalled(command string) bool {
 // IsOnline checks if the program has working internet connection.
 func IsOnline() bool {
 	// ping archlinux.org by sending one packet (-c 1)
-	cmd := exec.Command("ping", "-c", "1", "archlinux.org")
-	cmd.Stderr = os.Stderr
-	return cmd.Run() == nil
+	return helper.Run("ping", "-c", "1", "archlinux.org") == nil
 }
 
 // PathExists checks whether the given path exists or not

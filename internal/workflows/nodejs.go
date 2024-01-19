@@ -1,8 +1,7 @@
 package workflows
 
 import (
-	"os/exec"
-
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/pterm/pterm"
 )
@@ -17,10 +16,10 @@ func init() {
 			install.Paru("npm")
 
 			pterm.Debug.Println("Installing pnpm")
-			exec.Command("npm", "install", "--global", "pnpm").Run()
+			helper.Run("npm", "install", "--global", "pnpm")
 
 			pterm.Debug.Println("Installing yarn")
-			exec.Command("npm", "install", "--global", "yarn").Run()
+			helper.Run("npm", "install", "--global", "yarn")
 		},
 	})
 }

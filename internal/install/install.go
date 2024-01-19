@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"os/exec"
 
 	"github.com/developomp/pompup/internal/helper"
 )
@@ -42,7 +41,7 @@ func Flatpak(appID string) error {
 		return nil // app installed already, nothing to report!
 	}
 
-	return exec.Command("flatpak", "install", "-y", "--system", appID).Run()
+	return helper.Run("flatpak", "install", "-y", "--system", appID)
 }
 
 // Dconf loads dconf configuration from internal/workflows/assets/dconf

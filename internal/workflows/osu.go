@@ -57,8 +57,8 @@ func downloadOsuAppImage() {
 	// download latest osu AppImage
 	pterm.Debug.Println("Downloading", osuPath, "from", downloadURL)
 	cmd := exec.Command("wget", downloadURL, "-q", "--show-progress", "-O", osuPath)
-	cmd.Stdout = os.Stdout // show stdout
 	cmd.Stderr = os.Stderr // show stderr
+	cmd.Stdout = os.Stdout // show stdout
 	if err := cmd.Run(); err != nil {
 		pterm.Fatal.Println("Failed to download osu lazer AppImage:", err)
 	}

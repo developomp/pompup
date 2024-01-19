@@ -1,9 +1,7 @@
 package workflows
 
 import (
-	"os"
-	"os/exec"
-
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 )
 
@@ -14,7 +12,7 @@ func init() {
 		Tags: []Tag{Configurator},
 		Setup: func() {
 			install.Paru("openrazer-meta")
-			exec.Command("sudo", "gpasswd", "-a", os.Getenv("USER"), "plugdev").Run()
+			helper.Run("sudo", "gpasswd", "-a", helper.GetUserName(), "plugdev")
 			install.Paru("polychromatic")
 		},
 	})

@@ -2,7 +2,6 @@ package workflows
 
 import (
 	_ "embed"
-	"os/exec"
 
 	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
@@ -178,7 +177,7 @@ func enableVscodeExtensionStore() {
 }
 
 func installVscodeExtension(extensionName string) {
-	err := exec.Command("codium", "--install-extension", extensionName, "--force").Run()
+	err := helper.Run("codium", "--install-extension", extensionName, "--force")
 	if err != nil {
 		pterm.Fatal.Println("Failed to install vscode extension", extensionName, ":", err)
 	}

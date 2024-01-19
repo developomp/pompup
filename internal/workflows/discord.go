@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"os/exec"
 
 	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
@@ -27,9 +26,9 @@ func init() {
 			install.Flatpak("com.discordapp.Discord")
 
 			// BetterDiscord stuff
-			install.Paru("betterdiscordctl-git")                               // BetterDiscord installer
-			exec.Command("betterdiscordctl", "-i", "flatpak", "install").Run() // install BetterDiscord
-			installBDPlugins()                                                 // install Plugins
+			install.Paru("betterdiscordctl-git")                       // BetterDiscord installer
+			helper.Run("betterdiscordctl", "-i", "flatpak", "install") // install BetterDiscord
+			installBDPlugins()                                         // install Plugins
 		},
 		Reminders: []string{
 			"Enable BetterDiscord plugins in discord settings",

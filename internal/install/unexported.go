@@ -7,6 +7,7 @@ import (
 
 	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/pterm/pterm"
 )
 
@@ -16,8 +17,8 @@ func pacmanLike(packageName string, installer string) error {
 	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
 	// Skip installation if the package is installed already.
-	// Usage of bash is a hack that allows me to use pipe.
-	if err := exec.Command("bash", "-c", fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)).Run(); err == nil {
+	err := helper.BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName))
+	if err == nil {
 		return nil
 	}
 
@@ -46,10 +47,12 @@ func installParu() {
 	var cmd *exec.Cmd
 
 	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru.git")
+	cmd.Stderr = os.Stderr
 	cmd.Dir = constants.TmpDir
 	cmd.Run()
 
 	cmd = exec.Command("makepkg", "-si")
+	cmd.Stderr = os.Stderr
 	cmd.Dir = constants.TmpDir
 	cmd.Run()
 }
