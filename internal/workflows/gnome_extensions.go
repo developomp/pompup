@@ -50,6 +50,7 @@ func init() {
 			}
 
 			// enable extensions
+			install.Dconf("extension-enable.conf")
 		},
 		Reminders: []string{
 			"Log-out and Log-in to GNOME",
