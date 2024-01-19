@@ -36,7 +36,7 @@ but here are the instructions to use it:
    - must not contain space in username
 3. Download pompup
 
-   - using curl (included in archiso)
+   - using curl
 
    ```
    curl pompup.developomp.com -Lo pompup
