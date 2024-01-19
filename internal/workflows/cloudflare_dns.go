@@ -18,7 +18,7 @@ func init() {
 
 		Setup: func() {
 			// remove immutable flag from /etc/resolv.conf
-			err := helper.Run("sudo", "chatty", "-i", "/etc/resolv.conf")
+			err := helper.Run("sudo", "chattr", "-i", "/etc/resolv.conf")
 			if err != nil {
 				pterm.Fatal.Println("Failed to remove immutable flag from /etc/resolv.conf:", err)
 			}
