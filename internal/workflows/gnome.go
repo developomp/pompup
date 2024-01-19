@@ -18,6 +18,7 @@ func init() {
 		Tags: []Tag{System},
 		Setup: func() {
 			install.Paru("gdm")
+			install.Paru("gnome-keyring")
 
 			configurePipewire()
 		},
