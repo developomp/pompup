@@ -8,7 +8,7 @@ import (
 )
 
 //go:embed assets/etc/resolv.conf
-var _resolv_conf string
+var _resolvConf string
 
 func init() {
 	register(&Workflow{
@@ -24,7 +24,7 @@ func init() {
 			}
 
 			// write to /etc/resolv.conf
-			err = helper.SudoWriteFile("/etc/resolv.conf", _resolv_conf)
+			err = helper.SudoWriteFile("/etc/resolv.conf", _resolvConf)
 			if err != nil {
 				pterm.Fatal.Println("Failed to write /etc/resolv.conf:", err)
 			}
