@@ -1,11 +1,18 @@
 package install
 
 import (
+	"embed"
 	"fmt"
+	"io"
+	"io/fs"
 	"os/exec"
 
 	"github.com/developomp/pompup/internal/helper"
 )
+
+//go:embed assets/dconf/extension-*
+var _DconfFiles embed.FS
+var DconfFiles, _ = fs.Sub(_DconfFiles, "assets/dconf")
 
 // Deps installs dependencies required by the application.
 // It only needs to be called once during the initialization process.
@@ -38,7 +45,34 @@ func Flatpak(appID string) error {
 	return exec.Command("flatpak", "install", "-y", "--system", appID).Run()
 }
 
-// Dconf loads dconf configuration from file
-func Dconf(filePath string) error {
-	return exec.Command("dconf", "load", "/", "<", filePath).Run()
+// Dconf loads dconf configuration from internal/workflows/assets/dconf
+func Dconf(name string) error {
+	file, err := DconfFiles.Open(name)
+	if err != nil {
+		return err
+	}
+
+	data, err := io.ReadAll(file)
+	if err != nil {
+		return err
+	}
+
+	tmpFilePath := fmt.Sprintf("/tmp/%s", name)
+
+	err = helper.WriteFile(tmpFilePath, data)
+	if err != nil {
+		return err
+	}
+
+	err = helper.BashRun(fmt.Sprintf("dconf load / <%s", tmpFilePath))
+	if err != nil {
+		return err
+	}
+
+	err = helper.Run("rm", tmpFilePath)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
