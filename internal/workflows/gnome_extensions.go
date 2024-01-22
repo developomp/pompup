@@ -40,10 +40,11 @@ func init() {
 
 			extensions := [...]gnomeExtension{
 				{"", "gnome-shell-extension-pop-shell-git", _gnomeExtensionPopShellDconf}, // https://aur.archlinux.org/packages/gnome-shell-extension-pop-shell-git
-				{"36", "", _gnomeExtensionLockKeysDconf},                                  // https://extensions.gnome.org/extension/36/lock-keys/
-				{"2890", "", _gnomeExtensionTrayIconsReloadedDconf},                       // https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
-				{"3193", "", _gnomeExtensionBlurMyShellDconf},                             // https://extensions.gnome.org/extension/3193/blur-my-shell/
-				{"4158", "", ""}, // https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/
+				{"19", "", ""},                                      // https://extensions.gnome.org/extension/19/user-themes/
+				{"36", "", _gnomeExtensionLockKeysDconf},            // https://extensions.gnome.org/extension/36/lock-keys/
+				{"2890", "", _gnomeExtensionTrayIconsReloadedDconf}, // https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
+				{"3193", "", _gnomeExtensionBlurMyShellDconf},       // https://extensions.gnome.org/extension/3193/blur-my-shell/
+				{"4158", "", ""},                                    // https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/
 			}
 
 			pterm.Info.Println("ignore \"Extension X does not exist\" messages below. Extensions are being installed correctly")
