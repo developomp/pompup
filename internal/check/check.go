@@ -2,6 +2,7 @@ package check
 
 import (
 	"errors"
+	"fmt"
 	"os"
 	"os/exec"
 	"runtime"
@@ -69,6 +70,11 @@ func IsBinInstalled(command string) bool {
 	_, err := exec.LookPath(command)
 
 	return err == nil
+}
+
+// IsArchPkgInstalled checks if an Arch/AUR package has been installed already.
+func IsArchPkgInstalled(installer string, packageName string) bool {
+	return helper.BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)) == nil
 }
 
 // IsOnline checks if the program has working internet connection.

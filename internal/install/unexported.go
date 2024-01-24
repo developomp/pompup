@@ -1,13 +1,11 @@
 package install
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 
 	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
-	"github.com/developomp/pompup/internal/helper"
 	"github.com/pterm/pterm"
 )
 
@@ -17,8 +15,7 @@ func pacmanLike(packageName string, installer string) error {
 	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
 	// Skip installation if the package is installed already.
-	err := helper.BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName))
-	if err == nil {
+	if check.IsArchPkgInstalled(installer, packageName) {
 		return nil
 	}
 
