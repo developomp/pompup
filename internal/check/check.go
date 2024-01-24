@@ -31,7 +31,7 @@ func StartupCheck() error {
 		return ErrStartupIsRoot
 	}
 
-	if !IsInstalled("ping") {
+	if !IsBinInstalled("ping") {
 		return ErrStartupNoPing
 	}
 
@@ -39,15 +39,15 @@ func StartupCheck() error {
 		return ErrStartupNotOnline
 	}
 
-	if !IsInstalled("pacman") {
+	if !IsBinInstalled("pacman") {
 		return ErrStartupNotArch
 	}
 
-	if !IsInstalled("sudo") {
+	if !IsBinInstalled("sudo") {
 		return ErrStartupNoSudo
 	}
 
-	if !IsInstalled("wget") {
+	if !IsBinInstalled("wget") {
 		return ErrStartupNoWget
 	}
 
@@ -64,8 +64,8 @@ func IsLinux() bool {
 	return runtime.GOOS == "linux"
 }
 
-// IsInstalled checks if a command exists.
-func IsInstalled(command string) bool {
+// IsBinInstalled checks if a command exists.
+func IsBinInstalled(command string) bool {
 	_, err := exec.LookPath(command)
 
 	return err == nil

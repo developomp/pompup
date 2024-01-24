@@ -37,7 +37,7 @@ func pacmanLike(packageName string, installer string) error {
 
 // installParu installs paru if it's not installed already.
 func installParu() {
-	if check.IsInstalled("paru") {
+	if check.IsBinInstalled("paru") {
 		return
 	}
 
