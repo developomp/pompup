@@ -12,14 +12,16 @@ var kittyConfig []byte
 
 func init() {
 	register(&Workflow{
-		Name: "Kitty",
-		Desc: "terminal emulator",
-		Tags: []Tag{Dev, Gui},
-		Setup: func() {
-			install.Paru("kitty")
-			install.Paru("kitty-shell-integration")
-
-			helper.WriteFile(helper.InHome(".config/kitty/kitty.conf"), kittyConfig)
-		},
+		Name:  "Kitty",
+		Desc:  "terminal emulator",
+		Tags:  []Tag{Dev, Gui},
+		Setup: setupKitty,
 	})
+}
+
+func setupKitty() {
+	install.Paru("kitty")
+	install.Paru("kitty-shell-integration")
+
+	helper.WriteFile(helper.InHome(".config/kitty/kitty.conf"), kittyConfig)
 }
