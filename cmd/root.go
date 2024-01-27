@@ -81,6 +81,6 @@ func cleanup() {
 
 	// remove temporary directory
 	if err := os.RemoveAll(constants.TmpDir); err != nil {
-		pterm.Fatal.Println(err)
+		pterm.Fatal.Printfln("Failed to clean '%s': %s", constants.TmpDir, err)
 	}
 }
