@@ -37,6 +37,7 @@ func init() {
 			install.Paru("gnome-keyring")
 			install.Paru("gnome-control-center") // installs gnome-settings-daemon as dependency
 			install.Paru("xdg-desktop-portal-gnome")
+			install.Paru("touchegg") // for wayland touch gestures
 
 			// themes
 			install.Paru("pop-gtk-theme")      // gtk theme
