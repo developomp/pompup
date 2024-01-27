@@ -5,15 +5,15 @@ pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 - [Gallery](./docs/gallery.md)
 - [Hardware](./docs/hardware/README.md)
 
-|                 Software | Choice                                                                                                |
-| -----------------------: | :---------------------------------------------------------------------------------------------------- |
-| Desktop Environment - 🚀 | [GNOME](https://www.gnome.org) (to be replaced with [COSMIC](https://github.com/pop-os/cosmic-epoch)) |
-|               Icons - 💎 | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                               |
-|           GTK theme - 🎨 | [Pop!](https://github.com/pop-os/gtk-theme)                                                           |
-|               Shell - 🐚 | [zsh](https://github.com/zsh-users/zsh) with [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)            |
-|            Terminal - 🖥️ | [kitty](https://github.com/kovidgoyal/kitty)                                                          |
-|             Browser - 🌐 | [Brave](https://github.com/brave/brave-browser)                                                       |
-|   Text Editor & IDE - 📝 | [VSCodium](https://github.com/VSCodium/vscodium) (to be replaced with [zed](https://zed.dev))         |
+|                 Software | Choice                                                                                                              |
+| -----------------------: | :------------------------------------------------------------------------------------------------------------------ |
+| Desktop Environment - 🚀 | [GNOME](https://www.gnome.org) (to be replaced with [COSMIC](https://github.com/pop-os/cosmic-epoch))               |
+|               Icons - 💎 | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                             |
+|           GTK theme - 🎨 | [Pop!](https://github.com/pop-os/gtk-theme)                                                                         |
+|               Shell - 🐚 | [zsh](https://github.com/zsh-users/zsh) with [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)                          |
+|            Terminal - 🖥️ | [kitty](https://github.com/kovidgoyal/kitty)                                                                        |
+|             Browser - 🌐 | [Brave](https://github.com/brave/brave-browser)                                                                     |
+|   Text Editor & IDE - 📝 | [VSCodium](https://github.com/VSCodium/vscodium) (to be replaced with [zed](https://github.com/zed-industries/zed)) |
 
 ## Name?
 
