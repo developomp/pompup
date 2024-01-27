@@ -1,6 +1,9 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import (
+	"github.com/developomp/pompup/internal/helper"
+	"github.com/developomp/pompup/internal/install"
+)
 
 func init() {
 	register(&Workflow{
@@ -9,6 +12,7 @@ func init() {
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			install.Paru("ollama")
+			helper.Run("sudo", "systemctl", "enable", "--now", "ollama.service")
 		},
 	})
 }
