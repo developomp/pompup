@@ -53,7 +53,7 @@ func BashRun(command string) error {
 }
 
 func WriteFile(path string, data []byte) error {
-	err := os.MkdirAll(filepath.Dir(path), os.ModePerm)
+	err := os.MkdirAll(filepath.Dir(path), DefaultPerm)
 	if err != nil {
 		return err
 	}

@@ -5,6 +5,7 @@ import (
 
 	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
 	"github.com/developomp/pompup/internal/ui"
 	"github.com/developomp/pompup/internal/workflows"
@@ -69,7 +70,7 @@ func initialize() {
 	install.Deps()
 
 	// create temporary directory
-	if err := os.MkdirAll(constants.TmpDir, os.ModePerm); err != nil {
+	if err := os.MkdirAll(constants.TmpDir, helper.DefaultPerm); err != nil {
 		pterm.Fatal.Println(err)
 	}
 }

@@ -49,7 +49,7 @@ func downloadOsuAppImage() {
 	osuPath := helper.InHome("Downloads/osu.appimage")
 
 	// create parent directories
-	err = os.MkdirAll(filepath.Dir(osuPath), os.ModePerm)
+	err = os.MkdirAll(filepath.Dir(osuPath), helper.DefaultPerm)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to create directory \"%s\": %s", osuPath, err)
 	}
