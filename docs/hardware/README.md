@@ -6,12 +6,6 @@ None
 
 ## Laptop
 
-- Laptop history
-  - ??? ~ 1018 ish - some random samsung laptop
-  - 1018 ish ~ Nov 25 2022 - LG 15U480-KA5MK upgraded to 16GB RAM & 512 + 256 GB SSD
-  - Nov 25 2022 ~ Jan 12 2024 - secondhand [Lenovo IdeaPad Slim5 14ITL 5D M16 (IdeaPad 5 14ITL05-82FE)](https://prod.danawa.com/info/?pcode=12875984)
-  - Jan 12 2024 ~ Now - see table below
-
 |    name | model                                                                                                                                   |
 | ------: | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | Machine | secondhand [Lenovo Legion 5 15ARH05H](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-5-15arh05h) |
@@ -22,18 +16,6 @@ None
 |   SSD 2 | secondhand 500GB [Samsung 980 NVMe SSD](https://semiconductor.samsung.com/consumer-storage/internal-ssd/980)                            |
 
 ## Peripherals
-
-<details>
-  <summary>Old peripherals</summary>
-
-| peripheral | model                                                                                                                                                                                                        | using since |
-| ---------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: |
-|      Mouse | [Logitech G402 Hyperion fury](https://www.logitechg.com/en-eu/products/gaming-mice/g402-hyperion-fury-fps-gaming-mouse.html) I got from a [giveaway event](https://blog.naver.com/yjcomicsblog/221432692995) |      ?      |
-|  Headphone | [NOX NX-2](https://www.e-nox.co.kr/theme/s007/index/product_view01.php?wr_id=16)                                                                                                                             |      ?      |
-
-</details>
-
-<br />
 
 |     peripheral | model                                                                                                                  | using since  |
 | -------------: | :--------------------------------------------------------------------------------------------------------------------- | :----------: |
