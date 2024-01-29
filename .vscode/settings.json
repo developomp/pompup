@@ -159,9 +159,6 @@
     "Zilla"
   ],
   "editor.formatOnSave": true,
-  "search.exclude": {
-    "internal/workflows/assets/betterdiscord/plugins": true
-  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
