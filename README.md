@@ -1,9 +1,18 @@
 # pompup
 
+<div align=center>
 pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 
-- [Gallery](./docs/gallery.md)
-- [Hardware](./docs/hardware/README.md)
+<br />
+
+<!-- the magic behind the trick below is the usage of em space instead of regular space character-->
+
+**[<kbd> <br /> Gallery <br /> </kbd>][Gallery]**
+**[<kbd> <br /> Hardware <br /> </kbd>][Hardware]**
+
+---
+
+</div>
 
 |                 Software | Choice                                                                                                              |
 | -----------------------: | :------------------------------------------------------------------------------------------------------------------ |
@@ -52,3 +61,6 @@ but here are the instructions to use it:
    ```
    ./pompup
    ```
+
+[Gallery]: ./docs/gallery.md
+[Hardware]: ./docs/hardware/README.md
