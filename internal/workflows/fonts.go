@@ -25,7 +25,8 @@ func init() {
 			install.Paru("adobe-source-han-sans-otc-fonts") // Korean font
 			install.Paru("ttf-baekmuk")                     // Korean font
 			install.Paru("unicode-emoji")                   // Colorful emoji
-			install.Paru("ttf-iosevka-nerd")                // Terminal font
+			install.Paru("ttf-nerd-fonts-symbols-mono")     // Nerd font
+			install.Paru("ttf-d2coding-nerd")               // Korean coding font
 			install.Paru("noto-fonts")                      // cjk, emoji, etc
 
 			// fonts to download
