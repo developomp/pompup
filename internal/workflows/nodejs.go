@@ -12,8 +12,8 @@ func init() {
 		Desc: "Node.JS and related CLI tools",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			install.Paru("nodejs-lts-hydrogen") // Node.JS v18
-			install.Paru("npm")
+			install.Paru("nvm")
+			helper.Run("nvm install --lts")
 
 			pterm.Debug.Println("Installing pnpm")
 			helper.Run("npm", "install", "--global", "pnpm")
