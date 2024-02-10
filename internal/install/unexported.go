@@ -1,13 +1,21 @@
 package install
 
 import (
+	_ "embed"
 	"os"
 	"os/exec"
 
 	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
+	"github.com/developomp/pompup/internal/helper"
 	"github.com/pterm/pterm"
 )
+
+//go:embed assets/etc/pacman.conf
+var pacmanConf string
+
+//go:embed assets/etc/paru.conf
+var paruConf string
 
 // pacmanLike is a template for pacman and pacman-like software
 // (pacman, yay, paru, etc...). It is only here to reduce code duplication
@@ -52,4 +60,7 @@ func installParu() {
 	cmd.Stderr = os.Stderr
 	cmd.Dir = constants.TmpDir
 	cmd.Run()
+
+	helper.SudoWriteFile("/etc/pacman.conf", pacmanConf)
+	helper.SudoWriteFile("/etc/paru.conf", paruConf)
 }
