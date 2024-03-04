@@ -10,6 +10,8 @@ pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 **[<kbd> <br /> Gallery <br /> </kbd>][Gallery]**
 **[<kbd> <br /> Hardware <br /> </kbd>][Hardware]**
 
+![screenshot](.github/img/result1.png)
+
 ---
 
 </div>
