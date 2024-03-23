@@ -1,5 +1,8 @@
 # pompup
 
+![language: Golang](https://img.shields.io/badge/go-blue?style=for-the-badge&logo=go&label=langauge)
+[![license](https://img.shields.io/github/license/developomp/pompup?style=for-the-badge&color=yellow)](./LICENSE)
+
 <div align=center>
 pompup is a personal Arch Linux desktop setup utility tailor made for myself.
 
