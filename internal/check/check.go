@@ -12,28 +12,22 @@ import (
 
 // Startup error
 var (
-	ErrStartupNotLinux  error = errors.New("platform is not Linux")
-	ErrStartupIsRoot    error = errors.New("program running as root")
-	ErrStartupNoPing    error = errors.New("ping is not installed")
-	ErrStartupNotOnline error = errors.New("no internet connection")
-	ErrStartupNotArch   error = errors.New("OS is not Arch Linux")
-	ErrStartupNoSudo    error = errors.New("sudo is not installed")
-	ErrStartupNoWget    error = errors.New("wget is not installed")
+	ErrStartupNotLinux      error = errors.New("platform is not Linux")
+	ErrStartupRunningAsRoot error = errors.New("program running as root")
+	ErrStartupNotOnline     error = errors.New("no internet connection")
+	ErrStartupNoPacman      error = errors.New("pacman is not installed")
+	ErrStartupNoSudo        error = errors.New("sudo is not installed")
 )
 
-// StartupCheck checks various aspect of the system required by the program.
-// It only needs to be called once during the initialization process.
+// StartupCheck checks whether there are any irrecoverable issues in the system
+// that prevents the program to begin installing.
 func StartupCheck() error {
 	if !IsLinux() {
 		return ErrStartupNotLinux
 	}
 
 	if IsRoot() {
-		return ErrStartupIsRoot
-	}
-
-	if !IsBinInstalled("ping") {
-		return ErrStartupNoPing
+		return ErrStartupRunningAsRoot
 	}
 
 	if !IsOnline() {
@@ -41,15 +35,11 @@ func StartupCheck() error {
 	}
 
 	if !IsBinInstalled("pacman") {
-		return ErrStartupNotArch
+		return ErrStartupNoPacman
 	}
 
 	if !IsBinInstalled("sudo") {
 		return ErrStartupNoSudo
-	}
-
-	if !IsBinInstalled("wget") {
-		return ErrStartupNoWget
 	}
 
 	return nil
@@ -65,7 +55,7 @@ func IsLinux() bool {
 	return runtime.GOOS == "linux"
 }
 
-// IsBinInstalled checks if a command exists.
+// IsBinInstalled checks if a file can be found in PATH.
 func IsBinInstalled(command string) bool {
 	_, err := exec.LookPath(command)
 

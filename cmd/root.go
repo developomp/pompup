@@ -58,12 +58,15 @@ func initialize() {
 
 	// perform startup checks
 	if err := check.StartupCheck(); err != nil {
+		pterm.Fatal.Println("Failed to start:", err)
+	}
 
-		if err == check.ErrStartupNoWget {
-			install.Pacman("wget")
-		} else {
-			pterm.Fatal.Println("Failed to start:", err)
-		}
+	if !check.IsBinInstalled("ping") {
+		install.Pacman("iputils")
+	}
+
+	if !check.IsBinInstalled("wget") {
+		install.Pacman("wget")
 	}
 
 	// install dependencies
