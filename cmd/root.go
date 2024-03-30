@@ -7,7 +7,6 @@ import (
 	"github.com/developomp/pompup/internal/constants"
 	"github.com/developomp/pompup/internal/helper"
 	"github.com/developomp/pompup/internal/install"
-	"github.com/developomp/pompup/internal/ui"
 	"github.com/developomp/pompup/internal/workflows"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
@@ -37,12 +36,7 @@ GitHub: https://github.com/developomp/pompup`,
 		var reminders []string
 
 		// run setup functions
-		for i, selected := range ui.Select() {
-			if !selected {
-				continue
-			}
-
-			workflow := workflows.Workflows[i]
+		for _, workflow := range workflows.Workflows {
 			reminders = append(reminders, workflow.Reminders...)
 			workflow.Setup()
 		}

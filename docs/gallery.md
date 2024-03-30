@@ -12,10 +12,6 @@
 
 ![result image 3](../.github/img/result3.png)
 
-## Program Execution
-
-![Execution](../.github/img/execution.png)
-
 ## Sources
 
 ### Wallpaper

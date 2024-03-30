@@ -4,11 +4,11 @@
 [![license](https://img.shields.io/github/license/developomp/pompup?style=for-the-badge&color=yellow)](./LICENSE)
 
 <div align=center>
-pompup is a personal Arch Linux desktop setup utility tailor made for myself.
+pompup is a personal one-click Arch Linux desktop setup utility tailor made for myself.
 
 <br />
 
-<!-- the magic behind the trick below is the usage of em space instead of regular space character-->
+<!-- space characters used in buttons below are em space instead of regular spaces -->
 
 **[<kbd> <br /> Gallery <br /> </kbd>][Gallery]**
 **[<kbd> <br /> Hardware <br /> </kbd>][Hardware]**
