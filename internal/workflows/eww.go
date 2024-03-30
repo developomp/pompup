@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Linux Widgets",
 		Tags: []Tag{System},
 		Setup: func() {
-			install.Paru("eww-wayland")
+			wrapper.Paru("eww-wayland")
 		},
 	})
 }

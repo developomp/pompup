@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 //go:embed assets/home/.config/kitty/kitty.conf
@@ -20,8 +19,8 @@ func init() {
 }
 
 func setupKitty() {
-	install.Paru("kitty")
-	install.Paru("kitty-shell-integration")
+	wrapper.Paru("kitty")
+	wrapper.Paru("kitty-shell-integration")
 
-	helper.WriteFile(helper.InHome(".config/kitty/kitty.conf"), kittyConfig)
+	wrapper.WriteFile(wrapper.InHome(".config/kitty/kitty.conf"), kittyConfig)
 }

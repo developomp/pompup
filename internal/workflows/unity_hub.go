@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Unity Installation manager",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			install.Flatpak("com.unity.UnityHub")
+			wrapper.Flatpak("com.unity.UnityHub")
 		},
 		Reminders: []string{
 			"Change Unity Hub editors location",

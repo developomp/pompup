@@ -3,11 +3,9 @@ package cmd
 import (
 	"os"
 
-	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
 	"github.com/developomp/pompup/internal/workflows"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
@@ -53,23 +51,23 @@ func initialize() {
 	defer pterm.Debug.Println("Initialized!")
 
 	// perform startup checks
-	if err := check.StartupCheck(); err != nil {
+	if err := wrapper.StartupCheck(); err != nil {
 		pterm.Fatal.Println("Failed to start:", err)
 	}
 
-	if !check.IsBinInstalled("ping") {
-		install.Pacman("iputils")
+	if !wrapper.IsBinInstalled("ping") {
+		wrapper.Pacman("iputils")
 	}
 
-	if !check.IsBinInstalled("wget") {
-		install.Pacman("wget")
+	if !wrapper.IsBinInstalled("wget") {
+		wrapper.Pacman("wget")
 	}
 
 	// install dependencies
-	install.Deps()
+	wrapper.Deps()
 
 	// create temporary directory
-	if err := os.MkdirAll(constants.TmpDir, helper.DefaultPerm); err != nil {
+	if err := os.MkdirAll(constants.TmpDir, wrapper.DefaultPerm); err != nil {
 		pterm.Fatal.Println(err)
 	}
 }

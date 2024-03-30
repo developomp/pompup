@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Application Menu Editor",
 		Tags: []Tag{Gui, System, Configurator},
 		Setup: func() {
-			install.Flatpak("page.codeberg.libre_menu_editor.LibreMenuEditor")
+			wrapper.Flatpak("page.codeberg.libre_menu_editor.LibreMenuEditor")
 		},
 	})
 }

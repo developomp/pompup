@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Penetration Testing",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			install.Paru("metasploit")
+			wrapper.Paru("metasploit")
 		},
 	})
 }

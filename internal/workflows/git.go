@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 //go:embed assets/home/.gitconfig
@@ -16,10 +15,10 @@ func init() {
 		Desc: "git gud",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			install.Paru("git")
-			install.Paru("git-lfs")
+			wrapper.Paru("git")
+			wrapper.Paru("git-lfs")
 
-			helper.WriteFile(helper.InHome(".gitconfig"), _gitconfig)
+			wrapper.WriteFile(wrapper.InHome(".gitconfig"), _gitconfig)
 		},
 	})
 }

@@ -1,15 +1,13 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 var gearleverWorkflow = Workflow{
 	Name: "GearLever",
 	Desc: "appimage manager",
 	Tags: []Tag{System, Gui},
 	Setup: func() {
-		install.Flatpak("it.mijorus.gearlever")
+		wrapper.Flatpak("it.mijorus.gearlever")
 	},
 }
 

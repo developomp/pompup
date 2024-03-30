@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Complementary GNOME settings app",
 		Tags: []Tag{Gnome, Configurator},
 		Setup: func() {
-			install.Paru("gnome-tweaks")
+			wrapper.Paru("gnome-tweaks")
 		},
 	})
 }

@@ -3,7 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -16,9 +16,9 @@ func init() {
 		Desc: "GNOME Time management utility",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			install.Flatpak("org.gnome.clocks")
+			wrapper.Flatpak("org.gnome.clocks")
 
-			err := install.Dconf(_gnomeClocksDconf)
+			err := wrapper.Dconf(_gnomeClocksDconf)
 			if err != nil {
 				pterm.Fatal.Printfln("Failed to load config file: %s", err)
 			}

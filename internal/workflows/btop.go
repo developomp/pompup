@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,7 +8,7 @@ func init() {
 		Desc: "top but better",
 		Tags: []Tag{Cli},
 		Setup: func() {
-			install.Paru("btop")
+			wrapper.Paru("btop")
 		},
 	})
 }

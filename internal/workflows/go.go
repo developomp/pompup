@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -14,6 +12,6 @@ func init() {
 }
 
 func setupGo() {
-	install.Paru("go")
-	install.Paru("go-tools")
+	wrapper.Paru("go")
+	wrapper.Paru("go-tools")
 }

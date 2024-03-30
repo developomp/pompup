@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "GTK theme made by system76",
 		Tags: []Tag{System, Gnome},
 		Setup: func() {
-			install.Paru("pop-gtk-theme")
+			wrapper.Paru("pop-gtk-theme")
 		},
 	})
 }

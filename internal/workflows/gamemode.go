@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -21,11 +20,11 @@ func init() {
 }
 
 func setupGamemode() {
-	install.Paru("gamemode")
+	wrapper.Paru("gamemode")
 
-	helper.BashRun("sudo usermod -a -G gamemode $USER")
+	wrapper.BashRun("sudo usermod -a -G gamemode $USER")
 
-	err := helper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
+	err := wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
 	if err != nil {
 		pterm.Fatal.Println("Failed to write to /etc/gamemode.ini")
 	}

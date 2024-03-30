@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -33,23 +32,23 @@ func init() {
 		Tags: []Tag{System},
 		Setup: func() {
 			// core
-			install.Paru("gdm")
-			install.Paru("gnome-keyring")
-			install.Paru("gnome-control-center") // installs gnome-settings-daemon as dependency
-			install.Paru("xdg-desktop-portal-gnome")
-			install.Paru("touchegg") // for wayland touch gestures
+			wrapper.Paru("gdm")
+			wrapper.Paru("gnome-keyring")
+			wrapper.Paru("gnome-control-center") // installs gnome-settings-daemon as dependency
+			wrapper.Paru("xdg-desktop-portal-gnome")
+			wrapper.Paru("touchegg") // for wayland touch gestures
 
 			// themes
-			install.Paru("pop-gtk-theme")      // gtk theme
-			install.Paru("papirus-icon-theme") // icon theme
-			install.Paru("xcursor-breeze")     // cursor theme
+			wrapper.Paru("pop-gtk-theme")      // gtk theme
+			wrapper.Paru("papirus-icon-theme") // icon theme
+			wrapper.Paru("xcursor-breeze")     // cursor theme
 
 			configurePipewire()
-			install.Dconf(_gnomeDesktopDconf)
-			install.Dconf(_gnomeKeybindings)
-			install.Dconf(_gnomeMutterDconf)
-			install.Dconf(_gnomeSettingsDaemon)
-			install.Dconf(_gnomeExtensionUserThemesDconf)
+			wrapper.Dconf(_gnomeDesktopDconf)
+			wrapper.Dconf(_gnomeKeybindings)
+			wrapper.Dconf(_gnomeMutterDconf)
+			wrapper.Dconf(_gnomeSettingsDaemon)
+			wrapper.Dconf(_gnomeExtensionUserThemesDconf)
 		},
 	})
 }
@@ -60,11 +59,11 @@ func init() {
 // more info: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire
 // more info about split conf: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire#split-file-configuration
 func configurePipewire() {
-	err := helper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
+	err := wrapper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
 	if err != nil {
 		pterm.Fatal.Println("Failed to configure pipewire")
 	}
 
 	// restart pipewire for the config to take effect
-	err = helper.Run("systemctl", "--user", "restart", "pipewire.service")
+	wrapper.Run("systemctl", "--user", "restart", "pipewire.service")
 }

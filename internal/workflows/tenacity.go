@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,7 +8,7 @@ func init() {
 		Desc: "Non-evil Adacity fork",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			install.Flatpak("org.tenacityaudio.Tenacity")
+			wrapper.Flatpak("org.tenacityaudio.Tenacity")
 		},
 	})
 }

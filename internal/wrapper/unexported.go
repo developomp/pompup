@@ -1,13 +1,11 @@
-package install
+package wrapper
 
 import (
 	_ "embed"
 	"os"
 	"os/exec"
 
-	"github.com/developomp/pompup/internal/check"
 	"github.com/developomp/pompup/internal/constants"
-	"github.com/developomp/pompup/internal/helper"
 	"github.com/pterm/pterm"
 )
 
@@ -23,7 +21,7 @@ func pacmanLike(packageName string, installer string) error {
 	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
 	// Skip installation if the package is installed already.
-	if check.IsArchPkgInstalled(installer, packageName) {
+	if IsArchPkgInstalled(installer, packageName) {
 		return nil
 	}
 
@@ -42,7 +40,7 @@ func pacmanLike(packageName string, installer string) error {
 
 // installParu installs paru if it's not installed already.
 func installParu() {
-	if check.IsBinInstalled("paru") {
+	if IsBinInstalled("paru") {
 		return
 	}
 
@@ -61,6 +59,6 @@ func installParu() {
 	cmd.Dir = constants.TmpDir
 	cmd.Run()
 
-	helper.SudoWriteFile("/etc/pacman.conf", pacmanConf)
-	helper.SudoWriteFile("/etc/paru.conf", paruConf)
+	SudoWriteFile("/etc/pacman.conf", pacmanConf)
+	SudoWriteFile("/etc/paru.conf", paruConf)
 }

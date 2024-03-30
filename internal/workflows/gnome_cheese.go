@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "GNOME photo taking utility",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			install.Flatpak("org.gnome.Cheese")
+			wrapper.Flatpak("org.gnome.Cheese")
 		},
 	})
 }

@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,7 +8,7 @@ func init() {
 		Desc: "GUI for S.M.A.R.T",
 		Tags: []Tag{System},
 		Setup: func() {
-			install.Paru("gsmartcontrol")
+			wrapper.Paru("gsmartcontrol")
 		},
 	})
 }

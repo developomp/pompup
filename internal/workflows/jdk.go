@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,8 +8,8 @@ func init() {
 		Desc: "Java Development Kit",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			install.Paru("jdk-openjdk")
-			install.Paru("jdk8-openjdk")
+			wrapper.Paru("jdk-openjdk")
+			wrapper.Paru("jdk8-openjdk")
 		},
 	})
 }

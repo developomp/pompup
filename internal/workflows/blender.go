@@ -1,7 +1,7 @@
 package workflows
 
 import (
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 func init() {
@@ -10,7 +10,7 @@ func init() {
 		Desc: "FOSS 3D creation suite",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			install.Flatpak("org.blender.Blender")
+			wrapper.Flatpak("org.blender.Blender")
 		},
 	})
 }

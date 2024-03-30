@@ -1,9 +1,7 @@
-package install
+package wrapper
 
 import (
 	"fmt"
-
-	"github.com/developomp/pompup/internal/helper"
 )
 
 // Deps installs dependencies required by the application.
@@ -30,14 +28,14 @@ func Pacman(packageName string) error {
 // Flatpak installs flatpak packages.
 func Flatpak(appID string) error {
 	// check if package has been installed already
-	if helper.BashRun(fmt.Sprintf("flatpak list | grep -w \"%s\"", appID)) == nil {
+	if BashRun(fmt.Sprintf("flatpak list | grep -w \"%s\"", appID)) == nil {
 		return nil // app installed already, nothing to report!
 	}
 
-	return helper.Run("flatpak", "install", "-y", "--system", appID)
+	return Run("flatpak", "install", "-y", "--system", appID)
 }
 
 // Dconf loads dconf configuration from string
 func Dconf(data string) error {
-	return helper.BashRun(fmt.Sprintf("dconf load / << EOF\n%s\nEOF", data))
+	return BashRun(fmt.Sprintf("dconf load / << EOF\n%s\nEOF", data))
 }

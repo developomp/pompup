@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,7 +8,7 @@ func init() {
 		Desc: "Adobe Premiere Pro but FOSS",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			install.Flatpak("org.kde.kdenlive")
+			wrapper.Flatpak("org.kde.kdenlive")
 		},
 	})
 }

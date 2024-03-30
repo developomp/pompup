@@ -1,4 +1,4 @@
-package check
+package wrapper
 
 import (
 	"errors"
@@ -6,8 +6,6 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
-
-	"github.com/developomp/pompup/internal/helper"
 )
 
 // Startup error
@@ -64,13 +62,13 @@ func IsBinInstalled(command string) bool {
 
 // IsArchPkgInstalled checks if an Arch/AUR package has been installed already.
 func IsArchPkgInstalled(installer string, packageName string) bool {
-	return helper.BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)) == nil
+	return BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)) == nil
 }
 
 // IsOnline checks if the program has working internet connection.
 func IsOnline() bool {
 	// ping archlinux.org by sending one packet (-c 1)
-	return helper.Run("ping", "-c", "1", "archlinux.org") == nil
+	return Run("ping", "-c", "1", "archlinux.org") == nil
 }
 
 // PathExists checks whether the given path exists or not

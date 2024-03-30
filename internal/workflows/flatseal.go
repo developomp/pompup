@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "flatpak permission manager",
 		Tags: []Tag{Configurator},
 		Setup: func() {
-			install.Flatpak("com.github.tchx84.Flatseal")
+			wrapper.Flatpak("com.github.tchx84.Flatseal")
 		},
 	})
 }

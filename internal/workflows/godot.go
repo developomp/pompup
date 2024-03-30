@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "FOSS game engine",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			install.Flatpak("org.godotengine.Godot")
+			wrapper.Flatpak("org.godotengine.Godot")
 		},
 	})
 }

@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Disk partitioning and stuff",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			install.Paru("gnome-disk-utility")
+			wrapper.Paru("gnome-disk-utility")
 		},
 	})
 }

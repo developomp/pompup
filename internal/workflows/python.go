@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,8 +8,8 @@ func init() {
 		Desc: "python, pip, and stuff",
 		Tags: []Tag{Dev},
 		Setup: func() {
-			install.Paru("python")
-			install.Paru("python-pip") // python package manager
+			wrapper.Paru("python")
+			wrapper.Paru("python-pip") // python package manager
 		},
 	})
 }

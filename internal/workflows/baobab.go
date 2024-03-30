@@ -1,7 +1,7 @@
 package workflows
 
 import (
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 func init() {
@@ -10,7 +10,7 @@ func init() {
 		Desc: "GNOME disk usage analyzer",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			install.Flatpak("org.gnome.baobab")
+			wrapper.Flatpak("org.gnome.baobab")
 		},
 	})
 }

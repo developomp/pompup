@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -144,7 +143,7 @@ func init() {
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			// not using flatpak version due to permission issues such as lazydocker not working inside the integrated terminal
-			install.Paru("vscodium-bin")
+			wrapper.Paru("vscodium-bin")
 
 			restoreVscodeSettings()
 			enableVscodeExtensionStore()
@@ -157,8 +156,8 @@ func init() {
 }
 
 func restoreVscodeSettings() {
-	err := helper.WriteFile(
-		helper.InHome(".config/VSCodium/User/settings.json"),
+	err := wrapper.WriteFile(
+		wrapper.InHome(".config/VSCodium/User/settings.json"),
 		vscodiumConfig,
 	)
 	if err != nil {
@@ -167,8 +166,8 @@ func restoreVscodeSettings() {
 }
 
 func enableVscodeExtensionStore() {
-	err := helper.WriteFile(
-		helper.InHome(".config/VSCodium/product.json"),
+	err := wrapper.WriteFile(
+		wrapper.InHome(".config/VSCodium/product.json"),
 		vscodiumProduct,
 	)
 	if err != nil {
@@ -177,7 +176,7 @@ func enableVscodeExtensionStore() {
 }
 
 func installVscodeExtension(extensionName string) {
-	err := helper.Run("codium", "--install-extension", extensionName, "--force")
+	err := wrapper.Run("codium", "--install-extension", extensionName, "--force")
 	if err != nil {
 		pterm.Fatal.Println("Failed to install vscode extension", extensionName, ":", err)
 	}

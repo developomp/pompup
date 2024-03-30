@@ -1,6 +1,6 @@
 package workflows
 
-import "github.com/developomp/pompup/internal/install"
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -8,7 +8,7 @@ func init() {
 		Desc: "Task Manager but Linux",
 		Tags: []Tag{System, Gui},
 		Setup: func() {
-			install.Flatpak("io.missioncenter.MissionCenter")
+			wrapper.Flatpak("io.missioncenter.MissionCenter")
 		},
 	})
 }

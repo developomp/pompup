@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -11,7 +9,7 @@ func init() {
 		Tags: []Tag{Gui},
 
 		Setup: func() {
-			install.Flatpak("com.brave.Browser")
+			wrapper.Flatpak("com.brave.Browser")
 		},
 		Reminders: []string{
 			"Enable Brave sync",

@@ -3,9 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/check"
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 //go:embed assets/dconf/gnome-nautilus.conf
@@ -17,17 +15,17 @@ func init() {
 		Desc: "nautilus",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			install.Paru("nautilus")
-			install.Dconf(_gnomeNautilusDconf)
+			wrapper.Paru("nautilus")
+			wrapper.Dconf(_gnomeNautilusDconf)
 
-			install.Paru("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
-			if !check.IsBinInstalled("kitty") {
+			wrapper.Paru("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
+			if !wrapper.IsBinInstalled("kitty") {
 				setupKitty()
 			}
 
-			helper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "terminal", "kitty")
-			helper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "keybindings", "''")
-			helper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "new-tab", "true")
+			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "terminal", "kitty")
+			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "keybindings", "''")
+			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "new-tab", "true")
 		},
 	})
 }

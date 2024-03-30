@@ -3,8 +3,7 @@ package workflows
 import (
 	_ "embed"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 )
 
 //go:embed assets/home/.config/OpenTabletDriver/settings.json
@@ -18,13 +17,13 @@ func init() {
 		Setup: func() {
 			// https://opentabletdriver.net/Wiki/Install/Linux#arch
 
-			install.Paru("opentabletdriver")
+			wrapper.Paru("opentabletdriver")
 
-			helper.Run("sudo", "mkinitcpio", "-P")
-			helper.Run("sudo", "rmmod", "wacom")
-			helper.Run("sudo", "rmmod", "hid_uclogic")
+			wrapper.Run("sudo", "mkinitcpio", "-P")
+			wrapper.Run("sudo", "rmmod", "wacom")
+			wrapper.Run("sudo", "rmmod", "hid_uclogic")
 
-			helper.WriteFile(helper.InHome(".config/OpenTabletDriver/settings.json"), _otdSettings)
+			wrapper.WriteFile(wrapper.InHome(".config/OpenTabletDriver/settings.json"), _otdSettings)
 		},
 	})
 }

@@ -1,8 +1,7 @@
 package workflows
 
 import (
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -12,10 +11,10 @@ func init() {
 		Desc: "Rustup and stuff",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			install.Paru("rustup")
+			wrapper.Paru("rustup")
 
 			pterm.Debug.Println("Installing stable rust toolchain")
-			helper.Run("rustup", "install", "stable")
+			wrapper.Run("rustup", "install", "stable")
 		},
 	})
 }

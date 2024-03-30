@@ -1,9 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -11,9 +8,9 @@ func init() {
 		Desc: "GSettings editor for GNOME",
 		Tags: []Tag{Configurator},
 		Setup: func() {
-			install.Paru("openrazer-meta")
-			helper.Run("sudo", "gpasswd", "-a", helper.GetUserName(), "plugdev")
-			install.Paru("polychromatic")
+			wrapper.Paru("openrazer-meta")
+			wrapper.Run("sudo", "gpasswd", "-a", wrapper.GetUserName(), "plugdev")
+			wrapper.Paru("polychromatic")
 		},
 	})
 }

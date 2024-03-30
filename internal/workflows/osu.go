@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/developomp/pompup/internal/helper"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/google/go-github/github"
 	"github.com/pterm/pterm"
 )
@@ -46,10 +46,10 @@ func downloadOsuAppImage() {
 		}
 	}
 
-	osuPath := helper.InHome("Downloads/osu.appimage")
+	osuPath := wrapper.InHome("Downloads/osu.appimage")
 
 	// create parent directories
-	err = os.MkdirAll(filepath.Dir(osuPath), helper.DefaultPerm)
+	err = os.MkdirAll(filepath.Dir(osuPath), wrapper.DefaultPerm)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to create directory \"%s\": %s", osuPath, err)
 	}

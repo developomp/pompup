@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/developomp/pompup/internal/helper"
-	"github.com/developomp/pompup/internal/install"
+	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
@@ -17,17 +16,17 @@ func init() {
 		Setup: func() {
 			// install https://github.com/Crosse/font-install
 			setupGo()
-			helper.Run("go", "install", "github.com/Crosse/font-install@latest")
+			wrapper.Run("go", "install", "github.com/Crosse/font-install@latest")
 
-			install.Flatpak("com.github.tchx84.Flatseal")
+			wrapper.Flatpak("com.github.tchx84.Flatseal")
 
-			install.Paru("ttf-ms-fonts")                    // MS fonts
-			install.Paru("adobe-source-han-sans-otc-fonts") // Korean font
-			install.Paru("ttf-baekmuk")                     // Korean font
-			install.Paru("unicode-emoji")                   // Colorful emoji
-			install.Paru("ttf-nerd-fonts-symbols-mono")     // Nerd font
-			install.Paru("ttf-d2coding-nerd")               // Korean coding font
-			install.Paru("noto-fonts")                      // cjk, emoji, etc
+			wrapper.Paru("ttf-ms-fonts")                    // MS fonts
+			wrapper.Paru("adobe-source-han-sans-otc-fonts") // Korean font
+			wrapper.Paru("ttf-baekmuk")                     // Korean font
+			wrapper.Paru("unicode-emoji")                   // Colorful emoji
+			wrapper.Paru("ttf-nerd-fonts-symbols-mono")     // Nerd font
+			wrapper.Paru("ttf-d2coding-nerd")               // Korean coding font
+			wrapper.Paru("noto-fonts")                      // cjk, emoji, etc
 
 			// fonts to download
 			for _, fontName := range [...]string{
@@ -45,11 +44,11 @@ func init() {
 				fontURL := fmt.Sprintf("https://fonts.google.com/download?family=%s", url.QueryEscape(fontName))
 
 				pterm.Debug.Println("Installing font:", fontURL)
-				helper.Run("font-install", fontURL)
+				wrapper.Run("font-install", fontURL)
 			}
 
 			// regenerate font cache
-			helper.Run("fc-cache -vf")
+			wrapper.Run("fc-cache -vf")
 		},
 	})
 }

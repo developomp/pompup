@@ -1,8 +1,6 @@
 package workflows
 
-import (
-	"github.com/developomp/pompup/internal/install"
-)
+import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Workflow{
@@ -10,7 +8,7 @@ func init() {
 		Desc: "Bootable USB on steroid",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			install.Paru("ventoy-bin")
+			wrapper.Paru("ventoy-bin")
 		},
 	})
 }
