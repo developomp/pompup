@@ -1,7 +1,9 @@
 package cmd
 
 import (
+	_ "embed"
 	"os"
+	"os/exec"
 
 	"github.com/developomp/pompup/internal/constants"
 	"github.com/developomp/pompup/internal/installers"
@@ -9,6 +11,12 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
+
+//go:embed assets/etc/pacman.conf
+var pacmanConf string
+
+//go:embed assets/etc/paru.conf
+var paruConf string
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
@@ -28,12 +36,12 @@ var rootCmd = &cobra.Command{
 GitHub: https://github.com/developomp/pompup`,
 
 	Run: func(cmd *cobra.Command, args []string) {
-		initialize()
+		bootstrap()
 		defer cleanup()
 
 		var reminders []string
 
-		// run setup functions
+		// run installers
 		for _, installer := range installers.Installers {
 			reminders = append(reminders, installer.Reminders...)
 			installer.Setup()
@@ -46,9 +54,9 @@ GitHub: https://github.com/developomp/pompup`,
 	},
 }
 
-func initialize() {
-	pterm.Debug.Println("Initializing...")
-	defer pterm.Debug.Println("Initialized!")
+func bootstrap() {
+	pterm.Debug.Println("Bootstrapping...")
+	defer pterm.Debug.Println("Bootstrapped!")
 
 	// perform startup checks
 	if err := wrapper.StartupCheck(); err != nil {
@@ -63,8 +71,17 @@ func initialize() {
 		wrapper.Pacman("wget")
 	}
 
-	// install dependencies
-	wrapper.Deps()
+	if !wrapper.IsBinInstalled("trash") {
+		wrapper.Pacman("trash-cli")
+	}
+
+	if !wrapper.IsBinInstalled("flatpak") {
+		wrapper.Pacman("flatpak")
+	}
+
+	if !wrapper.IsBinInstalled("paru") {
+		installParu()
+	}
 
 	// create temporary directory
 	if err := os.MkdirAll(constants.TmpDir, wrapper.DefaultPerm); err != nil {
@@ -80,4 +97,24 @@ func cleanup() {
 	if err := os.RemoveAll(constants.TmpDir); err != nil {
 		pterm.Fatal.Printfln("Failed to clean '%s': %s", constants.TmpDir, err)
 	}
+}
+
+func installParu() {
+	wrapper.Pacman("git")
+	wrapper.Pacman("base-devel")
+
+	var cmd *exec.Cmd
+
+	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru.git")
+	cmd.Stderr = os.Stderr
+	cmd.Dir = constants.TmpDir
+	cmd.Run()
+
+	cmd = exec.Command("makepkg", "-si")
+	cmd.Stderr = os.Stderr
+	cmd.Dir = constants.TmpDir
+	cmd.Run()
+
+	wrapper.SudoWriteFile("/etc/pacman.conf", pacmanConf)
+	wrapper.SudoWriteFile("/etc/paru.conf", paruConf)
 }

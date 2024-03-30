@@ -5,15 +5,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/developomp/pompup/internal/constants"
 	"github.com/pterm/pterm"
 )
-
-//go:embed assets/etc/pacman.conf
-var pacmanConf string
-
-//go:embed assets/etc/paru.conf
-var paruConf string
 
 // pacmanLike is a template for pacman and pacman-like software
 // (pacman, yay, paru, etc...). It is only here to reduce code duplication
@@ -36,29 +29,4 @@ func pacmanLike(packageName string, installer string) error {
 	cmd.Stderr = os.Stderr // show stderr
 
 	return cmd.Run()
-}
-
-// installParu installs paru if it's not installed already.
-func installParu() {
-	if IsBinInstalled("paru") {
-		return
-	}
-
-	Pacman("git")
-	Pacman("base-devel")
-
-	var cmd *exec.Cmd
-
-	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru.git")
-	cmd.Stderr = os.Stderr
-	cmd.Dir = constants.TmpDir
-	cmd.Run()
-
-	cmd = exec.Command("makepkg", "-si")
-	cmd.Stderr = os.Stderr
-	cmd.Dir = constants.TmpDir
-	cmd.Run()
-
-	SudoWriteFile("/etc/pacman.conf", pacmanConf)
-	SudoWriteFile("/etc/paru.conf", paruConf)
 }

@@ -4,15 +4,6 @@ import (
 	"fmt"
 )
 
-// Deps installs dependencies required by the application.
-// It only needs to be called once during the initialization process.
-func Deps() {
-	Pacman("trash-cli")
-	Pacman("flatpak")
-
-	installParu()
-}
-
 // Paru installs Arch Linux packages using paru. It can also install
 // packages from the AUR.
 func Paru(packageName string) error {
