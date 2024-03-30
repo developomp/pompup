@@ -2,6 +2,8 @@ package wrapper
 
 import (
 	"fmt"
+
+	"github.com/pterm/pterm"
 )
 
 // Paru installs Arch Linux packages using paru. It can also install
@@ -23,6 +25,7 @@ func Flatpak(appID string) error {
 		return nil // app installed already, nothing to report!
 	}
 
+	pterm.Debug.Printfln("Installing '%s' via flatpak", appID)
 	return Run("flatpak", "install", "-y", "--system", appID)
 }
 
