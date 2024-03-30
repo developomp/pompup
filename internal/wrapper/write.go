@@ -7,12 +7,12 @@ import (
 )
 
 func WriteFile(path string, data []byte) error {
-	err := os.MkdirAll(filepath.Dir(path), DefaultPerm)
+	err := os.MkdirAll(filepath.Dir(path), DefaultFilePerm)
 	if err != nil {
 		return err
 	}
 
-	return os.WriteFile(path, data, DefaultPerm)
+	return os.WriteFile(path, data, DefaultFilePerm)
 }
 
 func SudoWriteFile(path string, data string) error {

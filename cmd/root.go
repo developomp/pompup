@@ -5,7 +5,6 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/developomp/pompup/internal/constants"
 	"github.com/developomp/pompup/internal/installers"
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
@@ -36,8 +35,8 @@ var rootCmd = &cobra.Command{
 GitHub: https://github.com/developomp/pompup`,
 
 	Run: func(cmd *cobra.Command, args []string) {
+		cleanup()
 		bootstrap()
-		defer cleanup()
 
 		var reminders []string
 
@@ -51,16 +50,24 @@ GitHub: https://github.com/developomp/pompup`,
 		for _, reminder := range reminders {
 			pterm.Info.Println(reminder)
 		}
+
+		pterm.Debug.Println("Wrapping up...")
+		cleanup()
+		pterm.Debug.Println("Done!")
 	},
 }
 
 func bootstrap() {
 	pterm.Debug.Println("Bootstrapping...")
-	defer pterm.Debug.Println("Bootstrapped!")
 
-	// perform startup checks
+	// check for irrecoverable issues
 	if err := wrapper.StartupCheck(); err != nil {
 		pterm.Fatal.Println("Failed to start:", err)
+	}
+
+	// create temporary directory
+	if err := os.MkdirAll(wrapper.GetTmpDir(), wrapper.DefaultDirPerm); err != nil {
+		pterm.Fatal.Println(err)
 	}
 
 	if !wrapper.IsBinInstalled("ping") {
@@ -83,37 +90,45 @@ func bootstrap() {
 		installParu()
 	}
 
-	// create temporary directory
-	if err := os.MkdirAll(constants.TmpDir, wrapper.DefaultPerm); err != nil {
-		pterm.Fatal.Println(err)
-	}
+	pterm.Debug.Println("Bootstrapped!")
 }
 
 func cleanup() {
-	pterm.Debug.Println("Wrapping up...")
-	defer pterm.Debug.Println("Done!")
-
-	// remove temporary directory
-	if err := os.RemoveAll(constants.TmpDir); err != nil {
-		pterm.Fatal.Printfln("Failed to clean '%s': %s", constants.TmpDir, err)
+	// remove temporary directory if it exists
+	if _, err := os.Stat(wrapper.GetTmpDir()); err == nil {
+		err := wrapper.Run("rm", "-rf", wrapper.GetTmpDir())
+		if err != nil {
+			pterm.Fatal.Printfln("Failed to clean '%s': %s", wrapper.GetTmpDir(), err)
+		}
 	}
 }
 
 func installParu() {
-	wrapper.Pacman("git")
-	wrapper.Pacman("base-devel")
+	if !wrapper.IsBinInstalled("git") {
+		wrapper.Pacman("git")
+	}
+
+	if !wrapper.IsArchPkgInstalled("pacman", "base-devel") {
+		wrapper.Pacman("base-devel")
+	}
 
 	var cmd *exec.Cmd
 
-	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru.git")
+	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru-bin.git")
 	cmd.Stderr = os.Stderr
-	cmd.Dir = constants.TmpDir
-	cmd.Run()
+	cmd.Stdout = os.Stdout
+	cmd.Dir = wrapper.GetTmpDir()
+	if err := cmd.Run(); err != nil {
+		pterm.Fatal.Println("Failed to clone https://aur.archlinux.org/paru-bin.git:", err)
+	}
 
-	cmd = exec.Command("makepkg", "-si")
+	cmd = exec.Command("makepkg", "-si", "--noconfirm")
+	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	cmd.Dir = constants.TmpDir
-	cmd.Run()
+	cmd.Dir = wrapper.GetTmpDir() + "/paru-bin"
+	if err := cmd.Run(); err != nil {
+		pterm.Fatal.Println("Failed to install paru:", err)
+	}
 
 	wrapper.SudoWriteFile("/etc/pacman.conf", pacmanConf)
 	wrapper.SudoWriteFile("/etc/paru.conf", paruConf)
