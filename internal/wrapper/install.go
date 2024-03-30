@@ -12,9 +12,27 @@ func Paru(packageName string) error {
 	return pacmanLike(packageName, "paru")
 }
 
+// ParuOnce acts like Paru but skips when the package is installed already.
+func ParuOnce(packageName string) error {
+	if IsArchPkgInstalled("paru", packageName) {
+		return nil
+	}
+
+	return pacmanLike(packageName, "paru")
+}
+
 // Pacman installs Arch Linux packages using pacman. It can not install packages
 // from the AUR.
 func Pacman(packageName string) error {
+	return pacmanLike(packageName, "pacman")
+}
+
+// PacmanOnce acts like Pacman but skips when the package is installed already.
+func PacmanOnce(packageName string) error {
+	if IsArchPkgInstalled("pacman", packageName) {
+		return nil
+	}
+
 	return pacmanLike(packageName, "pacman")
 }
 
@@ -27,6 +45,15 @@ func Flatpak(appID string) error {
 
 	pterm.Debug.Printfln("Installing '%s' via flatpak", appID)
 	return Run("flatpak", "install", "-y", "--system", appID)
+}
+
+// FlatpakOnce acts like Flatpak but skips when the package is installed already.
+func FlatpakOnce(packageName string) error {
+	if IsFlatpakInstalled(packageName) {
+		return nil
+	}
+
+	return Flatpak(packageName)
 }
 
 // Dconf loads dconf configuration from string

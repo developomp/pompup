@@ -65,6 +65,11 @@ func IsArchPkgInstalled(installer string, packageName string) bool {
 	return BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)) == nil
 }
 
+// IsFlatpakInstalled checks if an flatpak package has been installed already.
+func IsFlatpakInstalled(packageName string) bool {
+	return BashRun(fmt.Sprintf("flatpak list | grep -E '%v'", packageName)) == nil
+}
+
 // IsOnline checks if the program has working internet connection.
 func IsOnline() bool {
 	// ping archlinux.org by sending one packet (-c 1)
