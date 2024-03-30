@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/developomp/pompup/internal/constants"
-	"github.com/developomp/pompup/internal/workflows"
+	"github.com/developomp/pompup/internal/installers"
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
@@ -34,9 +34,9 @@ GitHub: https://github.com/developomp/pompup`,
 		var reminders []string
 
 		// run setup functions
-		for _, workflow := range workflows.Workflows {
-			reminders = append(reminders, workflow.Reminders...)
-			workflow.Setup()
+		for _, installer := range installers.Installers {
+			reminders = append(reminders, installer.Reminders...)
+			installer.Setup()
 		}
 
 		// show reminders
