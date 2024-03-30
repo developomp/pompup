@@ -41,7 +41,16 @@ GitHub: https://github.com/developomp/pompup`,
 		var reminders []string
 
 		// run installers
-		for _, installer := range installers.Installers {
+		total := len(installers.Installers)
+		for i, installer := range installers.Installers {
+			pterm.Info.Printfln(
+				"[%v / %v] %v - %v %v",
+				i,
+				total,
+				pterm.FgWhite.Sprint(installer.Name),
+				pterm.FgGray.Sprint(installer.Desc),
+				pterm.FgLightWhite.Sprint(installer.Tags),
+			)
 			reminders = append(reminders, installer.Reminders...)
 			installer.Setup()
 		}
