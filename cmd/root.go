@@ -23,7 +23,7 @@ func Execute() {
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use: "pompup",
-	Long: `pompup is a personal Arch Linux desktop setup utility tailor-made for developomp.
+	Long: `pompup is a personal one-click Arch Linux desktop setup utility tailor made for myself.
 
 GitHub: https://github.com/developomp/pompup`,
 
