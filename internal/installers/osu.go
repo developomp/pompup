@@ -17,13 +17,20 @@ func init() {
 		Desc: "osu!lazer and tablet driver",
 		Tags: []Tag{Game, Gui},
 		Setup: func() {
-			gearleverInstaller.Setup()
+			matches, err := filepath.Glob(wrapper.InHome("Programs/AppImages/gearlever_osu*.appimage"))
+			if err != nil {
+				pterm.Fatal.Println("Failed to check osu installation:", err)
+			}
+			if len(matches) == 1 {
+				return
+			}
 
 			if !wrapper.PathExists(wrapper.InHome("Downloads/osu.appimage")) {
 				downloadOsuAppImage()
 			}
 
-			err := wrapper.Run("it.mijorus.gearlever", wrapper.InHome("Downloads/osu.appimage"))
+			gearleverInstaller.Setup()
+			err = wrapper.Run("it.mijorus.gearlever", wrapper.InHome("Downloads/osu.appimage"))
 			if err != nil {
 				pterm.Fatal.Println("Failed to install osu.appimage")
 			}
