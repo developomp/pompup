@@ -15,7 +15,7 @@ func init() {
 	register(&Installer{
 		Name: "osu!",
 		Desc: "osu!lazer and tablet driver",
-		Tags: []Tag{Gaming, Gui},
+		Tags: []Tag{Game, Gui},
 		Setup: func() {
 			gearleverInstaller.Setup()
 			downloadOsuAppImage()
