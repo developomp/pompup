@@ -18,11 +18,18 @@ func init() {
 		Tags: []Tag{Game, Gui},
 		Setup: func() {
 			gearleverInstaller.Setup()
-			downloadOsuAppImage()
+
+			if !wrapper.PathExists(wrapper.InHome("Downloads/osu.appimage")) {
+				downloadOsuAppImage()
+			}
+
+			err := wrapper.Run("it.mijorus.gearlever", wrapper.InHome("Downloads/osu.appimage"))
+			if err != nil {
+				pterm.Fatal.Println("Failed to install osu.appimage")
+			}
 		},
 		Reminders: append(gearleverInstaller.Reminders,
 			[]string{
-				"Install osu.appimage file in Downloads directory",
 				"Install osu! skin from https://github.com/developomp/osu-pomp-skin",
 			}...,
 		),
@@ -45,11 +52,14 @@ func downloadOsuAppImage() {
 			break
 		}
 	}
+	if len(downloadURL) == 0 {
+		pterm.Fatal.Println("Failed to get latest osu version.")
+	}
 
 	osuPath := wrapper.InHome("Downloads/osu.appimage")
 
 	// create parent directories
-	err = os.MkdirAll(filepath.Dir(osuPath), wrapper.DefaultFilePerm)
+	err = os.MkdirAll(filepath.Dir(osuPath), wrapper.DefaultDirPerm)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to create directory \"%s\": %s", osuPath, err)
 	}
