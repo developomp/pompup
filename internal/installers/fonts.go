@@ -1,21 +1,26 @@
 package installers
 
 import (
+	"net/url"
+	"path/filepath"
+
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
-var fonts = [...]string{
-	"Audiowide",
-	"Varela Round",
-	"Noto Sans",
-	"Noto Sans KR", // Korean
-	"Noto Sans JP", // Japanese
-	"Noto Sans TC", // Traditional Chinese
-	"Noto Sans SC", // Simplified Chinese
-	"Noto Sans Mono",
-	"Nanum Gothic Coding",
-	"Noto Emoji",
+// https://github.com/google/fonts
+var fontURLs = [...]string{
+	"https://github.com/google/fonts/raw/main/ofl/audiowide/Audiowide-Regular.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/varelaround/VarelaRound-Regular.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans-Italic%5Bwdth,wght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosanstc/NotoSansTC%5Bwght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/notosansmono/NotoSansMono%5Bwdth,wght%5D.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Regular.ttf",
+	"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Bold.ttf",
 }
 
 func init() {
@@ -32,18 +37,16 @@ func init() {
 			wrapper.ParuOnce("ttf-d2coding-nerd")               // Korean coding font
 			wrapper.ParuOnce("noto-fonts")                      // cjk, emoji, etc
 
-			// install https://github.com/lordgiotto/google-font-installer
-			if !wrapper.IsBinInstalled("gfi") {
-				setupNodejs()
-				wrapper.Run("npm", "install", "-g", "google-font-installer")
-			}
+			total := len(fontURLs)
+			for i, fontURL := range fontURLs {
+				pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, fontURL)
 
-			total := len(fonts)
-			for i, font := range fonts {
-				pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, font)
-				err := wrapper.Run("gfi", "download", font, "--dest", wrapper.InHome(".local/share/fonts"))
+				fontFileName, _ := url.QueryUnescape(filepath.Base(fontURL))
+				fontPath := filepath.Join(wrapper.InHome(".local/share/fonts"), fontFileName)
+
+				err := wrapper.Run("wget", "-q", fontURL, "-O", fontPath)
 				if err != nil {
-					pterm.Fatal.Printfln("Failed to install font %s: %s", font, err)
+					pterm.Fatal.Printfln("Failed to install font %s: %s", fontURL, err)
 				}
 			}
 
