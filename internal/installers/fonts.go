@@ -44,13 +44,17 @@ func init() {
 				fontFileName, _ := url.QueryUnescape(filepath.Base(fontURL))
 				fontPath := filepath.Join(wrapper.InHome(".local/share/fonts"), fontFileName)
 
+				if wrapper.PathExists(fontPath) {
+					continue
+				}
+
 				err := wrapper.Run("wget", "-q", fontURL, "-O", fontPath)
 				if err != nil {
 					pterm.Fatal.Printfln("Failed to install font %s: %s", fontURL, err)
 				}
 			}
 
-			// regenerate font cache
+			pterm.Debug.Println("Refreshing Font Cache")
 			err := wrapper.Run("fc-cache", "-vf")
 			if err != nil {
 				pterm.Fatal.Println("Failed to regenerate font cache", err)
