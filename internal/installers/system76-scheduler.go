@@ -16,6 +16,10 @@ func init() {
 }
 
 func setupSystem76Scheduler() {
-	wrapper.ParuOnce("system76-scheduler")
+	if wrapper.IsArchPkgInstalled("pacman", "system76-scheduler") {
+		return
+	}
+
+	wrapper.Paru("system76-scheduler")
 	wrapper.Run("sudo", "systemctl", "enable", "--now", "com.system76.Scheduler.service")
 }
