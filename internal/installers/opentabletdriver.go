@@ -15,9 +15,13 @@ func init() {
 		Desc: "for osu",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
+			if wrapper.IsArchPkgInstalled("pacman", "opentabletdriver") {
+				return
+			}
+
 			// https://opentabletdriver.net/Wiki/Install/Linux#arch
 
-			wrapper.ParuOnce("opentabletdriver")
+			wrapper.Paru("opentabletdriver")
 
 			wrapper.Run("sudo", "mkinitcpio", "-P")
 			wrapper.Run("sudo", "rmmod", "wacom")
