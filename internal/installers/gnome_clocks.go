@@ -16,6 +16,10 @@ func init() {
 		Desc: "GNOME Time management utility",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
+			if wrapper.IsFlatpakInstalled("org.gnome.clocks") {
+				return
+			}
+
 			wrapper.FlatpakOnce("org.gnome.clocks")
 
 			err := wrapper.Dconf(_gnomeClocksDconf)
