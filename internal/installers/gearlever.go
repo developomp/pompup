@@ -15,6 +15,8 @@ var gearleverInstaller = Installer{
 			return
 		}
 
+		wrapper.FlatpakOnce("it.mijorus.gearlever")
+
 		// set default appimage location to "~/Programs/AppImages"
 		wrapper.Run(
 			"sed",
@@ -22,8 +24,6 @@ var gearleverInstaller = Installer{
 			fmt.Sprintf("/^appimages-default-folder=/c\\appimages-default-folder='%s/Programs/AppImages'", wrapper.GetHomeDir()),
 			"/home/pomp/.var/app/it.mijorus.gearlever/config/glib-2.0/settings/keyfile",
 		)
-
-		wrapper.FlatpakOnce("it.mijorus.gearlever")
 	},
 }
 
