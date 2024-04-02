@@ -8,8 +8,12 @@ func init() {
 		Desc: "nvim + NvChad, the best text editor (allegedly)",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			wrapper.ParuOnce("neovim")
-			wrapper.ParuOnce("ripgrep")
+			if wrapper.IsArchPkgInstalled("pacman", "neovim") {
+				return
+			}
+
+			wrapper.Paru("neovim")
+			wrapper.Paru("ripgrep")
 
 			wrapper.Run("git", "clone", "https://github.com/NvChad/NvChad", wrapper.InHome(".config/nvim"), "--depth", "1")
 		},
