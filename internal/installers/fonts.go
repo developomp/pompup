@@ -3,13 +3,21 @@ package installers
 import (
 	"net/url"
 	"path/filepath"
+	"strings"
 
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
 )
 
 // https://github.com/google/fonts
-var fontURLs = [...]string{
+var fonts = [...]string{
+	"ttf-ms-fonts",                    // MS fonts
+	"adobe-source-han-sans-otc-fonts", // Korean font
+	"ttf-baekmuk",                     // Korean font
+	"unicode-emoji",                   // Colorful emoji
+	"ttf-nerd-fonts-symbols-mono",     // Nerd font
+	"ttf-d2coding-nerd",               // Korean coding font
+	"noto-fonts",                      // cjk, emoji, etc
 	"https://github.com/google/fonts/raw/main/ofl/audiowide/Audiowide-Regular.ttf",
 	"https://github.com/google/fonts/raw/main/ofl/varelaround/VarelaRound-Regular.ttf",
 	"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
@@ -29,29 +37,37 @@ func init() {
 		Desc: "fonts",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.ParuOnce("ttf-ms-fonts")                    // MS fonts
-			wrapper.ParuOnce("adobe-source-han-sans-otc-fonts") // Korean font
-			wrapper.ParuOnce("ttf-baekmuk")                     // Korean font
-			wrapper.ParuOnce("unicode-emoji")                   // Colorful emoji
-			wrapper.ParuOnce("ttf-nerd-fonts-symbols-mono")     // Nerd font
-			wrapper.ParuOnce("ttf-d2coding-nerd")               // Korean coding font
-			wrapper.ParuOnce("noto-fonts")                      // cjk, emoji, etc
+			total := len(fonts)
+			installed := 0
+			for i, font := range fonts {
+				pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, font)
 
-			total := len(fontURLs)
-			for i, fontURL := range fontURLs {
-				pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, fontURL)
+				if strings.HasPrefix(font, "https://") {
+					fontFileName, _ := url.QueryUnescape(filepath.Base(font))
+					fontPath := filepath.Join(wrapper.InHome(".local/share/fonts"), fontFileName)
 
-				fontFileName, _ := url.QueryUnescape(filepath.Base(fontURL))
-				fontPath := filepath.Join(wrapper.InHome(".local/share/fonts"), fontFileName)
+					if wrapper.PathExists(fontPath) {
+						continue
+					}
 
-				if wrapper.PathExists(fontPath) {
-					continue
+					err := wrapper.Run("wget", "-q", font, "-O", fontPath)
+					if err != nil {
+						pterm.Fatal.Printfln("Failed to install font %s: %s", font, err)
+					}
+
+					installed += 1
+				} else {
+					if wrapper.IsArchPkgInstalled("pacman", font) {
+						continue
+					}
+
+					wrapper.Paru(font)
+					installed += 1
 				}
+			}
 
-				err := wrapper.Run("wget", "-q", fontURL, "-O", fontPath)
-				if err != nil {
-					pterm.Fatal.Printfln("Failed to install font %s: %s", fontURL, err)
-				}
+			if installed == 0 {
+				return
 			}
 
 			pterm.Debug.Println("Refreshing Font Cache")
