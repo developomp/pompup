@@ -8,7 +8,11 @@ func init() {
 		Desc: "Bootloader",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.ParuOnce("grub")
+			if wrapper.IsArchPkgInstalled("pacman", "grub") {
+				return
+			}
+
+			wrapper.Paru("grub")
 
 			// https://stackoverflow.com/a/11245501/12979111
 			wrapper.Run("sudo", "sed", "-i", "/^GRUB_CMDLINE_LINUX_DEFAULT=/c\\GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 quiet splash nvidia-drm.modeset=1\"", "/etc/default/grub")
