@@ -45,7 +45,7 @@ GitHub: https://github.com/developomp/pompup`,
 		for i, installer := range installers.Installers {
 			pterm.Info.Printfln(
 				"[%v / %v] %v - %v %v",
-				i,
+				i+1,
 				total,
 				pterm.FgWhite.Sprint(installer.Name),
 				pterm.FgGray.Sprint(installer.Desc),
