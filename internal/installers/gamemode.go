@@ -12,20 +12,22 @@ var _gamemodeConfig string
 
 func init() {
 	register(&Installer{
-		Name:  "gamemode",
-		Desc:  "gamemoderun",
-		Tags:  []Tag{System},
-		Setup: setupGamemode,
+		Name: "gamemode",
+		Desc: "gamemoderun",
+		Tags: []Tag{System},
+		Setup: func() {
+			if wrapper.IsArchPkgInstalled("pacman", "gamemode") {
+				return
+			}
+
+			wrapper.Paru("gamemode")
+
+			wrapper.BashRun("sudo usermod -a -G gamemode $USER")
+
+			err := wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
+			if err != nil {
+				pterm.Fatal.Println("Failed to write to /etc/gamemode.ini")
+			}
+		},
 	})
-}
-
-func setupGamemode() {
-	wrapper.ParuOnce("gamemode")
-
-	wrapper.BashRun("sudo usermod -a -G gamemode $USER")
-
-	err := wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
-	if err != nil {
-		pterm.Fatal.Println("Failed to write to /etc/gamemode.ini")
-	}
 }
