@@ -18,7 +18,11 @@ func init() {
 		Desc: "Like bash but better",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.ParuOnce("zsh")
+			if wrapper.IsArchPkgInstalled("pacman", "zsh") {
+				return
+			}
+
+			wrapper.Paru("zsh")
 
 			installOMZ()
 			installP10K()
