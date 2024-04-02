@@ -14,7 +14,7 @@ var kittyInstaller = Installer{
 	Desc: "terminal emulator",
 	Tags: []Tag{Dev, Gui},
 	Setup: func() {
-		if wrapper.IsArchPkgInstalled("pacman", "kitty") {
+		if wrapper.IsArchPkgInstalled("kitty") {
 			return
 		}
 

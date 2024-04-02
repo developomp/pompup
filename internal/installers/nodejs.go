@@ -11,7 +11,7 @@ func init() {
 		Desc: "Node.JS and related CLI tools",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("paru", "nvm") {
+			if wrapper.IsArchPkgInstalled("nvm") {
 				return
 			}
 

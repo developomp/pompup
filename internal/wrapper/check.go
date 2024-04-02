@@ -60,9 +60,9 @@ func IsBinInstalled(command string) bool {
 	return err == nil
 }
 
-// IsArchPkgInstalled checks if an Arch/AUR package has been installed already.
-func IsArchPkgInstalled(installer string, packageName string) bool {
-	return BashRun(fmt.Sprintf("%s -Q | grep -E '(^|\\s)%v($|\\s)'", installer, packageName)) == nil
+// IsArchPkgInstalled checks if an arch package has been installed already.
+func IsArchPkgInstalled(packageName string) bool {
+	return BashRun(fmt.Sprintf("pacman -Q | grep -E '(^|\\s)%v($|\\s)'", packageName)) == nil
 }
 
 // IsFlatpakInstalled checks if an flatpak package has been installed already.

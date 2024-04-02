@@ -8,7 +8,7 @@ func init() {
 		Desc: "nvim + NvChad, the best text editor (allegedly)",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "neovim") {
+			if wrapper.IsArchPkgInstalled("neovim") {
 				return
 			}
 

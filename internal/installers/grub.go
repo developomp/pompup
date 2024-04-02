@@ -8,7 +8,7 @@ func init() {
 		Desc: "Bootloader",
 		Tags: []Tag{System},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "grub") {
+			if wrapper.IsArchPkgInstalled("grub") {
 				return
 			}
 

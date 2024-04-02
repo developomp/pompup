@@ -16,7 +16,7 @@ func init() {
 }
 
 func setupSystem76Scheduler() {
-	if wrapper.IsArchPkgInstalled("pacman", "system76-scheduler") {
+	if wrapper.IsArchPkgInstalled("system76-scheduler") {
 		return
 	}
 

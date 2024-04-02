@@ -15,7 +15,7 @@ func init() {
 		Desc: "git gud",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "git") {
+			if wrapper.IsArchPkgInstalled("git") {
 				return
 			}
 

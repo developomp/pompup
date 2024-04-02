@@ -57,7 +57,7 @@ func init() {
 
 					installed += 1
 				} else {
-					if wrapper.IsArchPkgInstalled("pacman", font) {
+					if wrapper.IsArchPkgInstalled(font) {
 						continue
 					}
 

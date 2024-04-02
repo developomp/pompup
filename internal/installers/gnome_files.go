@@ -15,7 +15,7 @@ func init() {
 		Desc: "nautilus",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "nautilus") {
+			if wrapper.IsArchPkgInstalled("nautilus") {
 				return
 			}
 

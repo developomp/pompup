@@ -11,7 +11,7 @@ func init() {
 		Desc: "VM stuff",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "virtualbox") {
+			if wrapper.IsArchPkgInstalled("virtualbox") {
 				return
 			}
 

@@ -11,7 +11,7 @@ func init() {
 		Desc: "Rustup and stuff",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "rustup") {
+			if wrapper.IsArchPkgInstalled("rustup") {
 				return
 			}
 

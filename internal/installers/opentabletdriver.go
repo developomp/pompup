@@ -15,7 +15,7 @@ func init() {
 		Desc: "for osu",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "opentabletdriver") {
+			if wrapper.IsArchPkgInstalled("opentabletdriver") {
 				return
 			}
 

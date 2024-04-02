@@ -14,7 +14,7 @@ func Paru(packageName string) error {
 
 // ParuOnce acts like Paru but skips when the package is installed already.
 func ParuOnce(packageName string) error {
-	if IsArchPkgInstalled("paru", packageName) {
+	if IsArchPkgInstalled(packageName) {
 		return nil
 	}
 
@@ -29,7 +29,7 @@ func Pacman(packageName string) error {
 
 // PacmanOnce acts like Pacman but skips when the package is installed already.
 func PacmanOnce(packageName string) error {
-	if IsArchPkgInstalled("pacman", packageName) {
+	if IsArchPkgInstalled(packageName) {
 		return nil
 	}
 

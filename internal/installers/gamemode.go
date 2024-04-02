@@ -16,7 +16,7 @@ func init() {
 		Desc: "gamemoderun",
 		Tags: []Tag{System},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "gamemode") {
+			if wrapper.IsArchPkgInstalled("gamemode") {
 				return
 			}
 

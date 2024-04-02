@@ -18,7 +18,7 @@ func init() {
 		Desc: "Like bash but better",
 		Tags: []Tag{System},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("pacman", "zsh") {
+			if wrapper.IsArchPkgInstalled("zsh") {
 				return
 			}
 

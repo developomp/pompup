@@ -14,7 +14,7 @@ func pacmanLike(packageName string, installer string) error {
 	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
 	// Skip installation if the package is installed already.
-	if IsArchPkgInstalled(installer, packageName) {
+	if IsArchPkgInstalled(packageName) {
 		return nil
 	}
 
