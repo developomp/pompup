@@ -15,13 +15,15 @@ func init() {
 		Desc: "nautilus",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.ParuOnce("nautilus")
+			if wrapper.IsArchPkgInstalled("pacman", "nautilus") {
+				return
+			}
+
+			wrapper.Paru("nautilus")
 			wrapper.Dconf(_gnomeNautilusDconf)
 
-			wrapper.ParuOnce("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
-			if !wrapper.IsBinInstalled("kitty") {
-				setupKitty()
-			}
+			wrapper.Paru("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
+			kittyInstaller.Setup()
 
 			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "terminal", "kitty")
 			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "keybindings", "''")
