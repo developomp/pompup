@@ -15,7 +15,6 @@ func init() {
 		Name: "Cloudflare DNS",
 		Desc: "1.1.1.1 DNS",
 		Tags: []Tag{System},
-
 		Setup: func() {
 			// remove immutable flag from /etc/resolv.conf
 			err := wrapper.Run("sudo", "chattr", "-i", "/etc/resolv.conf")
