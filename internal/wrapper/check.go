@@ -12,7 +12,6 @@ import (
 var (
 	ErrStartupNotLinux      error = errors.New("platform is not Linux")
 	ErrStartupRunningAsRoot error = errors.New("program running as root")
-	ErrStartupNotOnline     error = errors.New("no internet connection")
 	ErrStartupNoPacman      error = errors.New("pacman is not installed")
 	ErrStartupNoSudo        error = errors.New("sudo is not installed")
 )
@@ -26,10 +25,6 @@ func StartupCheck() error {
 
 	if IsRoot() {
 		return ErrStartupRunningAsRoot
-	}
-
-	if !IsOnline() {
-		return ErrStartupNotOnline
 	}
 
 	if !IsBinInstalled("pacman") {
@@ -68,12 +63,6 @@ func IsArchPkgInstalled(packageName string) bool {
 // IsFlatpakInstalled checks if an flatpak package has been installed already.
 func IsFlatpakInstalled(packageName string) bool {
 	return BashRun(fmt.Sprintf("flatpak list | grep -E '%v'", packageName)) == nil
-}
-
-// IsOnline checks if the program has working internet connection.
-func IsOnline() bool {
-	// ping archlinux.org by sending one packet (-c 1)
-	return Run("ping", "-c", "1", "archlinux.org") == nil
 }
 
 // PathExists checks whether the given path exists or not
