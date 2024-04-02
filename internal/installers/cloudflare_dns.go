@@ -2,8 +2,6 @@ package installers
 
 import (
 	_ "embed"
-	"os"
-	"strings"
 
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
@@ -20,16 +18,12 @@ func init() {
 		Setup: func() {
 			const filePath = "/etc/resolv.conf"
 
-			b, err := os.ReadFile(filePath)
-			if err != nil {
-				pterm.Fatal.Printfln("Failed to read %s: %s", filePath, err)
-			}
-			if strings.TrimSpace(string(b)) == _resolvConf {
+			if wrapper.IsFileUpdated(filePath, _resolvConf) {
 				return
 			}
 
 			// remove immutable flag from /etc/resolv.conf
-			err = wrapper.Run("sudo", "chattr", "-i", filePath)
+			err := wrapper.Run("sudo", "chattr", "-i", filePath)
 			if err != nil {
 				pterm.Fatal.Println("Failed to remove immutable flag from /etc/resolv.conf:", err)
 			}
