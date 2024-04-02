@@ -8,7 +8,7 @@ func init() {
 		Desc: "business communication",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.slack.Slack")
+			wrapper.FlatpakOnce("com.slack.Slack")
 		},
 	})
 }

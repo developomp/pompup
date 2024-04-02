@@ -8,7 +8,7 @@ func init() {
 		Desc: "GNOME photo taking utility",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.Cheese")
+			wrapper.FlatpakOnce("org.gnome.Cheese")
 		},
 	})
 }

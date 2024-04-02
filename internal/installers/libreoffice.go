@@ -8,7 +8,7 @@ func init() {
 		Desc: "FOSS Office Suite",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.libreoffice.LibreOffice")
+			wrapper.FlatpakOnce("org.libreoffice.LibreOffice")
 		},
 	})
 }

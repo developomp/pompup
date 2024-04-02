@@ -8,7 +8,7 @@ func init() {
 		Desc: "top but better",
 		Tags: []Tag{Cli},
 		Setup: func() {
-			wrapper.Paru("btop")
+			wrapper.ParuOnce("btop")
 		},
 	})
 }

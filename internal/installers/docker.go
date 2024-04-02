@@ -11,7 +11,7 @@ func init() {
 		Desc: "not a VM",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			wrapper.Paru("docker")
+			wrapper.ParuOnce("docker")
 
 			// add current user to the "docker" group
 			// this allows us to use docker commands without sudo

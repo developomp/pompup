@@ -8,7 +8,7 @@ func init() {
 		Desc: "GNOME image viewing utility",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.eog")
+			wrapper.FlatpakOnce("org.gnome.eog")
 		},
 	})
 }

@@ -8,7 +8,7 @@ func init() {
 		Desc: "Non-evil Adacity fork",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.tenacityaudio.Tenacity")
+			wrapper.FlatpakOnce("org.tenacityaudio.Tenacity")
 		},
 	})
 }

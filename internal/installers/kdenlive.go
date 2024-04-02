@@ -8,7 +8,7 @@ func init() {
 		Desc: "Adobe Premiere Pro but FOSS",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.kde.kdenlive")
+			wrapper.FlatpakOnce("org.kde.kdenlive")
 		},
 	})
 }

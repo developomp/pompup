@@ -8,7 +8,7 @@ func init() {
 		Desc: "Application Menu Editor",
 		Tags: []Tag{Gui, System, Configurator},
 		Setup: func() {
-			wrapper.Flatpak("page.codeberg.libre_menu_editor.LibreMenuEditor")
+			wrapper.FlatpakOnce("page.codeberg.libre_menu_editor.LibreMenuEditor")
 		},
 	})
 }

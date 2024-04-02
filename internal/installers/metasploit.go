@@ -8,7 +8,7 @@ func init() {
 		Desc: "Penetration Testing",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			wrapper.Paru("metasploit")
+			wrapper.ParuOnce("metasploit")
 		},
 	})
 }

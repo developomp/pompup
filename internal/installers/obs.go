@@ -8,8 +8,8 @@ func init() {
 		Desc: "Screen recording and streaming utility",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.obsproject.Studio")
-			wrapper.Paru("v4l2loopback-dkms") // for virtual camera
+			wrapper.FlatpakOnce("com.obsproject.Studio")
+			wrapper.ParuOnce("v4l2loopback-dkms") // for virtual camera
 		},
 	})
 }

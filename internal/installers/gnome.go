@@ -32,16 +32,16 @@ func init() {
 		Tags: []Tag{System},
 		Setup: func() {
 			// core
-			wrapper.Paru("gdm")
-			wrapper.Paru("gnome-keyring")
-			wrapper.Paru("gnome-control-center") // installs gnome-settings-daemon as dependency
-			wrapper.Paru("xdg-desktop-portal-gnome")
-			wrapper.Paru("touchegg") // for wayland touch gestures
+			wrapper.ParuOnce("gdm")
+			wrapper.ParuOnce("gnome-keyring")
+			wrapper.ParuOnce("gnome-control-center") // installs gnome-settings-daemon as dependency
+			wrapper.ParuOnce("xdg-desktop-portal-gnome")
+			wrapper.ParuOnce("touchegg") // for wayland touch gestures
 
 			// themes
-			wrapper.Paru("pop-gtk-theme")      // gtk theme
-			wrapper.Paru("papirus-icon-theme") // icon theme
-			wrapper.Paru("xcursor-breeze")     // cursor theme
+			wrapper.ParuOnce("pop-gtk-theme")      // gtk theme
+			wrapper.ParuOnce("papirus-icon-theme") // icon theme
+			wrapper.ParuOnce("xcursor-breeze")     // cursor theme
 
 			configurePipewire()
 			wrapper.Dconf(_gnomeDesktopDconf)

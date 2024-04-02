@@ -8,7 +8,7 @@ func init() {
 		Desc: "FTP GUI",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.filezillaproject.Filezilla")
+			wrapper.FlatpakOnce("org.filezillaproject.Filezilla")
 		},
 	})
 }

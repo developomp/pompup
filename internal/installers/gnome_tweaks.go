@@ -8,7 +8,7 @@ func init() {
 		Desc: "Complementary GNOME settings app",
 		Tags: []Tag{Gnome, Configurator},
 		Setup: func() {
-			wrapper.Paru("gnome-tweaks")
+			wrapper.ParuOnce("gnome-tweaks")
 		},
 	})
 }

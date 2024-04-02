@@ -8,8 +8,8 @@ func init() {
 		Desc: "python, pip, and stuff",
 		Tags: []Tag{Dev},
 		Setup: func() {
-			wrapper.Paru("python")
-			wrapper.Paru("python-pip") // python package manager
+			wrapper.ParuOnce("python")
+			wrapper.ParuOnce("python-pip") // python package manager
 		},
 	})
 }

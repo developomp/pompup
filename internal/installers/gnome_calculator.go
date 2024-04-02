@@ -8,7 +8,7 @@ func init() {
 		Desc: "GNOME Calculator",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.Calculator")
+			wrapper.FlatpakOnce("org.gnome.Calculator")
 		},
 	})
 }

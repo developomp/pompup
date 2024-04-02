@@ -16,6 +16,6 @@ func init() {
 }
 
 func setupSystem76Scheduler() {
-	wrapper.Paru("system76-scheduler")
+	wrapper.ParuOnce("system76-scheduler")
 	wrapper.Run("sudo", "systemctl", "enable", "--now", "com.system76.Scheduler.service")
 }

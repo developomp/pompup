@@ -8,7 +8,7 @@ func init() {
 		Desc: "Matrix communication GUI",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("im.riot.Riot")
+			wrapper.FlatpakOnce("im.riot.Riot")
 		},
 	})
 }

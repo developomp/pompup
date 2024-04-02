@@ -8,7 +8,7 @@ func init() {
 		Desc: "FOSS game engine",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.godotengine.Godot")
+			wrapper.FlatpakOnce("org.godotengine.Godot")
 		},
 	})
 }

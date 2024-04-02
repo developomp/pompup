@@ -23,7 +23,7 @@ var gearleverInstaller = Installer{
 			"/home/pomp/.var/app/it.mijorus.gearlever/config/glib-2.0/settings/keyfile",
 		)
 
-		wrapper.Flatpak("it.mijorus.gearlever")
+		wrapper.FlatpakOnce("it.mijorus.gearlever")
 	},
 }
 

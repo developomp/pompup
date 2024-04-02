@@ -8,7 +8,7 @@ func init() {
 		Desc: "GUI partition tool",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Paru("gparted")
+			wrapper.ParuOnce("gparted")
 		},
 	})
 }

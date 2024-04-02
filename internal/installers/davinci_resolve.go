@@ -8,7 +8,7 @@ func init() {
 		Desc: "Video Editing Tool",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Paru("davinci-resolve")
+			wrapper.ParuOnce("davinci-resolve")
 		},
 	})
 }

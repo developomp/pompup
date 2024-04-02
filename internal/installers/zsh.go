@@ -18,7 +18,7 @@ func init() {
 		Desc: "Like bash but better",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.Paru("zsh")
+			wrapper.ParuOnce("zsh")
 
 			installOMZ()
 			installP10K()

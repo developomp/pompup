@@ -9,7 +9,7 @@ func init() {
 		Tags: []Tag{Gui},
 
 		Setup: func() {
-			wrapper.Flatpak("com.brave.Browser")
+			wrapper.FlatpakOnce("com.brave.Browser")
 		},
 		Reminders: []string{
 			"Enable Brave sync",

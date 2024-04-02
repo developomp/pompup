@@ -19,8 +19,8 @@ func init() {
 }
 
 func setupKitty() {
-	wrapper.Paru("kitty")
-	wrapper.Paru("kitty-shell-integration")
+	wrapper.ParuOnce("kitty")
+	wrapper.ParuOnce("kitty-shell-integration")
 
 	wrapper.WriteFile(wrapper.InHome(".config/kitty/kitty.conf"), kittyConfig)
 }

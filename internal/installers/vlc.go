@@ -8,7 +8,7 @@ func init() {
 		Desc: "video player",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.videolan.VLC")
+			wrapper.FlatpakOnce("org.videolan.VLC")
 		},
 	})
 }

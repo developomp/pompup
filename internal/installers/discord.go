@@ -8,7 +8,7 @@ func init() {
 		Desc: "discord and betterdiscord plugins",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.discordapp.Discord")
+			wrapper.FlatpakOnce("com.discordapp.Discord")
 		},
 		Reminders: []string{
 			"Install vencord",

@@ -8,7 +8,7 @@ func init() {
 		Desc: "flatpak permission manager",
 		Tags: []Tag{Configurator},
 		Setup: func() {
-			wrapper.Flatpak("com.github.tchx84.Flatseal")
+			wrapper.FlatpakOnce("com.github.tchx84.Flatseal")
 		},
 	})
 }

@@ -8,9 +8,9 @@ func init() {
 		Desc: "GSettings editor for GNOME",
 		Tags: []Tag{Configurator},
 		Setup: func() {
-			wrapper.Paru("openrazer-meta")
+			wrapper.ParuOnce("openrazer-meta")
 			wrapper.Run("sudo", "gpasswd", "-a", wrapper.GetUserName(), "plugdev")
-			wrapper.Paru("polychromatic")
+			wrapper.ParuOnce("polychromatic")
 		},
 	})
 }

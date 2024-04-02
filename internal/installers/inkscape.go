@@ -8,7 +8,7 @@ func init() {
 		Desc: "Adobe Illustrator but FOSS",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.inkscape.Inkscape")
+			wrapper.FlatpakOnce("org.inkscape.Inkscape")
 		},
 	})
 }

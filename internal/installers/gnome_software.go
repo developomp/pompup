@@ -8,7 +8,7 @@ func init() {
 		Desc: "GUI Flatpak Installer",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Paru("gnome-software")
+			wrapper.ParuOnce("gnome-software")
 		},
 	})
 }

@@ -17,7 +17,7 @@ func init() {
 		Setup: func() {
 			// https://opentabletdriver.net/Wiki/Install/Linux#arch
 
-			wrapper.Paru("opentabletdriver")
+			wrapper.ParuOnce("opentabletdriver")
 
 			wrapper.Run("sudo", "mkinitcpio", "-P")
 			wrapper.Run("sudo", "rmmod", "wacom")

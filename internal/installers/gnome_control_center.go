@@ -8,7 +8,7 @@ func init() {
 		Desc: "GNOME settings app",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Paru("gnome-control-center")
+			wrapper.ParuOnce("gnome-control-center")
 		},
 	})
 }

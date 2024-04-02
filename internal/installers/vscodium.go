@@ -143,7 +143,7 @@ func init() {
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			// not using flatpak version due to permission issues such as lazydocker not working inside the integrated terminal
-			wrapper.Paru("vscodium-bin")
+			wrapper.ParuOnce("vscodium-bin")
 
 			restoreVscodeSettings()
 			enableVscodeExtensionStore()

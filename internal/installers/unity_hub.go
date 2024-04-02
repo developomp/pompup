@@ -8,7 +8,7 @@ func init() {
 		Desc: "Unity Installation manager",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.unity.UnityHub")
+			wrapper.FlatpakOnce("com.unity.UnityHub")
 		},
 		Reminders: []string{
 			"Change Unity Hub editors location",

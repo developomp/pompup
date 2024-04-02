@@ -15,10 +15,10 @@ func init() {
 		Desc: "nautilus",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Paru("nautilus")
+			wrapper.ParuOnce("nautilus")
 			wrapper.Dconf(_gnomeNautilusDconf)
 
-			wrapper.Paru("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
+			wrapper.ParuOnce("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
 			if !wrapper.IsBinInstalled("kitty") {
 				setupKitty()
 			}

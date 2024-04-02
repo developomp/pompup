@@ -8,7 +8,7 @@ func init() {
 		Desc: "private messaging",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.signal.Signal")
+			wrapper.FlatpakOnce("org.signal.Signal")
 		},
 	})
 }

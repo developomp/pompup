@@ -8,7 +8,7 @@ func init() {
 		Desc: "Disk partitioning and stuff",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Paru("gnome-disk-utility")
+			wrapper.ParuOnce("gnome-disk-utility")
 		},
 	})
 }

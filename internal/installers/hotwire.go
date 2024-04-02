@@ -8,7 +8,7 @@ func init() {
 		Desc: "wireshark lite",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.github.emmanueltouzery.hotwire")
+			wrapper.FlatpakOnce("com.github.emmanueltouzery.hotwire")
 		},
 	})
 }

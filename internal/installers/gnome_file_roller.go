@@ -8,7 +8,7 @@ func init() {
 		Desc: "Compression and Decompression",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.FileRoller")
+			wrapper.FlatpakOnce("org.gnome.FileRoller")
 		},
 	})
 }

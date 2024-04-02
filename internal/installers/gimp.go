@@ -8,7 +8,7 @@ func init() {
 		Desc: "Photoshop but FOSS",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gimp.GIMP")
+			wrapper.FlatpakOnce("org.gimp.GIMP")
 		},
 	})
 }

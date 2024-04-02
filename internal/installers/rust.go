@@ -11,7 +11,7 @@ func init() {
 		Desc: "Rustup and stuff",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			wrapper.Paru("rustup")
+			wrapper.ParuOnce("rustup")
 
 			pterm.Debug.Println("Installing stable rust toolchain")
 			wrapper.Run("rustup", "install", "stable")

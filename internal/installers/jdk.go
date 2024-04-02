@@ -8,8 +8,8 @@ func init() {
 		Desc: "Java Development Kit",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			wrapper.Paru("jdk-openjdk")
-			wrapper.Paru("jdk8-openjdk")
+			wrapper.ParuOnce("jdk-openjdk")
+			wrapper.ParuOnce("jdk8-openjdk")
 		},
 	})
 }

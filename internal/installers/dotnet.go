@@ -8,7 +8,7 @@ func init() {
 		Desc: "Microsoft Java",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			wrapper.Paru("dotnet-sdk")
+			wrapper.ParuOnce("dotnet-sdk")
 		},
 	})
 }

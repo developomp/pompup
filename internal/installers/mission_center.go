@@ -8,7 +8,7 @@ func init() {
 		Desc: "Task Manager but Linux",
 		Tags: []Tag{System, Gui},
 		Setup: func() {
-			wrapper.Flatpak("io.missioncenter.MissionCenter")
+			wrapper.FlatpakOnce("io.missioncenter.MissionCenter")
 		},
 	})
 }

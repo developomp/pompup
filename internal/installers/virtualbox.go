@@ -11,9 +11,9 @@ func init() {
 		Desc: "VM stuff",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Paru("virtualbox")
-			wrapper.Paru("virtualbox-host-modules-arch")
-			wrapper.Paru("virtualbox-ext-oracle")
+			wrapper.ParuOnce("virtualbox")
+			wrapper.ParuOnce("virtualbox-host-modules-arch")
+			wrapper.ParuOnce("virtualbox-ext-oracle")
 
 			username := wrapper.GetUserName()
 

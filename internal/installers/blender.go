@@ -10,7 +10,7 @@ func init() {
 		Desc: "FOSS 3D creation suite",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.blender.Blender")
+			wrapper.FlatpakOnce("org.blender.Blender")
 		},
 	})
 }

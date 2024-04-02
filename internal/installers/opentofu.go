@@ -8,7 +8,7 @@ func init() {
 		Desc: "terraform but not evil",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			wrapper.Paru("opentofu-bin")
+			wrapper.ParuOnce("opentofu-bin")
 		},
 	})
 }

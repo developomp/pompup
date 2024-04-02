@@ -8,7 +8,7 @@ func init() {
 		Desc: "Packet analyzer",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.wireshark.Wireshark")
+			wrapper.FlatpakOnce("org.wireshark.Wireshark")
 		},
 	})
 }

@@ -20,7 +20,7 @@ func init() {
 }
 
 func setupGamemode() {
-	wrapper.Paru("gamemode")
+	wrapper.ParuOnce("gamemode")
 
 	wrapper.BashRun("sudo usermod -a -G gamemode $USER")
 

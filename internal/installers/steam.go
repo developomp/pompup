@@ -8,7 +8,7 @@ func init() {
 		Desc: "Game Downloader & Launcher",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Flatpak("com.valvesoftware.Steam")
+			wrapper.FlatpakOnce("com.valvesoftware.Steam")
 		},
 	})
 }

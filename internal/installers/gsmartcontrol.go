@@ -8,7 +8,7 @@ func init() {
 		Desc: "GUI for S.M.A.R.T",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.Paru("gsmartcontrol")
+			wrapper.ParuOnce("gsmartcontrol")
 		},
 	})
 }

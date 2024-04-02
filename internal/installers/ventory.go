@@ -8,7 +8,7 @@ func init() {
 		Desc: "Bootable USB on steroid",
 		Tags: []Tag{Gui},
 		Setup: func() {
-			wrapper.Paru("ventoy-bin")
+			wrapper.ParuOnce("ventoy-bin")
 		},
 	})
 }

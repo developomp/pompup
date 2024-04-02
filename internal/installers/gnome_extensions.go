@@ -34,8 +34,8 @@ func init() {
 		Desc: "GNOME extensions",
 		Tags: []Tag{Gnome},
 		Setup: func() {
-			wrapper.Flatpak("com.mattjakeman.ExtensionManager") // GNOME extension installer GUI
-			wrapper.Paru("gnome-shell-extension-installer")     // GNOME extension installer CLI
+			wrapper.FlatpakOnce("com.mattjakeman.ExtensionManager") // GNOME extension installer GUI
+			wrapper.ParuOnce("gnome-shell-extension-installer")     // GNOME extension installer CLI
 
 			extensions := [...]gnomeExtension{
 				{"", "gnome-shell-extension-pop-shell-git", _gnomeExtensionPopShellDconf}, // https://aur.archlinux.org/packages/gnome-shell-extension-pop-shell-git
@@ -50,7 +50,7 @@ func init() {
 			for _, extension := range extensions {
 				// install extension
 				if len(extension.archPkg) > 0 {
-					wrapper.Paru(extension.archPkg)
+					wrapper.ParuOnce(extension.archPkg)
 				} else if len(extension.id) > 0 {
 					pterm.Debug.Printfln("Installing 'https://extensions.gnome.org/extension/%s' via gnome-shell-extension-installer", extension.id)
 					wrapper.Run("gnome-shell-extension-installer", extension.id, "--yes", "--update")

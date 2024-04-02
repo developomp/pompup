@@ -8,7 +8,7 @@ func init() {
 		Desc: "Special character browser",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.Characters")
+			wrapper.FlatpakOnce("org.gnome.Characters")
 		},
 	})
 }

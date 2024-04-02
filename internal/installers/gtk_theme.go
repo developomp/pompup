@@ -8,7 +8,7 @@ func init() {
 		Desc: "GTK theme made by system76",
 		Tags: []Tag{System, Gnome},
 		Setup: func() {
-			wrapper.Paru("pop-gtk-theme")
+			wrapper.ParuOnce("pop-gtk-theme")
 		},
 	})
 }

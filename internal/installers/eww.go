@@ -8,7 +8,7 @@ func init() {
 		Desc: "Linux Widgets",
 		Tags: []Tag{System},
 		Setup: func() {
-			wrapper.Paru("eww")
+			wrapper.ParuOnce("eww")
 		},
 	})
 }

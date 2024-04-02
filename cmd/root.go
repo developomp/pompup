@@ -79,21 +79,10 @@ func bootstrap() {
 		pterm.Fatal.Println(err)
 	}
 
-	if !wrapper.IsBinInstalled("ping") {
-		wrapper.Pacman("iputils")
-	}
-
-	if !wrapper.IsBinInstalled("wget") {
-		wrapper.Pacman("wget")
-	}
-
-	if !wrapper.IsBinInstalled("trash") {
-		wrapper.Pacman("trash-cli")
-	}
-
-	if !wrapper.IsBinInstalled("flatpak") {
-		wrapper.Pacman("flatpak")
-	}
+	wrapper.PacmanOnce("iputils")
+	wrapper.PacmanOnce("wget")
+	wrapper.PacmanOnce("trash-cli")
+	wrapper.PacmanOnce("flatpak")
 
 	if !wrapper.IsBinInstalled("paru") {
 		installParu()
@@ -113,13 +102,8 @@ func cleanup() {
 }
 
 func installParu() {
-	if !wrapper.IsBinInstalled("git") {
-		wrapper.Pacman("git")
-	}
-
-	if !wrapper.IsArchPkgInstalled("pacman", "base-devel") {
-		wrapper.Pacman("base-devel")
-	}
+	wrapper.PacmanOnce("git")
+	wrapper.PacmanOnce("base-devel")
 
 	var cmd *exec.Cmd
 

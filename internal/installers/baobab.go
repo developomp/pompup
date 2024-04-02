@@ -10,7 +10,7 @@ func init() {
 		Desc: "GNOME disk usage analyzer",
 		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
-			wrapper.Flatpak("org.gnome.baobab")
+			wrapper.FlatpakOnce("org.gnome.baobab")
 		},
 	})
 }
