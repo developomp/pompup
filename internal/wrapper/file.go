@@ -51,10 +51,14 @@ func SudoWriteFile(path string, data string) {
 
 // IsFileUpdated checks if file's content is already s.
 func IsFileUpdated(filePath string, s string) bool {
+	return strings.TrimSpace(ReadFile(filePath)) == s
+}
+
+func ReadFile(filePath string) string {
 	b, err := os.ReadFile(filePath)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to read %s: %s", filePath, err)
 	}
 
-	return strings.TrimSpace(string(b)) == s
+	return string(b)
 }
