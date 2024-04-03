@@ -4,6 +4,7 @@ import (
 	_ "embed"
 
 	"github.com/developomp/pompup/internal/wrapper"
+	"github.com/pterm/pterm"
 )
 
 //go:embed assets/etc/pipewire/pipewire.conf.d/99-low-latency.conf
@@ -61,5 +62,8 @@ func configurePipewire() {
 	wrapper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
 
 	// restart pipewire for the config to take effect
-	wrapper.Run("systemctl", "--user", "restart", "pipewire.service")
+	err := wrapper.Run("systemctl", "--user", "restart", "pipewire.service")
+	if err != nil {
+		pterm.Fatal.Println("Failed to restart pipewire service:", err)
+	}
 }
