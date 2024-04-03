@@ -14,12 +14,15 @@ func Paru(packageName string) error {
 }
 
 // ParuOnce acts like Paru but skips when the package is installed already.
-func ParuOnce(packageName string) error {
+func ParuOnce(packageName string) {
 	if IsArchPkgInstalled(packageName) {
-		return nil
+		return
 	}
 
-	return pacmanLike(packageName, "paru")
+	err := pacmanLike(packageName, "paru")
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to install %s via paru: %s", packageName, err)
+	}
 }
 
 // Pacman installs Arch Linux packages using pacman. It can not install packages
@@ -29,12 +32,15 @@ func Pacman(packageName string) error {
 }
 
 // PacmanOnce acts like Pacman but skips when the package is installed already.
-func PacmanOnce(packageName string) error {
+func PacmanOnce(packageName string) {
 	if IsArchPkgInstalled(packageName) {
-		return nil
+		return
 	}
 
-	return pacmanLike(packageName, "pacman")
+	err := pacmanLike(packageName, "pacman")
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to install %s via pacman: %s", packageName, err)
+	}
 }
 
 // Flatpak installs flatpak packages.
@@ -49,12 +55,15 @@ func Flatpak(appID string) error {
 }
 
 // FlatpakOnce acts like Flatpak but skips when the package is installed already.
-func FlatpakOnce(packageName string) error {
+func FlatpakOnce(packageName string) {
 	if IsFlatpakInstalled(packageName) {
-		return nil
+		return
 	}
 
-	return Flatpak(packageName)
+	err := Flatpak(packageName)
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to install %s via flatpak: %s", packageName, err)
+	}
 }
 
 // TryDconf tries to load dconf configuration from string then terminates program if it fails.
