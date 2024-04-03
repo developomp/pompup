@@ -11,10 +11,6 @@ var gearleverInstaller = Installer{
 	Desc: "appimage manager",
 	Tags: []Tag{System, Gui},
 	Setup: func() {
-		if wrapper.IsFlatpakInstalled("it.mijorus.gearlever") {
-			return
-		}
-
 		wrapper.FlatpakOnce("it.mijorus.gearlever")
 
 		// set default appimage location to "~/Programs/AppImages"
