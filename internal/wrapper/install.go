@@ -2,6 +2,7 @@ package wrapper
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/pterm/pterm"
 )
@@ -66,5 +67,11 @@ func TryDconf(data string) {
 
 // Dconf loads dconf configuration from string
 func Dconf(data string) error {
-	return BashRun(fmt.Sprintf("dconf load / << EOF\n%s\nEOF", data))
+	tmpPath := filepath.Join(TmpDir, "dconf.conf")
+	err := WriteFile(tmpPath, []byte(data))
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to write to %s: %s", tmpPath, err)
+	}
+
+	return BashRun(fmt.Sprintf("dconf load / < %s", tmpPath))
 }
