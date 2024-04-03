@@ -20,7 +20,7 @@ func init() {
 			}
 
 			wrapper.Paru("nautilus")
-			wrapper.Dconf(_gnomeNautilusDconf)
+			wrapper.TryDconf(_gnomeNautilusDconf)
 
 			wrapper.Paru("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
 			kittyInstaller.Setup()

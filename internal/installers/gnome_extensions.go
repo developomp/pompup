@@ -71,7 +71,7 @@ func init() {
 			}
 
 			// enable extensions
-			wrapper.Dconf(_gnomeExtensionEnableDconf)
+			wrapper.TryDconf(_gnomeExtensionEnableDconf)
 		},
 		Reminders: []string{
 			"Log-out and Log-in to GNOME",

@@ -43,11 +43,11 @@ func init() {
 			wrapper.ParuOnce("xcursor-breeze")     // cursor theme
 
 			configurePipewire()
-			wrapper.Dconf(_gnomeDesktopDconf)
-			wrapper.Dconf(_gnomeKeybindings)
-			wrapper.Dconf(_gnomeMutterDconf)
-			wrapper.Dconf(_gnomeSettingsDaemon)
-			wrapper.Dconf(_gnomeExtensionUserThemesDconf)
+			wrapper.TryDconf(_gnomeDesktopDconf)
+			wrapper.TryDconf(_gnomeKeybindings)
+			wrapper.TryDconf(_gnomeMutterDconf)
+			wrapper.TryDconf(_gnomeSettingsDaemon)
+			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
 		},
 	})
 }

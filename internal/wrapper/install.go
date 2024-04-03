@@ -56,6 +56,14 @@ func FlatpakOnce(packageName string) error {
 	return Flatpak(packageName)
 }
 
+// TryDconf tries to load dconf configuration from string then terminates program if it fails.
+func TryDconf(data string) {
+	err := Dconf(data)
+	if err != nil {
+		pterm.Fatal.Println("Failed to load config file:", err)
+	}
+}
+
 // Dconf loads dconf configuration from string
 func Dconf(data string) error {
 	return BashRun(fmt.Sprintf("dconf load / << EOF\n%s\nEOF", data))
