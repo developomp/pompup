@@ -15,13 +15,8 @@ func init() {
 		Desc: "git gud",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("git") {
-				return
-			}
-
-			wrapper.Paru("git")
-			wrapper.Paru("git-lfs")
-
+			wrapper.ParuOnce("git")
+			wrapper.ParuOnce("git-lfs")
 			wrapper.WriteFile(wrapper.InHome(".gitconfig"), _gitconfig)
 		},
 	})
