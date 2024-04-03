@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"os"
 	"os/exec"
+	"path/filepath"
 
 	"github.com/developomp/pompup/internal/installers"
 	"github.com/developomp/pompup/internal/wrapper"
@@ -75,7 +76,7 @@ func bootstrap() {
 	}
 
 	// create temporary directory
-	if err := os.MkdirAll(wrapper.GetTmpDir(), wrapper.DefaultDirPerm); err != nil {
+	if err := os.MkdirAll(wrapper.TmpDir, wrapper.DefaultDirPerm); err != nil {
 		pterm.Fatal.Println(err)
 	}
 
@@ -93,10 +94,10 @@ func bootstrap() {
 
 func cleanup() {
 	// remove temporary directory if it exists
-	if _, err := os.Stat(wrapper.GetTmpDir()); err == nil {
-		err := wrapper.Run("rm", "-rf", wrapper.GetTmpDir())
+	if _, err := os.Stat(wrapper.TmpDir); err == nil {
+		err := wrapper.Run("rm", "-rf", wrapper.TmpDir)
 		if err != nil {
-			pterm.Fatal.Printfln("Failed to clean '%s': %s", wrapper.GetTmpDir(), err)
+			pterm.Fatal.Printfln("Failed to clean '%s': %s", wrapper.TmpDir, err)
 		}
 	}
 }
@@ -110,7 +111,7 @@ func installParu() {
 	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru-bin.git")
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
-	cmd.Dir = wrapper.GetTmpDir()
+	cmd.Dir = wrapper.TmpDir
 	if err := cmd.Run(); err != nil {
 		pterm.Fatal.Println("Failed to clone https://aur.archlinux.org/paru-bin.git:", err)
 	}
@@ -118,7 +119,7 @@ func installParu() {
 	cmd = exec.Command("makepkg", "-si", "--noconfirm")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	cmd.Dir = wrapper.GetTmpDir() + "/paru-bin"
+	cmd.Dir = filepath.Join(wrapper.TmpDir, "paru-bin")
 	if err := cmd.Run(); err != nil {
 		pterm.Fatal.Println("Failed to install paru:", err)
 	}

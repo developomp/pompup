@@ -25,7 +25,7 @@ func SudoWriteFile(path string, data string) {
 	}
 
 	// create temporary file
-	tmpPath := filepath.Join(GetTmpDir(), filepath.Base(path))
+	tmpPath := filepath.Join(TmpDir, filepath.Base(path))
 	WriteFile(tmpPath, []byte(data))
 	err := WriteFile(tmpPath, []byte(data))
 	if err != nil {

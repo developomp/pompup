@@ -7,6 +7,13 @@ import (
 	"github.com/pterm/pterm"
 )
 
+// ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+// BE FUCKING CAREFUL WHEN CHANGING THIS
+// IT IS USED WITH "rm -rf"
+// IT MIGHT KDE6 THE SHIT OUT OF YOUR HOME DIR
+// ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+const TmpDir = "/tmp/pompup"
+
 // DefaultFilePerm is equivalent to -rw-r--r--
 const DefaultFilePerm = 0644
 
@@ -21,15 +28,6 @@ func GetHomeDir() string {
 	}
 
 	return homeDir
-}
-
-func GetTmpDir() string {
-	// ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
-	// BE FUCKING CAREFUL WHEN CHANGING THIS
-	// IT IS USED WITH "rm -rf"
-	// IT MIGHT KDE6 THE SHIT OUT OF YOUR HOME DIR
-	// ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
-	return "/tmp/pompup"
 }
 
 func InHome(path string) string {
