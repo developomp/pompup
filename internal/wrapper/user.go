@@ -6,6 +6,8 @@ import (
 	"os/user"
 	"slices"
 	"strings"
+
+	"github.com/pterm/pterm"
 )
 
 func GetUserName() string {
@@ -18,10 +20,10 @@ func GetUserName() string {
 }
 
 // AddGroup adds the user to group if the user is not part of the group already.
-func AddGroup(group string) error {
+func AddGroup(group string) {
 	out, err := exec.Command("groups").Output()
 	if err != nil {
-		return err
+		pterm.Fatal.Println("Failed to add user to", group, "group:", err)
 	}
 
 	groups := strings.Fields(string(out))
@@ -29,9 +31,7 @@ func AddGroup(group string) error {
 		username := GetUserName()
 		err = Run("sudo", "usermod", "-aG", group, username) // add current user to group
 		if err != nil {
-			return err
+			pterm.Fatal.Println("Failed to add user to", group, "group:", err)
 		}
 	}
-
-	return nil
 }

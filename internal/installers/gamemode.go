@@ -4,7 +4,6 @@ import (
 	_ "embed"
 
 	"github.com/developomp/pompup/internal/wrapper"
-	"github.com/pterm/pterm"
 )
 
 //go:embed assets/etc/gamemode.ini
@@ -17,12 +16,7 @@ func init() {
 		Tags: []Tag{System},
 		Setup: func() {
 			wrapper.ParuOnce("gamemode")
-
-			err := wrapper.AddGroup("gamemode")
-			if err != nil {
-				pterm.Fatal.Println("Failed to add user to gamemode group:", err)
-			}
-
+			wrapper.AddGroup("gamemode")
 			wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
 		},
 	})
