@@ -16,18 +16,14 @@ func init() {
 		Desc: "gamemoderun",
 		Tags: []Tag{System},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("gamemode") {
-				return
-			}
+			wrapper.ParuOnce("gamemode")
 
-			wrapper.Paru("gamemode")
-
-			wrapper.BashRun("sudo usermod -a -G gamemode $USER")
-
-			err := wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
+			err := wrapper.AddGroup("gamemode")
 			if err != nil {
-				pterm.Fatal.Println("Failed to write to /etc/gamemode.ini")
+				pterm.Fatal.Println("Failed to add user to gamemode group:", err)
 			}
+
+			wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
 		},
 	})
 }

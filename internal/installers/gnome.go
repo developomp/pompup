@@ -4,7 +4,6 @@ import (
 	_ "embed"
 
 	"github.com/developomp/pompup/internal/wrapper"
-	"github.com/pterm/pterm"
 )
 
 //go:embed assets/etc/pipewire/pipewire.conf.d/99-low-latency.conf
@@ -59,10 +58,7 @@ func init() {
 // more info: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire
 // more info about split conf: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire#split-file-configuration
 func configurePipewire() {
-	err := wrapper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
-	if err != nil {
-		pterm.Fatal.Println("Failed to configure pipewire")
-	}
+	wrapper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
 
 	// restart pipewire for the config to take effect
 	wrapper.Run("systemctl", "--user", "restart", "pipewire.service")

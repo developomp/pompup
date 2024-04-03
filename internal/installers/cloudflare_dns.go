@@ -29,10 +29,7 @@ func init() {
 			}
 
 			// write to /etc/resolv.conf
-			err = wrapper.SudoWriteFile(filePath, _resolvConf)
-			if err != nil {
-				pterm.Fatal.Println("Failed to write /etc/resolv.conf:", err)
-			}
+			wrapper.SudoWriteFile(filePath, _resolvConf)
 
 			// restore immutable flag
 			err = wrapper.Run("sudo", "chattr", "+i", filePath)

@@ -1,7 +1,6 @@
 package wrapper
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -9,6 +8,7 @@ import (
 	"github.com/pterm/pterm"
 )
 
+// WriteFile writes data to path. It can safely perform multiple operations on the same path.
 func WriteFile(path string, data []byte) error {
 	err := os.MkdirAll(filepath.Dir(path), DefaultFilePerm)
 	if err != nil {
@@ -18,13 +18,35 @@ func WriteFile(path string, data []byte) error {
 	return os.WriteFile(path, data, DefaultFilePerm)
 }
 
-func SudoWriteFile(path string, data string) error {
-	return Run(
+// SudoWriteFile writes data to path where file is owned by root. It can safely perform multiple operations on the same path.
+func SudoWriteFile(path string, data string) {
+	if IsFileUpdated(path, data) {
+		return
+	}
+
+	// create temporary file
+	tmpPath := filepath.Join(GetTmpDir(), filepath.Base(path))
+	WriteFile(tmpPath, []byte(data))
+	err := WriteFile(tmpPath, []byte(data))
+	if err != nil {
+		pterm.Fatal.Println("Failed to write to", path)
+	}
+
+	err = Run(
 		"sudo",
-		"bash",
-		"-c",
-		fmt.Sprintf("cat >%s <<EOL\n%s\nEOL", path, data),
+		"install",
+		"--group",
+		"root",
+		"--owner",
+		"root",
+		"--mode",
+		"0644", // rw-r--r--
+		tmpPath,
+		path,
 	)
+	if err != nil {
+		pterm.Fatal.Println("Failed to write to", path)
+	}
 }
 
 // IsFileUpdated checks if file's content is already s.
