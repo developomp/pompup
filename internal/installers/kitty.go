@@ -14,12 +14,8 @@ var kittyInstaller = Installer{
 	Desc: "terminal emulator",
 	Tags: []Tag{Dev, Gui},
 	Setup: func() {
-		if wrapper.IsArchPkgInstalled("kitty") {
-			return
-		}
-
-		wrapper.Paru("kitty")
-		wrapper.Paru("kitty-shell-integration")
+		wrapper.ParuOnce("kitty")
+		wrapper.ParuOnce("kitty-shell-integration")
 
 		wrapper.WriteFile(wrapper.InHome(".config/kitty/kitty.conf"), kittyConfig)
 	},
