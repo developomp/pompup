@@ -2,7 +2,6 @@ package installers
 
 import (
 	"github.com/developomp/pompup/internal/wrapper"
-	"github.com/pterm/pterm"
 )
 
 func init() {
@@ -11,14 +10,10 @@ func init() {
 		Desc: "Rustup and stuff",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("rustup") {
-				return
-			}
+			wrapper.ParuOnce("rustup")
 
-			wrapper.Paru("rustup")
-
-			pterm.Debug.Println("Installing stable rust toolchain")
 			wrapper.Run("rustup", "install", "stable")
+			wrapper.Run("rustup", "default", "stable")
 		},
 	})
 }
