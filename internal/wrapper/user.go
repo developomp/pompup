@@ -28,8 +28,7 @@ func AddGroup(group string) {
 
 	groups := strings.Fields(string(out))
 	if !slices.Contains(groups, group) {
-		username := GetUserName()
-		err = Run("sudo", "usermod", "-aG", group, username) // add current user to group
+		err = Run("sudo", "usermod", "-aG", group, GetUserName()) // add current user to group
 		if err != nil {
 			pterm.Fatal.Println("Failed to add user to", group, "group:", err)
 		}
