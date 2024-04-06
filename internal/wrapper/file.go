@@ -3,7 +3,6 @@ package wrapper
 import (
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/pterm/pterm"
 )
@@ -51,7 +50,7 @@ func SudoWriteFile(path string, data string) {
 
 // IsFileUpdated checks if file's content is already s.
 func IsFileUpdated(filePath string, s string) bool {
-	return strings.TrimSpace(ReadFile(filePath)) == s
+	return ReadFile(filePath) == s
 }
 
 func ReadFile(filePath string) string {
