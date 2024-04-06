@@ -3,7 +3,6 @@
     "golang.go",
     // for formatting markdown, yaml, json, etc
     "esbenp.prettier-vscode",
-    "timonwong.shellcheck",
     "foxundermoon.shell-format"
   ]
 }
