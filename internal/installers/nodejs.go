@@ -11,18 +11,23 @@ func init() {
 		Desc: "Node.JS and related CLI tools",
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("nvm") {
-				return
+			wrapper.ParuOnce("nvm")
+
+			// nvm requires bash interpretation
+			err := wrapper.BashRun("source ~/.bashrc && nvm install --lts")
+			if err != nil {
+				pterm.Fatal.Println("Failed to install latest Node.js version:", err)
 			}
 
-			wrapper.Paru("nvm")
-			wrapper.Run("nvm install --lts")
+			if !wrapper.IsBinInstalled("pnpm") {
+				pterm.Debug.Println("Installing pnpm")
+				wrapper.Run("npm", "install", "--global", "pnpm")
+			}
 
-			pterm.Debug.Println("Installing pnpm")
-			wrapper.Run("npm", "install", "--global", "pnpm")
-
-			pterm.Debug.Println("Installing yarn")
-			wrapper.Run("npm", "install", "--global", "yarn")
+			if !wrapper.IsBinInstalled("yarn") {
+				pterm.Debug.Println("Installing yarn")
+				wrapper.Run("npm", "install", "--global", "yarn")
+			}
 		},
 	})
 }

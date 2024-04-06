@@ -1,21 +1,11 @@
-# shellcheck disable=SC2148
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
 #region nvm
-# shellcheck source=/dev/null
 source /usr/share/nvm/init-nvm.sh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 #endregion nvm
 
+#region conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
@@ -30,3 +20,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#endregion conda
