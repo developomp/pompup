@@ -19,7 +19,6 @@ func init() {
 			wrapper.TryDconf(_gnomeNautilusDconf)
 
 			wrapper.ParuOnce("nautilus-open-any-terminal") // allow nautilus to open directory in terminal
-			kittyInstaller.Setup()
 
 			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "terminal", "kitty")
 			wrapper.Run("gsettings", "set", "com.github.stunkymonkey.nautilus-open-any-terminal", "keybindings", "''")

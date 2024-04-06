@@ -28,18 +28,11 @@ func init() {
 			if !wrapper.PathExists(wrapper.InHome("Downloads/osu.appimage")) {
 				downloadOsuAppImage()
 			}
-
-			gearleverInstaller.Setup()
-			err = wrapper.Run("it.mijorus.gearlever", wrapper.InHome("Downloads/osu.appimage"))
-			if err != nil {
-				pterm.Fatal.Println("Failed to install osu.appimage")
-			}
 		},
-		Reminders: append(gearleverInstaller.Reminders,
-			[]string{
-				"Install osu! skin from https://github.com/developomp/osu-pomp-skin",
-			}...,
-		),
+		Reminders: []string{
+			"Install osu! via gearlever",
+			"Install osu! skin from https://github.com/developomp/osu-pomp-skin",
+		},
 	})
 }
 
