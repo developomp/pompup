@@ -134,6 +134,7 @@
     "pylance",
     "Razoric",
     "resolv",
+    "ripgrep",
     "rivo",
     "rmmod",
     "rustup",
