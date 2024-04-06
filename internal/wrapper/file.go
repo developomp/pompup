@@ -8,13 +8,18 @@ import (
 )
 
 // WriteFile writes data to path. It can safely perform multiple operations on the same path.
-func WriteFile(path string, data []byte) error {
-	err := os.MkdirAll(filepath.Dir(path), DefaultFilePerm)
+func WriteFile(filePath string, data []byte) {
+	dirPath := filepath.Dir(filePath)
+
+	err := os.MkdirAll(dirPath, DefaultFilePerm)
 	if err != nil {
-		return err
+		pterm.Fatal.Printfln("Failed to create directory %s: %s", dirPath, err)
 	}
 
-	return os.WriteFile(path, data, DefaultFilePerm)
+	err = os.WriteFile(filePath, data, DefaultFilePerm)
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to write to file %s: %s", filePath, err)
+	}
 }
 
 // SudoWriteFile writes data to path where file is owned by root. It can safely perform multiple operations on the same path.
@@ -26,12 +31,8 @@ func SudoWriteFile(path string, data string) {
 	// create temporary file
 	tmpPath := filepath.Join(TmpDir, filepath.Base(path))
 	WriteFile(tmpPath, []byte(data))
-	err := WriteFile(tmpPath, []byte(data))
-	if err != nil {
-		pterm.Fatal.Println("Failed to write to", path)
-	}
 
-	err = Run(
+	err := Run(
 		"sudo",
 		"install",
 		"--group",

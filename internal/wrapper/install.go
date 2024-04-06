@@ -77,10 +77,7 @@ func TryDconf(data string) {
 // Dconf loads dconf configuration from string
 func Dconf(data string) error {
 	tmpPath := filepath.Join(TmpDir, "dconf.conf")
-	err := WriteFile(tmpPath, []byte(data))
-	if err != nil {
-		pterm.Fatal.Printfln("Failed to write to %s: %s", tmpPath, err)
-	}
+	WriteFile(tmpPath, []byte(data))
 
 	return BashRun(fmt.Sprintf("dconf load / < %s", tmpPath))
 }

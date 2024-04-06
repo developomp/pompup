@@ -18,10 +18,7 @@ func setupZSH() {
 	installOMZ()
 	installP10K()
 
-	err := wrapper.WriteFile(wrapper.InHome(".zshrc"), zshConfig)
-	if err != nil {
-		pterm.Fatal.Println("Failed to restore zsh config file:", err)
-	}
+	wrapper.WriteFile(wrapper.InHome(".zshrc"), zshConfig)
 
 	// $SHELL could be /usr/bin/zsh
 	if !strings.HasSuffix(os.Getenv("SHELL"), "/bin/zsh") {

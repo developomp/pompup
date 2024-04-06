@@ -156,23 +156,17 @@ func init() {
 }
 
 func restoreVscodeSettings() {
-	err := wrapper.WriteFile(
+	wrapper.WriteFile(
 		wrapper.InHome(".config/VSCodium/User/settings.json"),
 		vscodiumConfig,
 	)
-	if err != nil {
-		pterm.Fatal.Println("Failed to restore vscodium settings:", err)
-	}
 }
 
 func enableVscodeExtensionStore() {
-	err := wrapper.WriteFile(
+	wrapper.WriteFile(
 		wrapper.InHome(".config/VSCodium/product.json"),
 		vscodiumProduct,
 	)
-	if err != nil {
-		pterm.Fatal.Println("Failed to enable vscode extension store:", err)
-	}
 }
 
 func installVscodeExtension(extensionName string) {
