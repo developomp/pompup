@@ -1,9 +1,10 @@
-package installers
+package bootstrap
 
 import (
 	_ "embed"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
@@ -12,32 +13,23 @@ import (
 //go:embed assets/home/.zshrc
 var zshConfig []byte
 
-func init() {
-	register(&Installer{
-		Name: "zsh",
-		Desc: "Like bash but better",
-		Tags: []Tag{System},
-		Setup: func() {
-			if wrapper.IsArchPkgInstalled("zsh") {
-				return
-			}
+func setupZSH() {
+	wrapper.ParuOnce("zsh")
+	installOMZ()
+	installP10K()
 
-			wrapper.Paru("zsh")
+	err := wrapper.WriteFile(wrapper.InHome(".zshrc"), zshConfig)
+	if err != nil {
+		pterm.Fatal.Println("Failed to restore zsh config file:", err)
+	}
 
-			installOMZ()
-			installP10K()
-
-			err := wrapper.WriteFile(wrapper.InHome(".zshrc"), zshConfig)
-			if err != nil {
-				pterm.Fatal.Println("Failed to restore zsh config file:", err)
-			}
-
-			// set the default shell to zsh
-			if err := exec.Command("sudo", "chsh", "-s", "/bin/zsh").Run(); err != nil {
-				pterm.Fatal.Println("Failed to set default shell to zsh")
-			}
-		},
-	})
+	// $SHELL could be /usr/bin/zsh
+	if !strings.HasSuffix(os.Getenv("SHELL"), "/bin/zsh") {
+		// set the default shell to zsh
+		if err := exec.Command("sudo", "chsh", "-s", "/bin/zsh").Run(); err != nil {
+			pterm.Fatal.Println("Failed to set default shell to zsh")
+		}
+	}
 }
 
 func installOMZ() {
@@ -68,13 +60,11 @@ func installOMZ() {
 func installP10K() {
 	p10kPath := wrapper.InHome(".oh-my-zsh/custom/themes/powerlevel10k")
 
-	// skip if p10k is already installed
-	if _, err := os.Stat(p10kPath); err == nil {
+	if wrapper.PathExists(p10kPath) {
 		return
 	}
 
 	pterm.Debug.Println("Installing p10k theme")
-
 	if err := exec.Command("git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", p10kPath).Run(); err != nil {
 		pterm.Fatal.Printfln("Failed to clone https://github.com/romkatv/powerlevel10k.git: %s", err)
 	}
