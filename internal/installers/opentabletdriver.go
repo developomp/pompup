@@ -15,17 +15,14 @@ func init() {
 		Desc: "for osu",
 		Tags: []Tag{Dev, Cli},
 		Setup: func() {
-			if wrapper.IsArchPkgInstalled("opentabletdriver") {
-				return
+			if !wrapper.IsArchPkgInstalled("opentabletdriver") {
+				// https://opentabletdriver.net/Wiki/Install/Linux#arch
+				wrapper.Paru("opentabletdriver")
+
+				wrapper.Run("sudo", "mkinitcpio", "-P")
+				wrapper.Run("sudo", "rmmod", "wacom")
+				wrapper.Run("sudo", "rmmod", "hid_uclogic")
 			}
-
-			// https://opentabletdriver.net/Wiki/Install/Linux#arch
-
-			wrapper.Paru("opentabletdriver")
-
-			wrapper.Run("sudo", "mkinitcpio", "-P")
-			wrapper.Run("sudo", "rmmod", "wacom")
-			wrapper.Run("sudo", "rmmod", "hid_uclogic")
 
 			wrapper.WriteFile(wrapper.InHome(".config/OpenTabletDriver/settings.json"), _otdSettings)
 		},
