@@ -9,7 +9,8 @@ func init() {
 		Tags: []Tag{Configurator},
 		Setup: func() {
 			wrapper.ParuOnce("openrazer-meta")
-			wrapper.Run("sudo", "gpasswd", "-a", wrapper.GetUserName(), "plugdev")
+			wrapper.AddGroup("plugdev")
+
 			wrapper.ParuOnce("polychromatic")
 		},
 	})
