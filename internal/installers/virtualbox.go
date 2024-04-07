@@ -23,8 +23,5 @@ func init() {
 				pterm.Fatal.Println("Failed to load virtualbox driver modules:", err)
 			}
 		},
-		Reminders: []string{
-			"Re-login to use virtualbox without sudo",
-		},
 	})
 }

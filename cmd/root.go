@@ -33,7 +33,9 @@ GitHub: https://github.com/developomp/pompup`,
 		cleanup()
 		bootstrap.Bootstrap()
 
-		var reminders []string
+		var reminders []string = []string{
+			"Reboot your system to complete installation",
+		}
 
 		// sort installers by name
 		sort.Slice(installers.Installers, func(i, j int) bool {
@@ -59,6 +61,8 @@ GitHub: https://github.com/developomp/pompup`,
 		}
 
 		// show reminders
+		pterm.Info.Println("")
+		pterm.Info.Println("Reminders:")
 		for _, reminder := range reminders {
 			pterm.Info.Println(reminder)
 		}
