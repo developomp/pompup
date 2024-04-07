@@ -11,7 +11,7 @@ import (
 func WriteFile(filePath string, data []byte) {
 	dirPath := filepath.Dir(filePath)
 
-	err := os.MkdirAll(dirPath, DefaultFilePerm)
+	err := os.MkdirAll(dirPath, DefaultDirPerm)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to create directory %s: %s", dirPath, err)
 	}
