@@ -14,8 +14,8 @@ func init() {
 			wrapper.ParuOnce("nvm")
 
 			// nvm requires bash interpretation
-			// install and use latest node version
-			err := wrapper.BashRun("source ~/.bashrc && nvm install node --lts && nvm use node")
+			// install and use latest node LTS version
+			err := wrapper.BashRun("source ~/.bashrc && nvm install --lts && nvm use --lts")
 			if err != nil {
 				pterm.Fatal.Println("Failed to install latest Node.js version:", err)
 			}
