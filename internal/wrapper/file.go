@@ -9,8 +9,8 @@ import (
 
 // WriteFile writes data to path. It can safely perform multiple operations on the same path.
 func WriteFile(filePath string, data []byte) {
+	// create parent directories
 	dirPath := filepath.Dir(filePath)
-
 	err := os.MkdirAll(dirPath, DefaultDirPerm)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to create directory %s: %s", dirPath, err)
@@ -55,14 +55,30 @@ func IsFileUpdated(filePath string, s string) bool {
 		return false
 	}
 
-	return ReadFile(filePath) == s
+	content, fileExists := ReadFile(filePath)
+
+	if !fileExists {
+		return false
+	}
+
+	return content == s
 }
 
-func ReadFile(filePath string) string {
+func ReadFile(filePath string) (content string, fileExists bool) {
+	fileExists = true
+
+	if !PathExists(filePath) {
+		content = ""
+		fileExists = false
+		return
+	}
+
 	b, err := os.ReadFile(filePath)
 	if err != nil {
 		pterm.Fatal.Printfln("Failed to read %s: %s", filePath, err)
 	}
 
-	return string(b)
+	content = string(b)
+
+	return
 }
