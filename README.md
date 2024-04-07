@@ -61,7 +61,13 @@ but here are the instructions to use it:
    wget pompup.developomp.com -O pompup
    ```
 
-4. Run pompup
+4. Make the file executable
+
+   ```
+   chmod +x ./pompup
+   ```
+
+5. Run pompup
 
    ```
    ./pompup
