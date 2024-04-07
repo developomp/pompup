@@ -49,8 +49,6 @@ func init() {
 			total := len(fonts)
 			installed := 0
 			for i, font := range fonts {
-				pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, font)
-
 				if strings.HasPrefix(font, "https://") {
 					fontFileName, _ := url.QueryUnescape(filepath.Base(font))
 					fontPath := filepath.Join(fontsDir, fontFileName)
@@ -59,6 +57,7 @@ func init() {
 						continue
 					}
 
+					pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, font)
 					err := wrapper.Run("wget", "-q", font, "-O", fontPath)
 					if err != nil {
 						pterm.Fatal.Printfln("Failed to install font %s to %s: %s", font, fontPath, err)
@@ -70,6 +69,7 @@ func init() {
 						continue
 					}
 
+					pterm.Debug.Printfln("Installing font [%v / %v]: %s", i+1, total, font)
 					wrapper.Paru(font)
 					installed += 1
 				}
