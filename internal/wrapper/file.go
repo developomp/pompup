@@ -51,6 +51,10 @@ func SudoWriteFile(path string, data string) {
 
 // IsFileUpdated checks if file's content is already s.
 func IsFileUpdated(filePath string, s string) bool {
+	if !PathExists(filePath) {
+		return false
+	}
+
 	return ReadFile(filePath) == s
 }
 
