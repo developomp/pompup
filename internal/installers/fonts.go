@@ -2,6 +2,7 @@ package installers
 
 import (
 	"net/url"
+	"os"
 	"path/filepath"
 	"strings"
 
@@ -37,6 +38,14 @@ func init() {
 		Desc: "fonts",
 		Tags: []Tag{System},
 		Setup: func() {
+			fontsDir := wrapper.InHome(".local/share/fonts")
+			if !wrapper.PathExists(fontsDir) {
+				err := os.MkdirAll(fontsDir, wrapper.DefaultDirPerm)
+				if err != nil {
+					pterm.Fatal.Printfln("Failed to create directory %s: %s", fontsDir, err)
+				}
+			}
+
 			total := len(fonts)
 			installed := 0
 			for i, font := range fonts {
@@ -44,7 +53,7 @@ func init() {
 
 				if strings.HasPrefix(font, "https://") {
 					fontFileName, _ := url.QueryUnescape(filepath.Base(font))
-					fontPath := filepath.Join(wrapper.InHome(".local/share/fonts"), fontFileName)
+					fontPath := filepath.Join(fontsDir, fontFileName)
 
 					if wrapper.PathExists(fontPath) {
 						continue
@@ -52,7 +61,7 @@ func init() {
 
 					err := wrapper.Run("wget", "-q", font, "-O", fontPath)
 					if err != nil {
-						pterm.Fatal.Printfln("Failed to install font %s: %s", font, err)
+						pterm.Fatal.Printfln("Failed to install font %s to %s: %s", font, fontPath, err)
 					}
 
 					installed += 1
