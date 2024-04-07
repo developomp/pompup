@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"os"
+	"sort"
+	"strings"
 
 	"github.com/developomp/pompup/internal/bootstrap"
 	"github.com/developomp/pompup/internal/installers"
@@ -32,6 +34,14 @@ GitHub: https://github.com/developomp/pompup`,
 		bootstrap.Bootstrap()
 
 		var reminders []string
+
+		// sort installers by name
+		sort.Slice(installers.Installers, func(i, j int) bool {
+			a := installers.Installers[i]
+			b := installers.Installers[j]
+
+			return strings.ToLower(a.Name) < strings.ToLower(b.Name)
+		})
 
 		// run installers
 		total := len(installers.Installers)
