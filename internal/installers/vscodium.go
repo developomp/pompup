@@ -151,10 +151,6 @@ var vscodeExtensions = []string{
 	// XML
 	"redhat.vscode-xml",
 
-	// GraphQL
-	"GraphQL.vscode-graphql-syntax",
-	"GraphQL.vscode-graphql",
-
 	// Linux
 	"coolbear.systemd-unit-file",
 	"nico-castell.linux-desktop-file",
@@ -194,10 +190,11 @@ func init() {
 			if err != nil {
 				pterm.Fatal.Println("Failed to list installed vscode extensions:", err)
 			}
+			// contains lowercase names
 			installedExtensions := strings.Split(string(out), "\n")
 
 			for _, extensionName := range vscodeExtensions {
-				if slices.Contains(installedExtensions, extensionName) {
+				if slices.Contains(installedExtensions, strings.ToLower(extensionName)) {
 					continue // skip installed
 				}
 
