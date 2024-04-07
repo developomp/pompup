@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo '==========[ paru ]=========='
+paru -Syu --noconfirm || exit
+
+echo
+echo '==========[ flatpak ]=========='
+flatpak update -y || exit
+
+echo
+echo '==========[ penpot ]=========='
+cd /home/pomp/Programs/penpot || exit
+docker compose -f docker-compose.yaml pull || exit
+
+# echo
+# echo '==========[ cargo ]=========='
+# cargo install-update --all

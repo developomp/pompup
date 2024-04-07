@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin/:$PATH"
+
 #region nvm
 source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.nvm"

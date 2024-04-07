@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# these are the best settings already.
+# increasing the values any further will make system unstable.
+
+nvidia-settings -a 'GpuPowerMizerMode=1'
+nvidia-settings -a 'GPUGraphicsClockOffset[3]=260'
+nvidia-settings -a 'GPUMemoryTransferRateOffset[3]=1500'
+nvidia-settings -a 'OpenGLImageSettings[3]=3'

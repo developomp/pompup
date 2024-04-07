@@ -1,0 +1,9 @@
+# clear logs
+journalctl --disk-usage
+sudo journalctl --vacuum-time=1h
+
+# clear pacman cache and tmp folder
+sudo pacman -Scc
+
+# clear paru clones
+rm -rf /home/pomp/.cache/paru/clone/*

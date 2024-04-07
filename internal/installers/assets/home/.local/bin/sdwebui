@@ -1,0 +1,3 @@
+cd ~/Programs/stable-diffusion-webui
+bash ./webui.sh
+

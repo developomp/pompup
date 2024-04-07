@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+PRODUCTS="IntelliJIdea CLion PhpStorm GoLand PyCharm WebStorm Rider DataGrip RubyMine AppCode"
+
+rm -rf ~/.java/.userPrefs/prefs.xml
+rm -rf ~/.java/.userPrefs/jetbrains/prefs.xml
+
+for PRODUCT in $PRODUCTS; do
+	rm -rf ~/.config/JetBrains/${PRODUCT}*/eval/
+	rm -rf ~/.config/JetBrains/${PRODUCT}*/options/other.xml
+done
