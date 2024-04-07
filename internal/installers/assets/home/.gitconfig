@@ -1,19 +1,25 @@
 [user]
-	email = developomp@protonmail.com
-	name = developomp
-	signingkey = 0ACF5B57D6E513E03B03FF5477DAC7BB5CA8C7AA
+email = developomp@protonmail.com
+name = developomp
+signingkey = 2B516173EDD492EB
+
 [pull]
-	rebase = false
+rebase = false
+
 [init]
-	defaultBranch = master
+defaultBranch = master
+
 [credential]
-	helper = store
+helper = store
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge --skip -- %f
+process = git-lfs filter-process --skip
+required = true
+
 [safe]
-	directory = /opt/flutter
+directory = /opt/flutter
+
 [commit]
-	gpgsign = true
+gpgsign = true
