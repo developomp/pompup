@@ -2,6 +2,9 @@ package installers
 
 import (
 	_ "embed"
+	"os/exec"
+	"slices"
+	"strings"
 
 	"github.com/developomp/pompup/internal/wrapper"
 	"github.com/pterm/pterm"
@@ -13,6 +16,9 @@ var vscodiumConfig []byte
 //go:embed assets/home/.config/VSCodium/product.json
 var vscodiumProduct []byte
 
+// disable vscode spell check
+// cSpell:disable
+
 // vscodeExtensions is a list of vscode extensions retrieved by using the following command: codium --list-extensions
 var vscodeExtensions = []string{
 	// General
@@ -20,8 +26,14 @@ var vscodeExtensions = []string{
 	"mkxml.vscode-filesize",
 	"WakaTime.vscode-wakatime",
 
+	// Code Tests
+
+	"hbenl.vscode-test-explorer",
+	"ms-vscode.test-adapter-converter",
+
 	// Editor
 	"dbaeumer.vscode-eslint",
+	"christian-kohler.path-intellisense",
 	"usernamehw.errorlens",
 	"earshinov.sort-lines-by-selection",
 	"EditorConfig.EditorConfig",
@@ -41,13 +53,15 @@ var vscodeExtensions = []string{
 	"mhutchie.git-graph",
 	"vivaxy.vscode-conventional-commits",
 
-	// Design
+	// GitHub
+	"github.vscode-github-actions",
+
+	// HTML, CSS, Design
 	"jock.svg",
 	"formulahendry.auto-rename-tag",
 	"bradlc.vscode-tailwindcss",
-	"styled-components.vscode-styled-components",
-	"figma.figma-vscode-extension",
 	"naumovs.color-highlight",
+	"stylelint.vscode-stylelint",
 
 	// Reverse Engineering
 	"icsharpcode.ilspy-vscode",
@@ -58,26 +72,29 @@ var vscodeExtensions = []string{
 	"jeff-tian.markdown-katex",
 	"bierner.markdown-mermaid",
 	"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
-	"sebsojeda.vscode-svx",
-	"unifiedjs.vscode-mdx",
 	"yzhang.markdown-all-in-one",
 
-	// JS & TS
+	// JS & TS Ecosystem
+	"oven.bun-vscode",
 	"denoland.vscode-deno",
+	"idered.npm",
 	"DigitalBrainstem.javascript-ejs-support",
 	"plievone.vscode-template-literal-editor",
 	"dsznajder.es7-react-js-snippets",
 	"yoavbls.pretty-ts-errors",
 	"bierner.jsdoc-markdown-highlighting",
+	"vunguyentuan.vscode-postcss",
 
 	// Rust
-	"eww-yuck.yuck",
 	"tamasfe.even-better-toml",
 	"bungcip.better-toml",
 	"rust-lang.rust-analyzer",
+	"panicbit.cargo",
 	"serayuzgur.crates",
 
 	// Python
+	"donjayamanne.python-extension-pack",
+	"ms-python.black-formatter",
 	"ms-python.isort",
 	"ms-python.python",
 	"ms-python.vscode-pylance",
@@ -94,15 +111,22 @@ var vscodeExtensions = []string{
 	"ms-vscode.cpptools",
 
 	// C#
+	"ms-dotnettools.csdevkit",
 	"ms-dotnettools.csharp",
 	"ms-dotnettools.vscode-dotnet-runtime",
 	"ms-vscode.mono-debug",
 
 	// Svelte
 	"svelte.svelte-vscode",
+	"ardenivanov.svelte-intellisense",
+
+	// Dart, Flutter
+	"dart-code.dart-code",
+	"dart-code.flutter",
 
 	// Shell
 	"foxundermoon.shell-format",
+	"timonwong.shellcheck",
 
 	// Docker
 	"ms-azuretools.vscode-docker",
@@ -117,8 +141,8 @@ var vscodeExtensions = []string{
 	"mechatroner.rainbow-csv",
 
 	// Godot
+	"alfish.godot-files",
 	"geequlim.godot-tools",
-	"Razoric.gdscript-toolkit-formatter",
 	"neikeq.godot-csharp-vscode",
 
 	// nginx
@@ -134,7 +158,16 @@ var vscodeExtensions = []string{
 	// Linux
 	"coolbear.systemd-unit-file",
 	"nico-castell.linux-desktop-file",
+
+	// Unity
+	"visualstudiotoolsforunity.vstuc",
+
+	// Tauri
+	"tauri-apps.tauri-vscode",
 }
+
+// cSpell:enable
+// re-enable vscode spell check
 
 func init() {
 	register(&Installer{
@@ -145,33 +178,35 @@ func init() {
 			// not using flatpak version due to permission issues such as lazydocker not working inside the integrated terminal
 			wrapper.ParuOnce("vscodium-bin")
 
-			restoreVscodeSettings()
-			enableVscodeExtensionStore()
+			wrapper.WriteFile(
+				wrapper.InHome(".config/VSCodium/User/settings.json"),
+				vscodiumConfig,
+			)
+
+			// enable vscode extension store
+			wrapper.WriteFile(
+				wrapper.InHome(".config/VSCodium/product.json"),
+				vscodiumProduct,
+			)
+
+			// install vscode extensions
+			out, err := exec.Command("codium", "--list-extensions").Output()
+			if err != nil {
+				pterm.Fatal.Println("Failed to list installed vscode extensions:", err)
+			}
+			installedExtensions := strings.Split(string(out), "\n")
 
 			for _, extensionName := range vscodeExtensions {
-				installVscodeExtension(extensionName)
+				if slices.Contains(installedExtensions, extensionName) {
+					continue // skip installed
+				}
+
+				pterm.Debug.Println("Installing vscode extension", extensionName)
+				err := wrapper.Run("codium", "--install-extension", extensionName)
+				if err != nil {
+					pterm.Fatal.Println("Failed to install vscode extension", extensionName, ":", err)
+				}
 			}
 		},
 	})
-}
-
-func restoreVscodeSettings() {
-	wrapper.WriteFile(
-		wrapper.InHome(".config/VSCodium/User/settings.json"),
-		vscodiumConfig,
-	)
-}
-
-func enableVscodeExtensionStore() {
-	wrapper.WriteFile(
-		wrapper.InHome(".config/VSCodium/product.json"),
-		vscodiumProduct,
-	)
-}
-
-func installVscodeExtension(extensionName string) {
-	err := wrapper.Run("codium", "--install-extension", extensionName, "--force")
-	if err != nil {
-		pterm.Fatal.Println("Failed to install vscode extension", extensionName, ":", err)
-	}
 }
