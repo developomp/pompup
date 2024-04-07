@@ -2,6 +2,7 @@ package wrapper
 
 import (
 	_ "embed"
+	"fmt"
 	"os"
 	"os/exec"
 
@@ -20,10 +21,10 @@ func pacmanLike(packageName string, installer string) error {
 
 	var cmd *exec.Cmd
 	if installer == "pacman" {
-		// pacman needs sudo to run
-		cmd = exec.Command("sudo", installer, "-S", "--noconfirm", "--needed", packageName)
+		// pacman needs sudo to install packages
+		cmd = exec.Command("bash", "-c", fmt.Sprintf("yes | sudo %s -S --needed %s", installer, packageName))
 	} else {
-		cmd = exec.Command( /*  */ installer, "-S", "--noconfirm", "--needed", packageName)
+		cmd = exec.Command("bash", "-c", fmt.Sprintf("yes |      %s -S --needed %s", installer, packageName))
 	}
 	cmd.Stdout = os.Stdout // show stdout
 	cmd.Stderr = os.Stderr // show stderr
