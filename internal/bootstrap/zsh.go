@@ -20,12 +20,19 @@ func setupZSH() {
 
 	wrapper.WriteFile(wrapper.InHome(".zshrc"), zshConfig)
 
-	// $SHELL could be /usr/bin/zsh
-	if !strings.HasSuffix(os.Getenv("SHELL"), "/bin/zsh") {
+	if !strings.HasSuffix(os.Getenv("SHELL"), "/usr/bin/zsh") {
 		// set the default shell to zsh
-		if err := exec.Command("sudo", "chsh", "-s", "/bin/zsh").Run(); err != nil {
-			pterm.Fatal.Println("Failed to set default shell to zsh")
+		cmd := exec.Command("chsh", "-s", "/usr/bin/zsh")
+		cmd.Stdin = os.Stdin
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+
+		if err := cmd.Run(); err != nil {
+			pterm.Fatal.Println("Failed to set default shell to zsh:", err)
 		}
+
+		pterm.Info.Println("Log out and lock back in to switch to zsh")
+		os.Exit(0)
 	}
 }
 
