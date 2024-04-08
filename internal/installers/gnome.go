@@ -33,9 +33,15 @@ func init() {
 		Setup: func() {
 			// core
 			wrapper.ParuOnce("gdm")
-			wrapper.ParuOnce("gnome-keyring")
+			// gdm
+			// └── gnome-shell
+			//     └── mutter
 			wrapper.ParuOnce("gnome-control-center") // installs gnome-settings-daemon as dependency
+			// gnome-control-center
+			// └── gnome-settings-daemon
 			wrapper.ParuOnce("xdg-desktop-portal-gnome")
+			// xdg-desktop-portal-gnome
+			// └── gnome-keyring
 			wrapper.ParuOnce("touchegg") // for wayland touch gestures
 
 			// themes
