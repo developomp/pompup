@@ -70,6 +70,7 @@
     "Geneviève",
     "Geoma",
     "godotengine",
+    "Godots",
     "gparted",
     "gpasswd",
     "gsmartcontrol",
@@ -90,6 +91,8 @@
     "keymap",
     "lazer",
     "lazydocker",
+    "lazygit",
+    "Librewolf",
     "lipgloss",
     "loglevel",
     "makepkg",
@@ -176,7 +179,8 @@
     "yoavbls",
     "yzhang",
     "zhuangtongfa",
-    "Zilla"
+    "Zilla",
+    "zrythm"
   ],
   "editor.formatOnSave": true,
   "[jsonc]": {
