@@ -4,11 +4,14 @@ import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Installer{
-		Name: "Godot",
-		Desc: "FOSS game engine",
+		Name: "Godots",
+		Desc: "Godot version manager",
 		Tags: []Tag{Dev, Gui},
 		Setup: func() {
-			wrapper.FlatpakOnce("org.godotengine.Godot")
+			wrapper.FlatpakOnce("io.github.MakovWait.Godots")
+		},
+		Reminders: []string{
+			"Install Godot editors",
 		},
 	})
 }
