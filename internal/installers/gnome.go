@@ -42,7 +42,10 @@ func init() {
 			wrapper.ParuOnce("xdg-desktop-portal-gnome")
 			// xdg-desktop-portal-gnome
 			// └── gnome-keyring
+
 			wrapper.ParuOnce("touchegg") // for wayland touch gestures
+			wrapper.ParuOnce("ibus")
+			wrapper.ParuOnce("ibus-hangul")
 
 			// themes
 			wrapper.ParuOnce("pop-gtk-theme")      // gtk theme
