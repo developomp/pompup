@@ -11,6 +11,7 @@ func init() {
 		Tags: []Tag{Cli, Dev},
 		Setup: func() {
 			wrapper.ParuOnce("docker")
+			wrapper.ParuOnce("docker-compose")
 			wrapper.AddGroup("docker") // allow use of docker CLI without sudo
 			wrapper.SystemctlEnable("docker")
 		},
