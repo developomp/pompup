@@ -51,15 +51,15 @@ but here are the instructions to use it:
 
    - using curl
 
-   ```
-   curl pompup.developomp.com -Lo pompup
-   ```
+     ```
+     curl pompup.developomp.com -Lo pompup
+     ```
 
    - using wget
 
-   ```
-   wget pompup.developomp.com -O pompup
-   ```
+     ```
+     wget pompup.developomp.com -O pompup
+     ```
 
 4. Make the file executable
 
