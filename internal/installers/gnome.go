@@ -16,6 +16,9 @@ var _gnomeDesktopDconf string
 //go:embed assets/dconf/gnome-keybindings.conf
 var _gnomeKeybindings string
 
+//go:embed assets/dconf/gnome-input.conf
+var _gnomeInputDconf string
+
 //go:embed assets/dconf/gnome-mutter.conf
 var _gnomeMutterDconf string
 
@@ -45,7 +48,10 @@ func init() {
 
 			wrapper.ParuOnce("touchegg") // for wayland touch gestures
 			wrapper.ParuOnce("ibus")
-			wrapper.ParuOnce("ibus-hangul")
+			wrapper.ParuOnce("ibus-hangul") // Korean input
+			wrapper.ParuOnce("ibus-anthy")  // Japanese input
+			// todo: AUR not building as of the moment, re-enable later
+			// wrapper.ParuOnce("ibus-pinyin") // Chinese input
 
 			// themes
 			wrapper.ParuOnce("pop-gtk-theme")      // gtk theme
@@ -55,6 +61,7 @@ func init() {
 			configurePipewire()
 			wrapper.TryDconf(_gnomeDesktopDconf)
 			wrapper.TryDconf(_gnomeKeybindings)
+			wrapper.TryDconf(_gnomeInputDconf)
 			wrapper.TryDconf(_gnomeMutterDconf)
 			wrapper.TryDconf(_gnomeSettingsDaemon)
 			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
