@@ -89,7 +89,6 @@ var vscodeExtensions = []string{
 	"tamasfe.even-better-toml",
 	"bungcip.better-toml",
 	"rust-lang.rust-analyzer",
-	"panicbit.cargo",
 	"serayuzgur.crates",
 
 	// Python
