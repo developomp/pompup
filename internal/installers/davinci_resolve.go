@@ -7,6 +7,9 @@ func init() {
 		Name: "DaVinci Resolve",
 		Desc: "Video Editing Tool",
 		Setup: func() {
+			wrapper.ParuOnce("opencl-nvidia")
+			wrapper.ParuOnce("noto-fonts")
+			wrapper.ParuOnce("jdk-openjdk")
 			wrapper.ParuOnce("davinci-resolve")
 		},
 	})
