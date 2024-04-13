@@ -10,7 +10,6 @@ func init() {
 	register(&Installer{
 		Name: "GearLever",
 		Desc: "appimage manager",
-		Tags: []Tag{System, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("it.mijorus.gearlever")
 

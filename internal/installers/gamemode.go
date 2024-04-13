@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "gamemode",
 		Desc: "gamemoderun",
-		Tags: []Tag{System},
 		Setup: func() {
 			wrapper.ParuOnce("gamemode")
 			wrapper.AddGroup("gamemode")

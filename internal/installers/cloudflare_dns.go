@@ -14,7 +14,6 @@ func init() {
 	register(&Installer{
 		Name: "Cloudflare DNS",
 		Desc: "1.1.1.1 DNS",
-		Tags: []Tag{System},
 		Setup: func() {
 			const filePath = "/etc/resolv.conf"
 

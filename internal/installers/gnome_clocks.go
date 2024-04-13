@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME Clocks",
 		Desc: "GNOME Time management utility",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.gnome.clocks")
 			wrapper.TryDconf(_gnomeClocksDconf)

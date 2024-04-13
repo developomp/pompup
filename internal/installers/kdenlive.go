@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Kdenlive",
 		Desc: "Adobe Premiere Pro but FOSS",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.kde.kdenlive")
 		},

@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Mission Center",
 		Desc: "Task Manager but Linux",
-		Tags: []Tag{System, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("io.missioncenter.MissionCenter")
 		},

@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: ".NET",
 		Desc: "Microsoft Java",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			wrapper.ParuOnce("dotnet-sdk")
 		},

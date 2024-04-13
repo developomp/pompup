@@ -8,7 +8,6 @@ func init() {
 	register(&Installer{
 		Name: "Baobab",
 		Desc: "GNOME disk usage analyzer",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.gnome.baobab")
 		},

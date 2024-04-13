@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Tree",
 		Desc: "Show directory structure",
-		Tags: []Tag{Cli},
 		Setup: func() {
 			wrapper.ParuOnce("tree")
 		},

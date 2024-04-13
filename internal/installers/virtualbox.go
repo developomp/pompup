@@ -9,7 +9,6 @@ func init() {
 	register(&Installer{
 		Name: "Virtualbox",
 		Desc: "VM stuff",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			wrapper.ParuOnce("virtualbox")
 			wrapper.ParuOnce("virtualbox-host-modules-arch")

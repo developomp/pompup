@@ -8,7 +8,6 @@ func init() {
 	register(&Installer{
 		Name: "Rust",
 		Desc: "Rustup and stuff",
-		Tags: []Tag{Cli, Dev},
 		Setup: func() {
 			wrapper.ParuOnce("rustup")
 

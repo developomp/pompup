@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Golang",
 		Desc: "Golang Tools",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			wrapper.ParuOnce("go")
 			wrapper.ParuOnce("go-tools")

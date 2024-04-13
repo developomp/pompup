@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Unity Hub",
 		Desc: "Unity Installation manager",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.unity.UnityHub")
 		},

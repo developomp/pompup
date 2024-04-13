@@ -15,7 +15,6 @@ func init() {
 	register(&Installer{
 		Name: "osu!",
 		Desc: "osu!lazer and tablet driver",
-		Tags: []Tag{Game, Gui},
 		Setup: func() {
 			matches, err := filepath.Glob(wrapper.InHome("Programs/AppImages/gearlever_osu*.appimage"))
 			if err != nil {

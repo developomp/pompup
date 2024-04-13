@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Signal",
 		Desc: "private messaging",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.signal.Signal")
 		},

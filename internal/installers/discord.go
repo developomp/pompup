@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Discord",
 		Desc: "discord and betterdiscord plugins",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.discordapp.Discord")
 		},

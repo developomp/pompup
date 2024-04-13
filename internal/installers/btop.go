@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "btop",
 		Desc: "top but better",
-		Tags: []Tag{Cli},
 		Setup: func() {
 			wrapper.ParuOnce("btop")
 		},

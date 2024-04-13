@@ -10,34 +10,33 @@ import (
 	"github.com/pterm/pterm"
 )
 
-// https://github.com/google/fonts
-var fonts = [...]string{
-	"ttf-ms-fonts",                    // MS fonts
-	"adobe-source-han-sans-otc-fonts", // Korean font
-	"ttf-baekmuk",                     // Korean font
-	"unicode-emoji",                   // Colorful emoji
-	"ttf-nerd-fonts-symbols-mono",     // Nerd font
-	"ttf-d2coding-nerd",               // Korean coding font
-	"noto-fonts",                      // cjk, emoji, etc
-	"https://github.com/google/fonts/raw/main/ofl/audiowide/Audiowide-Regular.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/varelaround/VarelaRound-Regular.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans-Italic%5Bwdth,wght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosanstc/NotoSansTC%5Bwght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/notosansmono/NotoSansMono%5Bwdth,wght%5D.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Regular.ttf",
-	"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Bold.ttf",
-}
-
 func init() {
 	register(&Installer{
 		Name: "Fonts",
 		Desc: "fonts",
-		Tags: []Tag{System},
 		Setup: func() {
+			// https://github.com/google/fonts
+			var fonts = [...]string{
+				"ttf-ms-fonts",                    // MS fonts
+				"adobe-source-han-sans-otc-fonts", // Korean font
+				"ttf-baekmuk",                     // Korean font
+				"unicode-emoji",                   // Colorful emoji
+				"ttf-nerd-fonts-symbols-mono",     // Nerd font
+				"ttf-d2coding-nerd",               // Korean coding font
+				"noto-fonts",                      // cjk, emoji, etc
+				"https://github.com/google/fonts/raw/main/ofl/audiowide/Audiowide-Regular.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/varelaround/VarelaRound-Regular.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans-Italic%5Bwdth,wght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosanstc/NotoSansTC%5Bwght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/notosansmono/NotoSansMono%5Bwdth,wght%5D.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Regular.ttf",
+				"https://github.com/google/fonts/raw/main/ofl/nanumgothiccoding/NanumGothicCoding-Bold.ttf",
+			}
+
 			fontsDir := wrapper.InHome(".local/share/fonts")
 			if !wrapper.PathExists(fontsDir) {
 				err := os.MkdirAll(fontsDir, wrapper.DefaultDirPerm)

@@ -36,7 +36,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME Extensions",
 		Desc: "GNOME extensions",
-		Tags: []Tag{Gnome},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.mattjakeman.ExtensionManager") // GNOME extension installer GUI
 			wrapper.ParuOnce("gnome-shell-extension-installer")     // GNOME extension installer CLI

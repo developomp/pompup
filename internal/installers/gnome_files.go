@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME Files",
 		Desc: "nautilus",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.ParuOnce("nautilus")
 			wrapper.TryDconf(_gnomeNautilusDconf)

@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Godots",
 		Desc: "Godot version manager",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("io.github.MakovWait.Godots")
 		},

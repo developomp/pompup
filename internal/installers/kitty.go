@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "Kitty",
 		Desc: "terminal emulator",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			wrapper.ParuOnce("kitty")
 			wrapper.ParuOnce("kitty-shell-integration")

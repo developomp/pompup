@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Dconf Editor",
 		Desc: "GSettings editor for GNOME",
-		Tags: []Tag{Gnome, Configurator},
 		Setup: func() {
 			wrapper.FlatpakOnce("ca.desrt.dconf-editor")
 		},

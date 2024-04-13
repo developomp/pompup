@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Slack",
 		Desc: "business communication",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.slack.Slack")
 		},

@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "git",
 		Desc: "git gud",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			wrapper.ParuOnce("git")
 			wrapper.ParuOnce("git-lfs")

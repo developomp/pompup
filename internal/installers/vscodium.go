@@ -168,7 +168,6 @@ func init() {
 	register(&Installer{
 		Name: "vscodium",
 		Desc: "vscode but 100% FOSS",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			// not using flatpak version due to permission issues such as lazydocker not working inside the integrated terminal
 			wrapper.ParuOnce("vscodium-bin")

@@ -32,7 +32,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME",
 		Desc: "minimal, usable GNOME Desktop Environment (DE)",
-		Tags: []Tag{System},
 		Setup: func() {
 			// core
 			wrapper.ParuOnce("gdm")

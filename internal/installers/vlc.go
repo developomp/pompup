@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "VLC",
 		Desc: "video player",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.videolan.VLC")
 		},

@@ -13,7 +13,6 @@ func init() {
 	register(&Installer{
 		Name: "OpenTabletDriver",
 		Desc: "for osu",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			if !wrapper.IsArchPkgInstalled("opentabletdriver") {
 				// https://opentabletdriver.net/Wiki/Install/Linux#arch

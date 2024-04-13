@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "DaVinci Resolve",
 		Desc: "Video Editing Tool",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.ParuOnce("davinci-resolve")
 		},

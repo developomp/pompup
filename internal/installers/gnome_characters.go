@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME characters",
 		Desc: "Special character browser",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.gnome.Characters")
 		},

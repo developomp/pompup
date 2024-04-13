@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME Tweaks",
 		Desc: "Complementary GNOME settings app",
-		Tags: []Tag{Gnome, Configurator},
 		Setup: func() {
 			wrapper.ParuOnce("gnome-tweaks")
 		},

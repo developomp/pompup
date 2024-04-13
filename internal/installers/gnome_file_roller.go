@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME File Roller",
 		Desc: "Compression and Decompression",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.gnome.FileRoller")
 		},

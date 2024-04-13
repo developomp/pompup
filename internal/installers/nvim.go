@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "neovim",
 		Desc: "nvim + NvChad, the best text editor (allegedly)",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			wrapper.ParuOnce("neovim")
 			wrapper.ParuOnce("ripgrep")

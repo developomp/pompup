@@ -15,7 +15,6 @@ func init() {
 	register(&Installer{
 		Name: "Scripts",
 		Desc: "~/.local/bin scripts",
-		Tags: []Tag{Cli},
 		Setup: func() {
 			paths, err := getAllFilenames(&scripts, "")
 			if err != nil {

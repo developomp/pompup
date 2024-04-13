@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Polychromatic",
 		Desc: "openrazer frontend",
-		Tags: []Tag{Configurator},
 		Setup: func() {
 			// install openrazer
 			wrapper.ParuOnce("openrazer-daemon")

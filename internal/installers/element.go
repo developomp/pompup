@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Matrix",
 		Desc: "Matrix communication GUI",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("im.riot.Riot")
 		},

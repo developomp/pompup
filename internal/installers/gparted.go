@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "gparted",
 		Desc: "GUI partition tool",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.ParuOnce("gparted")
 		},

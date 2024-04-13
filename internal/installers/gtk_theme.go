@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "pop! gtk theme",
 		Desc: "GTK theme made by system76",
-		Tags: []Tag{System, Gnome},
 		Setup: func() {
 			wrapper.ParuOnce("pop-gtk-theme")
 		},

@@ -9,7 +9,6 @@ func init() {
 	register(&Installer{
 		Name: "Node.JS",
 		Desc: "Node.JS and related CLI tools",
-		Tags: []Tag{Cli, Dev},
 		Setup: func() {
 			wrapper.ParuOnce("nvm")
 

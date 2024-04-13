@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "OpenTofu",
 		Desc: "terraform but not evil",
-		Tags: []Tag{Dev, Cli},
 		Setup: func() {
 			wrapper.ParuOnce("opentofu-bin")
 		},

@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Flatseal",
 		Desc: "flatpak permission manager",
-		Tags: []Tag{Configurator},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.github.tchx84.Flatseal")
 		},

@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "FileZilla",
 		Desc: "FTP GUI",
-		Tags: []Tag{Dev, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.filezillaproject.Filezilla")
 		},

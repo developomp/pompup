@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "Brave Browser",
 		Desc: "Least worst browser",
-		Tags: []Tag{Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("com.brave.Browser")
 		},

@@ -11,7 +11,6 @@ func init() {
 	register(&Installer{
 		Name: "GRUB",
 		Desc: "Bootloader",
-		Tags: []Tag{System},
 		Setup: func() {
 			wrapper.ParuOnce("grub")
 

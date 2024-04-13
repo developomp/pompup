@@ -6,7 +6,6 @@ func init() {
 	register(&Installer{
 		Name: "GNOME Calculator",
 		Desc: "GNOME Calculator",
-		Tags: []Tag{Gnome, Gui},
 		Setup: func() {
 			wrapper.FlatpakOnce("org.gnome.Calculator")
 		},
