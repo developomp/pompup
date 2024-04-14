@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"os"
-	"sort"
+	"slices"
 	"strings"
 
 	"github.com/developomp/pompup/internal/bootstrap"
@@ -38,11 +38,12 @@ GitHub: https://github.com/developomp/pompup`,
 		}
 
 		// sort installers by name
-		sort.Slice(installers.Installers, func(i, j int) bool {
-			a := installers.Installers[i]
-			b := installers.Installers[j]
+		slices.SortStableFunc(installers.Installers, func(a, b *installers.Installer) int {
+			if a.Priority != b.Priority {
+				return a.Priority - b.Priority
+			}
 
-			return strings.ToLower(a.Name) < strings.ToLower(b.Name)
+			return strings.Compare(strings.ToLower(a.Name), strings.ToLower(b.Name))
 		})
 
 		// run installers

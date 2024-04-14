@@ -6,8 +6,9 @@ import (
 
 func init() {
 	register(&Installer{
-		Name: "Rust",
-		Desc: "Rustup and stuff",
+		Name:     "Rust",
+		Desc:     "Rustup and stuff",
+		Priority: -1,
 		Setup: func() {
 			wrapper.ParuOnce("rustup")
 

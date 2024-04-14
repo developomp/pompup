@@ -7,6 +7,7 @@ import (
 type Installer struct {
 	Name      string   // Name is the display name of the installer.
 	Desc      string   // Desc briefly explains what the installer does.
+	Priority  int      // Priority defines the order of installation. Lower number comes before higher number. Default is 0.
 	Setup     func()   // Setup contains logic regarding the setup process.
 	Reminders []string // Reminders for manual tasks user has to perform. Shows after all Setup functions are executed.
 }
