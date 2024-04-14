@@ -86,7 +86,9 @@ func init() {
 func listInstalledGnomeExtensions() []string {
 	out, err := exec.Command("gnome-extensions", "list").Output()
 	if err != nil {
-		pterm.Fatal.Println("Failed to list installed GNOME extensions:", err)
+		pterm.Error.Println("Failed to list installed GNOME extensions. Probably running under tty. Assuming no installed GNOME extensions.")
+
+		return []string{}
 	}
 
 	return strings.Fields(string(out))
