@@ -62,3 +62,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 #endregion conda
+
+#region atuin
+# https://github.com/atuinsh/atuin
+eval "$(atuin init zsh)"
+#endregion atuin
