@@ -23,7 +23,10 @@ func init() {
 				"unicode-emoji",                   // Colorful emoji
 				"ttf-nerd-fonts-symbols-mono",     // Nerd font
 				"ttf-d2coding-nerd",               // Korean coding font
-				"noto-fonts",                      // cjk, emoji, etc
+				"noto-fonts",
+				"noto-fonts-cjk",
+				"noto-fonts-emoji",
+				"noto-fonts-extra",
 				"https://github.com/google/fonts/raw/main/ofl/audiowide/Audiowide-Regular.ttf",
 				"https://github.com/google/fonts/raw/main/ofl/varelaround/VarelaRound-Regular.ttf",
 				"https://github.com/google/fonts/raw/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf",
