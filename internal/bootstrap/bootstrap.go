@@ -25,9 +25,7 @@ func Bootstrap() {
 	setupParu()
 	setupBash()
 	setupZSH()
-	wrapper.PacmanOnce("iputils")
 	wrapper.PacmanOnce("wget")
-	wrapper.PacmanOnce("trash-cli")
 	wrapper.PacmanOnce("flatpak")
 
 	pterm.Debug.Println("Bootstrapped!")
