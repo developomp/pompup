@@ -64,6 +64,11 @@ func init() {
 			wrapper.TryDconf(_gnomeMutterDconf)
 			wrapper.TryDconf(_gnomeSettingsDaemon)
 			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
+
+			err := wrapper.Run("sudo", "systemctl", "enable", "gdm")
+			if err != nil {
+				pterm.Fatal.Println("Failed to enable gdm:", err)
+			}
 		},
 	})
 }
