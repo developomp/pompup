@@ -21,6 +21,8 @@ source $ZSH/oh-my-zsh.sh
 #region aliases & ENV VAR
 alias c='clear'
 
+alias e='eza --long --classify=always --color=always --icons=always --all --group-directories-first --binary --group --no-time --octal-permissions'
+
 export EDITOR=vim
 export VISUAL=vim
 #endregion aliases & ENV VAR
