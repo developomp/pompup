@@ -12,10 +12,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
+type ControlFlow = bool
+
+var Continue ControlFlow = true
+var Stop ControlFlow = false
+
+var list bool = false
+var only string = ""
+
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	pterm.EnableDebugMessages() // allows pterm..Debug.*() to be used
+
+	rootCmd.PersistentFlags().BoolVar(&list, "list", list, "list available installers")
+	rootCmd.PersistentFlags().StringVar(&only, "only", only, "only run specific installer")
 
 	if err := rootCmd.Execute(); err != nil {
 		pterm.Fatal.Println("Failed to run cmd.Execute()")
@@ -30,6 +41,11 @@ var rootCmd = &cobra.Command{
 GitHub: https://github.com/developomp/pompup`,
 
 	Run: func(cmd *cobra.Command, args []string) {
+		if list {
+			listInstallers()
+			os.Exit(0)
+		}
+
 		cleanup()
 		bootstrap.Bootstrap()
 
@@ -46,22 +62,28 @@ GitHub: https://github.com/developomp/pompup`,
 			return strings.Compare(strings.ToLower(a.Name), strings.ToLower(b.Name))
 		})
 
-		// run installers
-		total := len(installers.Installers)
-		for i, installer := range installers.Installers {
-			pterm.Info.Printfln(
-				"[%v / %v] %v - %v",
-				i+1,
-				total,
-				pterm.FgWhite.Sprint(installer.Name),
-				pterm.FgGray.Sprint(installer.Desc),
-			)
-			reminders = append(reminders, installer.Reminders...)
-			installer.Setup()
+		if only != "" {
+			for _, installer := range installers.Installers {
+				if installer.Name != only {
+					continue
+				}
+
+				pterm.Debug.Printfln("Found %s installer. Running...", installer.Name)
+				reminders = append(reminders, installer.Reminders...)
+				installer.Setup()
+			}
+		} else {
+			// run installers
+			loopInstallers(func(installer *installers.Installer, _ int, _ int) bool {
+				reminders = append(reminders, installer.Reminders...)
+				installer.Setup()
+
+				return true
+			})
+			pterm.Info.Println("")
 		}
 
 		// show reminders
-		pterm.Info.Println("")
 		pterm.Info.Println("Reminders:")
 		for _, reminder := range reminders {
 			pterm.Info.Println(reminder)
@@ -70,6 +92,32 @@ GitHub: https://github.com/developomp/pompup`,
 		cleanup()
 		pterm.Debug.Println("Done!")
 	},
+}
+
+func listInstallers() {
+	pterm.Info.Println("Listing available installers:")
+	pterm.Info.Println("")
+
+	loopInstallers(func(_ *installers.Installer, _ int, _ int) ControlFlow {
+		return Continue
+	})
+}
+
+func loopInstallers(f func(*installers.Installer, int, int) ControlFlow) {
+	total := len(installers.Installers)
+	for i, installer := range installers.Installers {
+		pterm.Info.Printfln(
+			"[%v / %v] %v - %v",
+			i+1,
+			total,
+			pterm.FgWhite.Sprint(installer.Name),
+			pterm.FgGray.Sprint(installer.Desc),
+		)
+
+		if !f(installer, i, total) {
+			break
+		}
+	}
 }
 
 func cleanup() {
