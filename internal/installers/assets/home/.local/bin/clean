@@ -6,4 +6,4 @@ sudo journalctl --vacuum-time=1h
 sudo pacman -Scc
 
 # clear paru clones
-rm -rf /home/pomp/.cache/paru/clone/*
+rm -rf $HOME/.cache/paru/clone/*

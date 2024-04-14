@@ -1,2 +1,2 @@
-cd /home/pomp/Programs/penpot
+cd $HOME/Programs/penpot
 docker compose -p penpot -f docker-compose.yaml up -d

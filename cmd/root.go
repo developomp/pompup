@@ -34,7 +34,7 @@ GitHub: https://github.com/developomp/pompup`,
 		bootstrap.Bootstrap()
 
 		var reminders []string = []string{
-			"Reboot your system to complete installation",
+			"Reboot the system and run pompup again to complete installation",
 		}
 
 		// sort installers by name

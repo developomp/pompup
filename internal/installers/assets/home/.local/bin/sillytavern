@@ -1,2 +1,2 @@
-cd /home/pomp/Programs/SillyTavern
+cd $HOME/Programs/SillyTavern
 bash ./start.sh
