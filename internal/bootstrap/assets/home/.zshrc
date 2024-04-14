@@ -8,6 +8,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
+  fzf
   git
   zsh-interactive-cd
   zsh-syntax-highlighting
@@ -67,3 +68,8 @@ unset __conda_setup
 # https://github.com/atuinsh/atuin
 eval "$(atuin init zsh)"
 #endregion atuin
+
+#region fzf
+# https://github.com/junegunn/fzf
+eval "$(fzf --zsh)"
+#endregion fzf
