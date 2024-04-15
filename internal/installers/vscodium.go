@@ -46,7 +46,6 @@ func init() {
 				"WakaTime.vscode-wakatime",
 
 				// Code Tests
-
 				"hbenl.vscode-test-explorer",
 				"ms-vscode.test-adapter-converter",
 
@@ -178,6 +177,9 @@ func init() {
 
 				// Tauri
 				"tauri-apps.tauri-vscode",
+
+				// Terraform / OpenTofu
+				"gamunu.opentofu",
 			}
 
 			// cSpell:enable
