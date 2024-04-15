@@ -15,8 +15,5 @@ func init() {
 				wrapper.Run("git", "clone", "https://github.com/NvChad/NvChad", configPath, "--depth", "1")
 			}
 		},
-		Reminders: []string{
-			"Install fonts",
-		},
 	})
 }
