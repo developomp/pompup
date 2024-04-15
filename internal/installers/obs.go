@@ -8,6 +8,7 @@ func init() {
 		Desc: "Screen recording and streaming utility",
 		Setup: func() {
 			wrapper.FlatpakOnce("com.obsproject.Studio")
+			wrapper.FlatpakOnce("com.obsproject.Studio.Plugin.OBSVkCapture")
 			wrapper.ParuOnce("v4l2loopback-dkms") // for virtual camera
 		},
 	})
