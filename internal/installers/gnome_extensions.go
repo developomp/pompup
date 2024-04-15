@@ -37,9 +37,8 @@ func init() {
 		Name: "GNOME Extensions",
 		Desc: "GNOME extensions",
 		Setup: func() {
-			wrapper.FlatpakOnce("com.mattjakeman.ExtensionManager") // GNOME extension installer GUI
-			wrapper.ParuOnce("gnome-shell-extension-installer")     // GNOME extension installer CLI
-			wrapper.ParuOnce("gnome-shell")                         // includes gnome-extensions CLI
+			wrapper.ParuOnce("gnome-shell-extension-installer") // GNOME extension installer CLI
+			wrapper.ParuOnce("gnome-shell")                     // includes gnome-extensions CLI
 
 			installedExtensions := listInstalledGnomeExtensions()
 			extensions := [...]gnomeExtension{
