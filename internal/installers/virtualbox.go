@@ -21,6 +21,12 @@ func init() {
 			if err != nil {
 				pterm.Fatal.Println("Failed to load virtualbox driver modules:", err)
 			}
+
+			// set default machine folder
+			err = wrapper.Run("VBoxManage", "setproperty", "machinefolder", wrapper.InHome("Dev/OS/VB"))
+			if err != nil {
+				pterm.Fatal.Println("Failed to set default virtualbox machine folder location:", err)
+			}
 		},
 	})
 }
