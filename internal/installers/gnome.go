@@ -73,15 +73,15 @@ func init() {
 			// set gdm login screen mouse settings
 			err = wrapper.Run("sudo", "-u", "gdm", "dbus-launch", "gsettings", "set", "org.gnome.desktop.peripherals.mouse", "accel-profile", "flat")
 			if err != nil {
-				pterm.Fatal.Println("Failed to enable gdm:", err)
+				pterm.Fatal.Println("Failed to set gdm login screen mouse acceleration:", err)
 			}
 			err = wrapper.Run("sudo", "-u", "gdm", "dbus-launch", "gsettings", "set", "org.gnome.desktop.peripherals.mouse", "speed", "0.0")
 			if err != nil {
-				pterm.Fatal.Println("Failed to enable gdm:", err)
+				pterm.Fatal.Println("Failed to set gdm login screen mouse speed:", err)
 			}
 			err = wrapper.Run("sudo", "-u", "gdm", "dbus-launch", "gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", "Breeze")
 			if err != nil {
-				pterm.Fatal.Println("Failed to enable gdm:", err)
+				pterm.Fatal.Println("Failed to set gdm login screen mouse cursor theme:", err)
 			}
 		},
 	})
