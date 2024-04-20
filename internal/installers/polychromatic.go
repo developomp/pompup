@@ -8,7 +8,7 @@ func init() {
 		Desc: "openrazer frontend",
 		Setup: func() {
 			// install openrazer
-			wrapper.ParuOnce("linux-header")
+			wrapper.ParuOnce("linux-headers")
 			wrapper.ParuOnce("openrazer-daemon")
 			wrapper.ParuOnce("openrazer-driver-dkms")
 			wrapper.AddGroup("plugdev")
