@@ -12,7 +12,7 @@ func init() {
 		Setup: func() {
 			wrapper.ParuOnce("virtualbox-host-modules-arch")
 			wrapper.ParuOnce("virtualbox")
-			wrapper.ParuOnce("virtualbox-ext-oracle")
+			wrapper.ParuOnce("virtualbox-guest-iso")
 
 			wrapper.AddGroup("vboxusers") // allow usage of virtualbox without root perm
 
