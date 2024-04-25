@@ -1,3 +1,0 @@
-cd $HOME/Programs/text-generation-webui
-bash ./start_linux.sh
-
