@@ -15,15 +15,11 @@ import (
 var paruConf string
 
 func setupParu() {
-	const configPath = "/etc/paru.conf"
-
 	if !wrapper.IsArchPkgInstalled("paru-bin") {
 		installParu()
 	}
 
-	if !wrapper.IsFileUpdated(configPath, paruConf) {
-		wrapper.SudoWriteFile(configPath, paruConf)
-	}
+	wrapper.SudoWriteFile("/etc/paru.conf", paruConf)
 }
 
 func installParu() {

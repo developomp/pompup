@@ -10,8 +10,5 @@ import (
 var pacmanConf string
 
 func setupPacman() {
-	const configPath = "/etc/pacman.conf"
-	if !wrapper.IsFileUpdated(configPath, pacmanConf) {
-		wrapper.SudoWriteFile(configPath, pacmanConf)
-	}
+	wrapper.SudoWriteFile("/etc/pacman.conf", pacmanConf)
 }
