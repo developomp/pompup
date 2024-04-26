@@ -7,8 +7,9 @@ import (
 
 func init() {
 	register(&Installer{
-		Name: "Node.JS",
-		Desc: "Node.JS and related CLI tools",
+		Name:     "Node.JS",
+		Desc:     "Node.JS and related CLI tools",
+		Priority: -1,
 		Setup: func() {
 			wrapper.ParuOnce("nvm")
 
