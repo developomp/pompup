@@ -22,6 +22,9 @@ var _gnomeInputDconf string
 //go:embed assets/dconf/gnome-mutter.conf
 var _gnomeMutterDconf string
 
+//go:embed assets/dconf/gnome-power.conf
+var _gnomePowerDconf string
+
 //go:embed assets/dconf/gnome-settings-daemon.conf
 var _gnomeSettingsDaemon string
 
@@ -58,12 +61,13 @@ func init() {
 			wrapper.ParuOnce("xcursor-breeze")     // cursor theme
 
 			configurePipewire()
+			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
 			wrapper.TryDconf(_gnomeDesktopDconf)
 			wrapper.TryDconf(_gnomeKeybindings)
 			wrapper.TryDconf(_gnomeInputDconf)
 			wrapper.TryDconf(_gnomeMutterDconf)
+			wrapper.TryDconf(_gnomePowerDconf)
 			wrapper.TryDconf(_gnomeSettingsDaemon)
-			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
 
 			err := wrapper.Run("sudo", "systemctl", "enable", "gdm")
 			if err != nil {
