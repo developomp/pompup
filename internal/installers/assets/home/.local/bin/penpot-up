@@ -1,2 +1,4 @@
+#!/usr/bin/env bash
+
 cd $HOME/Programs/penpot
 docker compose -p penpot -f docker-compose.yaml up -d

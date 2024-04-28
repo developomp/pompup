@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd ~/Programs/stable-diffusion-webui
 bash ./webui.sh
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Create a virtual sink that can be set as a monitor in OBS
 pactl load-module module-null-sink sink_name=VirtualSpeaker sink_properties=device.description=VirtualSpeaker
 
