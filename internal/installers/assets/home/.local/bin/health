@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+b=$(tput bold) # bold
+n=$(tput sgr0) # normal
+
+echo "${b}==========[ Mouse ]==========${n}"
+echo "Battery: $(polychromatic-cli --name "Razer Viper Ultimate (Wireless)" --no-pretty-column --list-options | grep Battery | awk '{print $2}')"
+echo
+
+echo "${b}==========[ /dev/nvme1n1 Health ]==========${n}"
+sudo smartctl --all /dev/nvme1n1 | awk '/=== START OF SMART DATA SECTION ===/{flag=1; next} flag'
+echo
+
+echo "${b}==========[ /dev/nvme0n1 Health ]==========${n}"
+sudo smartctl --all /dev/nvme0n1 | awk '/=== START OF SMART DATA SECTION ===/{flag=1; next} flag'
+echo
+
+echo "${b}==========[ Laptop battery health ]==========${n}"
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/state:/,/capacity:/' | grep -v "voltage:"
