@@ -4,10 +4,10 @@ import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Installer{
-		Name: "Ungoogled Chromium",
-		Desc: "Chromium but ungoogled",
+		Name: "Tor Browser",
+		Desc: "whistleblower's favorite browser",
 		Setup: func() {
-			wrapper.FlatpakOnce("com.github.Eloston.UngoogledChromium")
+			wrapper.FlatpakOnce("org.torproject.torbrowser-launcher")
 		},
 	})
 }

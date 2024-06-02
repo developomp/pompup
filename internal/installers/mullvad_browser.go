@@ -4,10 +4,10 @@ import "github.com/developomp/pompup/internal/wrapper"
 
 func init() {
 	register(&Installer{
-		Name: "Librewolf",
-		Desc: "privacy-focused firefox fork",
+		Name: "Mullvad Browser",
+		Desc: "Tor browser without tor",
 		Setup: func() {
-			wrapper.FlatpakOnce("io.gitlab.librewolf-community")
+			wrapper.FlatpakOnce("net.mullvad.MullvadBrowser")
 		},
 	})
 }
