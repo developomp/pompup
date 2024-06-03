@@ -28,7 +28,7 @@ func installParu() {
 
 	var cmd *exec.Cmd
 
-	cmd = exec.Command("git", "clone", "https://aur.archlinux.org/paru-bin.git")
+	cmd = exec.Command("git", "clone", "--depth=1", "https://aur.archlinux.org/paru-bin.git")
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
 	cmd.Dir = wrapper.TmpDir
