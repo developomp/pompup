@@ -12,7 +12,7 @@ func init() {
 			wrapper.ParuOnce("docker")
 			wrapper.ParuOnce("docker-compose")
 			wrapper.AddGroup("docker") // allow use of docker CLI without sudo
-			wrapper.SystemctlEnable("docker")
+			wrapper.SystemctlEnable("docker", wrapper.EnableNow)
 		},
 	})
 }

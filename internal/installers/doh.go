@@ -16,7 +16,7 @@ func init() {
 		Desc: "DNS over HTTPS",
 		Setup: func() {
 			wrapper.ParuOnce("dns-over-https")
-			wrapper.SystemctlEnable("doh-client")
+			wrapper.SystemctlEnable("doh-client", wrapper.EnableNow)
 
 			wrapper.SudoWriteFile("/etc/dns-over-https/doh-client.conf", _dohConf)
 		},

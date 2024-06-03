@@ -12,7 +12,7 @@ func init() {
 		Desc: "Improves responsiveness",
 		Setup: func() {
 			wrapper.ParuOnce("system76-scheduler")
-			wrapper.SystemctlEnable("com.system76.Scheduler")
+			wrapper.SystemctlEnable("com.system76.Scheduler", wrapper.EnableNow)
 		},
 	})
 }
