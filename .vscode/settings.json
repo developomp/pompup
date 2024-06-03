@@ -35,6 +35,7 @@
     "coolbear",
     "cpan",
     "cpptools",
+    "cuda",
     "damildrizzy",
     "davinci",
     "dbaeumer",
@@ -110,6 +111,7 @@
     "mikestead",
     "mkconfig",
     "mkinitcpio",
+    "mkiniticpio",
     "mkxml",
     "modeset",
     "Monero",
@@ -127,6 +129,7 @@
     "NTFS",
     "nvim",
     "obsproject",
+    "opencl",
     "openrazer",
     "opentabletdriver",
     "opentofu",
@@ -174,6 +177,7 @@
     "touchegg",
     "tview",
     "uclogic",
+    "udev",
     "ungoogled",
     "unifiedjs",
     "usermod",
@@ -205,14 +209,25 @@
     "Zilla",
     "zrythm"
   ],
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
+
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "[jsonc]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
   "[markdown]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
   "[shellscript]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }
