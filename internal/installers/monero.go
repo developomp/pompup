@@ -9,6 +9,7 @@ func init() {
 		Setup: func() {
 			wrapper.ParuOnce("monero")
 			wrapper.ParuOnce("monero-gui")
+			wrapper.ParuOnce("p2pool") // mining
 		},
 	})
 }
