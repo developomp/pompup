@@ -33,16 +33,16 @@ func init() {
 			if !wrapper.IsFileUpdated(configPath, _mkinitcpio) {
 				wrapper.SudoWriteFile(configPath, _mkinitcpio)
 
-				err := wrapper.Run("sudo", "mkiniticpio", "-P")
+				err := wrapper.Run("sudo", "mkinitcpio", "-P")
 				if err != nil {
-					pterm.Fatal.Println("Failed to run mkiniticpio:", err)
+					pterm.Fatal.Println("Failed to run mkinitcpio:", err)
 				}
 			}
 
 			// https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver
 			err := wrapper.Run("sudo", "ln", "-s", "/dev/null", "/etc/udev/rules.d/61-gdm.rules")
 			if err != nil {
-				pterm.Fatal.Println("Failed to run mkiniticpio:", err)
+				pterm.Fatal.Println("Failed to run mkinitcpio:", err)
 			}
 
 			// https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
