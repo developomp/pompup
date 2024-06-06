@@ -7,7 +7,7 @@ func init() {
 		Name: "Wireshark",
 		Desc: "Packet analyzer",
 		Setup: func() {
-			wrapper.FlatpakOnce("org.wireshark.Wireshark")
+			wrapper.ParuOnce("wireshark-qt")
 		},
 	})
 }
