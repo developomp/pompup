@@ -21,12 +21,18 @@ func Bootstrap() {
 	}
 
 	// install stuff
+	needsReLogin := false
 	setupPacman()
 	setupParu()
 	setupBash()
-	setupZSH()
+	needsReLogin = setupZSH() || needsReLogin
 	wrapper.PacmanOnce("wget")
 	wrapper.PacmanOnce("flatpak")
+
+	if needsReLogin {
+		pterm.Info.Println("Log out and lock back to finish bootstrapping")
+		os.Exit(0)
+	}
 
 	pterm.Debug.Println("Bootstrapped!")
 }

@@ -13,7 +13,7 @@ import (
 //go:embed assets/home/.zshrc
 var zshConfig []byte
 
-func setupZSH() {
+func setupZSH() (needsReLogin bool) {
 	wrapper.ParuOnce("zsh")
 	installOMZ()
 	installP10K()
@@ -30,10 +30,10 @@ func setupZSH() {
 		if err := cmd.Run(); err != nil {
 			pterm.Fatal.Println("Failed to set default shell to zsh:", err)
 		}
-
-		pterm.Info.Println("Log out and lock back in to switch to zsh")
-		os.Exit(0)
+		needsReLogin = true
 	}
+
+	return needsReLogin
 }
 
 func installOMZ() {
