@@ -14,11 +14,6 @@ import (
 func pacmanLike(packageName string, installer string) error {
 	pterm.Debug.Printfln("Installing '%s' via %s", packageName, installer)
 
-	// Skip installation if the package is installed already.
-	if IsArchPkgInstalled(packageName) {
-		return nil
-	}
-
 	var cmd *exec.Cmd
 	if installer == "pacman" {
 		// pacman needs sudo to install packages
