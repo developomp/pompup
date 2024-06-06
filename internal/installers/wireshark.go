@@ -1,6 +1,8 @@
 package installers
 
-import "github.com/developomp/pompup/internal/wrapper"
+import (
+	"github.com/developomp/pompup/internal/wrapper"
+)
 
 func init() {
 	register(&Installer{
@@ -8,6 +10,7 @@ func init() {
 		Desc: "Packet analyzer",
 		Setup: func() {
 			wrapper.ParuOnce("wireshark-qt")
+			wrapper.AddGroup("wireshark")
 		},
 	})
 }
