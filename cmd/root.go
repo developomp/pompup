@@ -62,7 +62,9 @@ GitHub: https://github.com/developomp/pompup`,
 			return strings.Compare(strings.ToLower(a.Name), strings.ToLower(b.Name))
 		})
 
-		if only != "" {
+		if only == "bootstrap" {
+
+		} else if only != "" {
 			for _, installer := range installers.Installers {
 				if installer.Name != only {
 					continue
