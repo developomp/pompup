@@ -1,39 +1,45 @@
 {
-  // aesthetic
+  // project-specific settings
+  "editor.rulers": [],
+  "color-highlight.enable": false,
+
+  // general
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.restoreWindows": "none",
+
+  // font
   "editor.fontFamily": "'Noto Sans Mono', 'MesloLGS NF'",
   "workbench.colorTheme": "One Dark Pro Flat",
-  "workbench.iconTheme": "material-icon-theme",
-
-  // visual
-  "explorer.compactFolders": false,
   "terminal.integrated.fontSize": 15,
 
-  // behavioral
-  "editor.cursorBlinking": "solid",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.largeFileOptimizations": false,
-  "editor.rulers": [],
+  // sidebar
+  "workbench.hover.delay": 200,
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.compactFolders": false,
 
+  // editor
+  "editor.cursorBlinking": "solid",
+  "editor.largeFileOptimizations": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // terminal
   "terminal.external.linuxExec": "kitty",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "terminal.integrated.enablePersistentSessions": false,
-  "terminal.integrated.persistentSessionReviveProcess": "never",
 
-  "diffEditor.ignoreTrimWhitespace": false,
-  "redhat.telemetry.enabled": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "window.restoreWindows": "none",
-  "workbench.hover.delay": 200,
-
-  // extensions
+  // git
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
-
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.statusBar.enabled": false,
-  "color-highlight.enable": false // enable per project
+  "gitlens.advanced.messages": {
+    "suppressCreatePullRequestPrompt": true
+  },
+
+  // telemetry
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "gitlens.telemetry.enabled": false,
+  "intelephense.telemetry.enabled": false
 }
