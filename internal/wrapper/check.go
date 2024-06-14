@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"regexp"
 	"runtime"
+	"strings"
 
 	"github.com/pterm/pterm"
 )
@@ -66,6 +67,22 @@ func IsArchPkgInstalled(packageName string) bool {
 // IsFlatpakInstalled checks if an flatpak package has been installed already.
 func IsFlatpakInstalled(packageName string) bool {
 	return BashRun(fmt.Sprintf("flatpak list | grep -E '%v'", packageName)) == nil
+}
+
+// IsNixInstalled checks if a nix package has been installed already.
+func IsNixInstalled(packageName string) bool {
+	lastSlash := strings.LastIndex(packageName, "/")
+	lastPound := strings.LastIndex(packageName, "#")
+
+	// holy fuck so ugly
+	max := lastPound
+	if lastSlash > max {
+		max = lastSlash
+	}
+
+	packageName = packageName[max+1:]
+
+	return BashRun(fmt.Sprintf("nix profile list --json | jq '.elements | keys[]' | grep -E '^\"%v\"$'", packageName)) == nil
 }
 
 func IsAppImageInstalled(packageName string) bool {

@@ -3,6 +3,7 @@
     "golang.go",
     // for formatting markdown, yaml, json, etc
     "esbenp.prettier-vscode",
-    "foxundermoon.shell-format"
+    "foxundermoon.shell-format",
+    "bbenoist.nix"
   ]
 }

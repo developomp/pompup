@@ -24,6 +24,7 @@ func Bootstrap() {
 	needsReLogin := false
 	setupPacman()
 	setupParu()
+	setupNix()
 	setupBash()
 	needsReLogin = setupZSH() || needsReLogin
 	wrapper.PacmanOnce("wget")

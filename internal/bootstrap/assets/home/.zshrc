@@ -27,6 +27,10 @@ export EDITOR=vim
 export VISUAL=vim
 #endregion aliases & ENV VAR
 
+#region nix
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.nix-profile/share
+#endregion nix
+
 #region PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

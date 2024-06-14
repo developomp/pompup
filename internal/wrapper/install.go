@@ -66,6 +66,24 @@ func FlatpakOnce(packageName string) {
 	}
 }
 
+// Nix installs nix packages.
+func Nix(packageName string) error {
+	pterm.Debug.Printfln("Installing '%s' via nix", packageName)
+	return Run("nix", "profile", "install", packageName, "--impure")
+}
+
+// NixOnce acts like Nix but skips when the package is installed already.
+func NixOnce(packageName string) {
+	if IsNixInstalled(packageName) {
+		return
+	}
+
+	err := Nix(packageName)
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to install %s via nix: %s", packageName, err)
+	}
+}
+
 // TryDconf tries to load dconf configuration from string then terminates program if it fails.
 func TryDconf(data string) {
 	err := Dconf(data)
