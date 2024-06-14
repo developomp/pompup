@@ -5,7 +5,10 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"regexp"
 	"runtime"
+
+	"github.com/pterm/pterm"
 )
 
 // Startup error
@@ -63,6 +66,34 @@ func IsArchPkgInstalled(packageName string) bool {
 // IsFlatpakInstalled checks if an flatpak package has been installed already.
 func IsFlatpakInstalled(packageName string) bool {
 	return BashRun(fmt.Sprintf("flatpak list | grep -E '%v'", packageName)) == nil
+}
+
+func IsAppImageInstalled(packageName string) bool {
+	return IsFileInDir(InHome("Programs/AppImages"), "(?i)gearlever_"+packageName+"_.*.appimage")
+}
+
+func IsFileInDir(dirPath, filePattern string) bool {
+	entries, err := os.ReadDir(dirPath)
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to read %s: %s", dirPath, err)
+	}
+
+	for _, e := range entries {
+		if RegexMatch(filePattern, e.Name()) {
+			return true // match found
+		}
+	}
+
+	return false // match not found
+}
+
+func RegexMatch(pattern string, s string) bool {
+	matched, err := regexp.MatchString(fmt.Sprintf("^%s$", pattern), s)
+	if err != nil {
+		pterm.Fatal.Printfln("Failed to check regex. pattern='%s' s='%s'", pattern, s)
+	}
+
+	return matched
 }
 
 // PathExists checks whether the given path exists or not
