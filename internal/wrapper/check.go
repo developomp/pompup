@@ -64,7 +64,7 @@ func IsArchPkgInstalled(packageName string) bool {
 	return BashRun(fmt.Sprintf("pacman -Q | grep -E '(^|\\s)%v($|\\s)'", packageName)) == nil
 }
 
-// IsFlatpakInstalled checks if an flatpak package has been installed already.
+// IsFlatpakInstalled checks if a flatpak package has been installed already.
 func IsFlatpakInstalled(packageName string) bool {
 	return BashRun(fmt.Sprintf("flatpak list | grep -E '%v'", packageName)) == nil
 }
