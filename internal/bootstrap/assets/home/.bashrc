@@ -1,9 +1,5 @@
 export PATH="$HOME/.local/bin/:$PATH"
 
-#region nix
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.nix-profile/share
-#endregion nix
-
 #region nvm
 source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.nvm"
