@@ -26,6 +26,7 @@
   "terminal.external.linuxExec": "kitty",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.enablePersistentSessions": false,
 
   // git
   "git.autofetch": true,
