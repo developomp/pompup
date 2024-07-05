@@ -1,6 +1,10 @@
 # This file is parsed by pam_env module
 
+# nvidia
 GBM_BACKEND=nvidia-drm
-__GLX_VENDOR_LIBRARY_NAME=nvidia
 LIBVA_DRIVER_NAME=nvidia
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# https://download.nvidia.com/XFree86/Linux-x86_64/525.78.01/README/openglenvvariables.html
 __GL_MaxFramesAllowed=1
+__GL_SYNC_TO_VBLANK=0

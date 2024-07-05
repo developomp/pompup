@@ -7,20 +7,18 @@ import (
 	"github.com/pterm/pterm"
 )
 
-//go:embed assets/etc/mkinitcpio.conf
-var _mkinitcpio string
-
-// https://wiki.archlinux.org/title/NVIDIA
-// https://wiki.archlinux.org/title/OpenGL
-// https://wiki.archlinux.org/title/Vulkan
-// https://wiki.archlinux.org/title/Hardware_video_acceleration
-// related: grub.go
 func init() {
 	register(&Installer{
 		Name:     "Nvidia",
 		Desc:     "🖕",
 		Priority: -1,
 		Setup: func() {
+			// https://wiki.archlinux.org/title/NVIDIA
+			// https://wiki.archlinux.org/title/OpenGL
+			// https://wiki.archlinux.org/title/Vulkan
+			// https://wiki.archlinux.org/title/Hardware_video_acceleration
+			// related: environment.go, mkinitcpio.go
+
 			wrapper.ParuOnce("nvidia")
 			// nvidia
 			// └── nvidia-utils <- automatically blacklists the nouveau module
@@ -29,15 +27,7 @@ func init() {
 			// └── opencl-nvidia
 			wrapper.ParuOnce("nvidia-settings")
 
-			const configPath = "/etc/mkinitcpio.conf"
-			if !wrapper.IsFileUpdated(configPath, _mkinitcpio) {
-				wrapper.SudoWriteFile(configPath, _mkinitcpio)
-
-				err := wrapper.Run("sudo", "mkinitcpio", "-P")
-				if err != nil {
-					pterm.Fatal.Println("Failed to run mkinitcpio:", err)
-				}
-			}
+			wrapper.ParuOnce("mesa")
 
 			// https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver
 			if !wrapper.PathExists("/etc/udev/rules.d/61-gdm.rules") {
