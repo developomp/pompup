@@ -1,0 +1,7 @@
+# This file is parsed by pam_env module
+
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+LIBVA_DRIVER_NAME=nvidia
+__GL_MaxFramesAllowed=1
+NVreg_EnableGpuFirmware=0 # temporary fix for Nvidia proprietary driver v555 stutter
