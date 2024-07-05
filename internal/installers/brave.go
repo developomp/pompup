@@ -7,7 +7,7 @@ import (
 	"github.com/pterm/pterm"
 )
 
-//go:embed assets/var/lib/flatpak/app/com.brave.Browser/current/active/files/share/applications/com.brave.Browser.desktop
+//go:embed assets/home/.local/share/applications/com.brave.Browser.desktop
 var _braveDesktopEntry string
 
 func init() {
@@ -17,8 +17,9 @@ func init() {
 		Setup: func() {
 			wrapper.FlatpakOnce("com.brave.Browser")
 
-			const braveDesktopEntryPath = "/var/lib/flatpak/app/com.brave.Browser/current/active/files/share/applications/com.brave.Browser.desktop"
+			var braveDesktopEntryPath = wrapper.InHome(".local/share/applications/com.brave.Browser.desktop")
 			wrapper.SudoWriteFile(braveDesktopEntryPath, _braveDesktopEntry)
+
 			err := wrapper.Run("sudo", "chmod", "+x", braveDesktopEntryPath)
 			if err != nil {
 				pterm.Fatal.Printfln("Failed to make %s executable: %s", braveDesktopEntryPath, err)
