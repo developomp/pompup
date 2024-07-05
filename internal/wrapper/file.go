@@ -35,12 +35,10 @@ func SudoWriteFile(path string, data string) {
 	err := Run(
 		"sudo",
 		"install",
-		"--group",
-		"root",
-		"--owner",
-		"root",
-		"--mode",
-		"0644", // rw-r--r--
+		"-D", // auto-generate parent directories
+		"--group", "root",
+		"--owner", "root",
+		"--mode", "0644", // rw-r--r--
 		tmpPath,
 		path,
 	)
