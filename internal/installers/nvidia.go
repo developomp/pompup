@@ -23,7 +23,7 @@ func init() {
 		Setup: func() {
 			wrapper.ParuOnce("nvidia")
 			// nvidia
-			// └── nvidia-utils
+			// └── nvidia-utils <- automatically blacklists the nouveau module
 			wrapper.ParuOnce("cuda")
 			// cuda
 			// └── opencl-nvidia
