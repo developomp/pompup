@@ -17,6 +17,9 @@ func init() {
 			wrapper.ParuOnce("gamemode")
 			wrapper.AddGroup("gamemode")
 			wrapper.SudoWriteFile("/etc/gamemode.ini", _gamemodeConfig)
+
+			// required to use re-nice feature (see gamemode.ini)
+			wrapper.AddGroup("gamemode")
 		},
 	})
 }
