@@ -7,9 +7,6 @@ import (
 	"github.com/pterm/pterm"
 )
 
-//go:embed assets/etc/pipewire/pipewire.conf.d/99-low-latency.conf
-var _pipewireLowLatencyConfig string
-
 //go:embed assets/dconf/gnome-desktop.conf
 var _gnomeDesktopDconf string
 
@@ -60,7 +57,6 @@ func init() {
 			wrapper.ParuOnce("papirus-icon-theme") // icon theme
 			wrapper.ParuOnce("xcursor-breeze")     // cursor theme
 
-			configurePipewire()
 			wrapper.TryDconf(_gnomeExtensionUserThemesDconf)
 			wrapper.TryDconf(_gnomeDesktopDconf)
 			wrapper.TryDconf(_gnomeKeybindings)
@@ -89,19 +85,4 @@ func init() {
 			}
 		},
 	})
-}
-
-// configurePipewire configures pipewire to be optimized for low latency while
-// sacrificing CPU performance. This function requires pipewire to be already
-// installed (pipewire is part of gdm's dependency chain: gdm > gnome-shell > mutter > pipewire).
-// more info: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire
-// more info about split conf: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire#split-file-configuration
-func configurePipewire() {
-	wrapper.SudoWriteFile("/etc/pipewire/pipewire.conf.d/99-low-latency.conf", _pipewireLowLatencyConfig)
-
-	// restart pipewire for the config to take effect
-	err := wrapper.Run("systemctl", "--user", "restart", "pipewire.service")
-	if err != nil {
-		pterm.Fatal.Println("Failed to restart pipewire service:", err)
-	}
 }
