@@ -65,13 +65,11 @@ func init() {
 			wrapper.TryDconf(_gnomePowerDconf)
 			wrapper.TryDconf(_gnomeSettingsDaemon)
 
-			err := wrapper.Run("sudo", "systemctl", "enable", "gdm")
-			if err != nil {
-				pterm.Fatal.Println("Failed to enable gdm:", err)
-			}
+			wrapper.SystemctlEnable("gdm", wrapper.EnableOnly)
+			wrapper.SystemctlEnable("touchegg", wrapper.EnableNow)
 
 			// set gdm login screen mouse settings
-			err = wrapper.Run("sudo", "-u", "gdm", "dbus-launch", "gsettings", "set", "org.gnome.desktop.peripherals.mouse", "accel-profile", "flat")
+			err := wrapper.Run("sudo", "-u", "gdm", "dbus-launch", "gsettings", "set", "org.gnome.desktop.peripherals.mouse", "accel-profile", "flat")
 			if err != nil {
 				pterm.Fatal.Println("Failed to set gdm login screen mouse acceleration:", err)
 			}
