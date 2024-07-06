@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+OSU_PATH=$(find ~/Programs/AppImages -regex '.*gearlever_osu_.*\.appimage')
+gamemoderun $OSU_PATH
