@@ -1,7 +1,6 @@
 package wrapper
 
 import (
-	_ "embed"
 	"fmt"
 	"os"
 	"os/exec"

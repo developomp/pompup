@@ -1,8 +1,6 @@
 package installers
 
 import (
-	_ "embed"
-
 	"github.com/developomp/pompup/internal/wrapper"
 )
 
