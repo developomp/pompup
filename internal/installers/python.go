@@ -9,6 +9,7 @@ func init() {
 		Setup: func() {
 			wrapper.ParuOnce("python")
 			wrapper.ParuOnce("python-pip") // python package manager
+			wrapper.ParuOnce("pyenv")
 		},
 	})
 }
