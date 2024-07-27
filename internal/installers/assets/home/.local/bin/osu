@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 OSU_PATH=$(find ~/Programs/AppImages -regex '.*gearlever_osu_.*\.appimage')
-gamemoderun $OSU_PATH
+# https://github.com/PipeWire/pipewire?tab=readme-ov-file#usage
+# osu! uses a sample rate of 44100 kHz instead of the usual 48000 kHz for some reason.
+# Setting PIPEWIRE_LATENCY=8/48000 does not force it to use 48kHz sample rate and I'm going to respect its default value.
+PIPEWIRE_LATENCY=8/48000 gamemoderun $OSU_PATH

@@ -28,6 +28,9 @@ func init() {
 			//   - https://www.reddit.com/r/linuxaudio/comments/v66mj6/comment/ibjupwb
 			//   - https://learn.microsoft.com/en-us/windows-hardware/drivers/audio/low-latency-audio
 
+			// todo: https://docs.pipewire.org/page_man_pipewire-client_conf_5.html
+			// todo: https://docs.pipewire.org/page_man_pipewire-pulse_conf_5.html
+
 			wrapper.ParuOnce("pipewire")
 			wrapper.ParuOnce("pipewire-alsa")
 			wrapper.ParuOnce("pipewire-jack")
